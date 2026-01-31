@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useNav } from '@slidev/client'
+import { isTimeVisible } from './composables/useTimeVisibility'
 
 // Configuration: when to show the time
 // - number alone: show for all clicks on that slide (e.g., 1)
@@ -60,7 +61,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div v-if="shouldShow" class="time-display">
+  <div v-if="shouldShow && isTimeVisible" class="time-display">
     {{ currentTime }}
   </div>
 </template>
