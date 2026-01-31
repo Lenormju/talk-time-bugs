@@ -1,6 +1,6 @@
 # Talk: le temps c'est de l'argent ... et des bugs
 
-TODO slides
+[🎬 **Voir les slides** 🎬](https://lenormju.github.io/talk-time-bugs/index.html)
 
 > De tout temps, les devs ont écrit du code qui manipule les dates, heures, date-heures, durées, fuseaux horaires, ..., et ont introduit des bugs dans leur code. Pourquoi ? Parce que le temps, c'est compliqué, vraiment très compliqué.
 > 
