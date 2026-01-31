@@ -11,3 +11,4 @@
 TODO:
 - https://vueuse.org/shared/useDateFormat/ ?
 - https://github.com/KermanX/slidev-addon-python-runner
+- https://www.npmjs.com/package/slidev-addon-java-runner ?
