@@ -99,23 +99,14 @@ const getClickIndex = (value: number): number | undefined => {
   background: #555;
 }
 
-/* Arrow heads */
-.timeline-line::before,
+/* Arrow head (right side only) */
 .timeline-line::after {
   content: '';
   position: absolute;
   top: 50%;
+  right: -10px;
   transform: translateY(-50%);
   border: 6px solid transparent;
-}
-
-.timeline-line::before {
-  left: -10px;
-  border-right: 10px solid #555;
-}
-
-.timeline-line::after {
-  right: -10px;
   border-left: 10px solid #555;
 }
 
