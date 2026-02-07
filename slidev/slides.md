@@ -697,6 +697,6 @@ class: text-center
 
 <v-click at="3">
 
-**Bug:** System skips leap second (60s), jumping directly from 59s to 61s
+**Bug:** System skips leap second (60s), jumping directly from 59s to 00s
 
 </v-click>

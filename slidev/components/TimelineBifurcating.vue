@@ -172,6 +172,22 @@ const getClickIndex = (timeline: 'main' | number, value: number): number | undef
   return chunkIndex >= 0 ? chunkIndex + 1 : undefined
 }
 
+// Get the click index for when a branch label should appear (when first tick appears)
+const getBranchLabelClickIndex = (branch: BranchDefinition): number | undefined => {
+  if (!props.chunks || props.chunks.length === 0) return undefined
+
+  // Find the branch index
+  const branchIdx = props.branches.indexOf(branch)
+  if (branchIdx === -1) return undefined
+
+  // Get the first value of this branch
+  const firstValue = branch.values[0]
+  if (firstValue === undefined) return undefined
+
+  // Return the click index for the first tick
+  return getClickIndex(branchIdx, firstValue)
+}
+
 // Calculate the starting position for branch timeline line
 const getBranchLineStart = (branch: BranchDefinition) => {
   const splitIndex = props.main.values.indexOf(branch.splitAt)
@@ -288,12 +304,16 @@ const getTickPosition = (branch: BranchDefinition, tickIdx: number) => {
         :style="{ marginTop: branchSpacing + 'px' }"
       >
         <div class="branch-content">
-          <div class="branch-label">{{ branch.name }}</div>
+          <div class="branch-label" v-click="getBranchLabelClickIndex(branch)">{{ branch.name }}</div>
           <div class="branch-timeline">
             <div class="timeline-line-container">
-              <div class="timeline-line" :style="{ left: getBranchLineStart(branch) }" />
+              <div
+                class="timeline-line"
+                :style="{ left: getBranchLineStart(branch) }"
+                v-click="getBranchLabelClickIndex(branch)"
+              />
               <!-- Arrow head on right side -->
-              <div class="timeline-line-arrow" />
+              <div class="timeline-line-arrow" v-click="getBranchLabelClickIndex(branch)" />
               <div class="timeline-ticks">
                 <!-- With chunks: progressive reveal -->
                 <template v-if="chunks && chunks.length > 0">
