@@ -12,3 +12,9 @@ TODO:
 - https://vueuse.org/shared/useDateFormat/ ?
 - https://github.com/KermanX/slidev-addon-python-runner
 - https://www.npmjs.com/package/slidev-addon-java-runner ?
+- ElementPlus for VusJS :
+  - https://element-plus.org/en-US/component/datetime-picker
+  - https://element-plus.org/en-US/component/date-picker
+  - https://element-plus.org/en-US/component/time-picker
+  - https://element-plus.org/en-US/component/time-select
+- parcourir https://www.npmjs.com/search?q=keywords%3Aslidev-addon
