@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted, nextTick } from 'vue'
 
 interface TimelineDefinition {
   name: string
@@ -40,6 +40,103 @@ const props = withDefaults(defineProps<{
   branchSpacing: 80,
 })
 
+// Refs for DOM elements
+const containerRef = ref<HTMLElement | null>(null)
+const mainTickRefs = ref<Record<number, HTMLElement>>({})
+const branchTickRefs = ref<Record<string, HTMLElement>>({}) // key: `${branchIdx}-${value}`
+
+// Connector positions (calculated from actual DOM positions)
+interface ConnectorLine {
+  x1: number
+  y1: number
+  x2: number
+  y2: number
+}
+const connectorLines = ref<Record<number, ConnectorLine>>({}) // key: branchIdx
+
+// Set ref for main tick
+const setMainTickRef = (value: number) => (el: any) => {
+  if (el) mainTickRefs.value[value] = el
+}
+
+// Set ref for branch tick
+const setBranchTickRef = (branchIdx: number, value: number) => (el: any) => {
+  if (el) branchTickRefs.value[`${branchIdx}-${value}`] = el
+}
+
+// Calculate connector positions from actual DOM elements
+const updateConnectorPositions = () => {
+  if (!containerRef.value) {
+    console.log('No container ref')
+    return
+  }
+
+  const containerRect = containerRef.value.getBoundingClientRect()
+  console.log('Updating connector positions, containerRect:', containerRect)
+  console.log('mainTickRefs:', mainTickRefs.value)
+  console.log('branchTickRefs:', branchTickRefs.value)
+
+  props.branches.forEach((branch, branchIdx) => {
+    // Get the main timeline tick at splitAt position
+    const mainTick = mainTickRefs.value[branch.splitAt]
+    // Get the first tick of the branch timeline
+    const branchFirstTick = branchTickRefs.value[`${branchIdx}-${branch.values[0]}`]
+
+    console.log(`Branch ${branchIdx}: mainTick=${!!mainTick}, branchFirstTick=${!!branchFirstTick}`)
+
+    if (mainTick && branchFirstTick) {
+      const mainRect = mainTick.getBoundingClientRect()
+      const branchRect = branchFirstTick.getBoundingClientRect()
+
+      console.log(`Branch ${branchIdx} positions:`, {
+        mainRect,
+        branchRect,
+      })
+
+      // Calculate positions relative to container
+      connectorLines.value[branchIdx] = {
+        x1: mainRect.left + mainRect.width / 2 - containerRect.left,
+        y1: mainRect.top + mainRect.height / 2 - containerRect.top,
+        x2: branchRect.left + branchRect.width / 2 - containerRect.left,
+        y2: branchRect.top + branchRect.height / 2 - containerRect.top,
+      }
+
+      console.log(`Connector line ${branchIdx}:`, connectorLines.value[branchIdx])
+    } else {
+      console.log(`Missing refs for branch ${branchIdx}`)
+    }
+  })
+
+  console.log('Final connectorLines:', connectorLines.value)
+}
+
+// Update positions on mount and after DOM updates
+onMounted(() => {
+  // Try multiple times with delays to ensure elements are rendered
+  setTimeout(() => updateConnectorPositions(), 100)
+  setTimeout(() => updateConnectorPositions(), 500)
+  setTimeout(() => updateConnectorPositions(), 1000)
+
+  nextTick(() => {
+    updateConnectorPositions()
+  })
+
+  // Watch for v-click changes and update positions
+  // Use MutationObserver to detect when elements appear/disappear
+  const observer = new MutationObserver(() => {
+    setTimeout(() => updateConnectorPositions(), 50)
+  })
+
+  if (containerRef.value) {
+    observer.observe(containerRef.value, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class'], // Watch for v-click class changes
+    })
+  }
+})
+
 // Check if a value is highlighted in a timeline
 const isHighlighted = (timeline: TimelineDefinition | BranchDefinition, value: number) => {
   return timeline.highlights?.includes(value) ?? false
@@ -75,35 +172,16 @@ const getClickIndex = (timeline: 'main' | number, value: number): number | undef
   return chunkIndex >= 0 ? chunkIndex + 1 : undefined
 }
 
-// Calculate connector style for a branch
-const getConnectorStyle = (branch: BranchDefinition) => {
-  // Find the index of splitAt in main timeline values
+// Calculate the starting position for branch timeline line
+const getBranchLineStart = (branch: BranchDefinition) => {
   const splitIndex = props.main.values.indexOf(branch.splitAt)
-  if (splitIndex === -1) {
-    console.warn(`splitAt value ${branch.splitAt} not found in main timeline values`)
-    return {}
-  }
+  if (splitIndex === -1) return '0px'
 
-  // Calculate horizontal position of splitAt on main timeline
   const tickCount = props.main.values.length
-  const containerPadding = 2 // rem (matching timeline-ticks padding)
+  const containerPadding = 2 // rem
   const position = splitIndex / (tickCount - 1)
-  const leftOffset = `calc(${containerPadding}rem + (100% - ${containerPadding * 2}rem) * ${position})`
 
-  // Connector needs to reach from branch timeline up to the main timeline line
-  // Main timeline line is at y=8px from top of main-timeline-container (50px tall)
-  // Distance from bottom of main-timeline-container to line = 50 - 8 = 42px
-  // Connector height = branchSpacing (the gap) + distance to line
-  const mainTimelineHeight = 50 // px (from .timeline-line-container)
-  const lineOffsetFromTop = 8 // px (from .timeline-line top position)
-  const distanceToLine = mainTimelineHeight - lineOffsetFromTop
-  const connectorHeight = props.branchSpacing + distanceToLine
-
-  return {
-    left: leftOffset,
-    height: `${connectorHeight}px`,
-    top: `-${connectorHeight}px`,
-  }
+  return `calc(${containerPadding}rem + (100% - ${containerPadding * 2}rem) * ${position})`
 }
 
 // Calculate tick position for branch timeline (absolute positioning)
@@ -141,7 +219,7 @@ const getTickPosition = (branch: BranchDefinition, tickIdx: number) => {
 </script>
 
 <template>
-  <div class="timeline-bifurcating-container">
+  <div class="timeline-bifurcating-container" ref="containerRef">
     <!-- Main timeline -->
     <div class="main-timeline">
       <div class="timeline-name">{{ main.name }}</div>
@@ -158,7 +236,10 @@ const getTickPosition = (branch: BranchDefinition, tickIdx: number) => {
               class="timeline-tick-wrapper"
               v-click="getClickIndex('main', tick)"
             >
-              <div :class="['timeline-tick', { highlighted: isHighlighted(main, tick) }]" />
+              <div
+                :class="['timeline-tick', { highlighted: isHighlighted(main, tick) }]"
+                :ref="setMainTickRef(tick)"
+              />
               <div :class="['timeline-label', { highlighted: isHighlighted(main, tick) }]">
                 {{ tick }}{{ main.unit }}
               </div>
@@ -171,7 +252,10 @@ const getTickPosition = (branch: BranchDefinition, tickIdx: number) => {
               :key="`main-${tick}`"
               class="timeline-tick-wrapper"
             >
-              <div :class="['timeline-tick', { highlighted: isHighlighted(main, tick) }]" />
+              <div
+                :class="['timeline-tick', { highlighted: isHighlighted(main, tick) }]"
+                :ref="setMainTickRef(tick)"
+              />
               <div :class="['timeline-label', { highlighted: isHighlighted(main, tick) }]">
                 {{ tick }}{{ main.unit }}
               </div>
@@ -181,6 +265,20 @@ const getTickPosition = (branch: BranchDefinition, tickIdx: number) => {
       </div>
     </div>
 
+    <!-- SVG overlay for connectors -->
+    <svg class="connectors-overlay">
+      <line
+        v-for="(line, branchIdx) in connectorLines"
+        :key="branchIdx"
+        :x1="line.x1"
+        :y1="line.y1"
+        :x2="line.x2"
+        :y2="line.y2"
+        stroke="#555"
+        stroke-width="3"
+      />
+    </svg>
+
     <!-- Branches -->
     <div class="branches-container">
       <div
@@ -189,14 +287,11 @@ const getTickPosition = (branch: BranchDefinition, tickIdx: number) => {
         class="branch-row"
         :style="{ marginTop: branchSpacing + 'px' }"
       >
-        <!-- Vertical connector from main timeline to branch -->
-        <div class="vertical-connector" :style="getConnectorStyle(branch)" />
-
         <div class="branch-content">
           <div class="branch-label">{{ branch.name }}</div>
           <div class="branch-timeline">
             <div class="timeline-line-container">
-              <div class="timeline-line" />
+              <div class="timeline-line" :style="{ left: getBranchLineStart(branch) }" />
               <!-- Arrow head on right side -->
               <div class="timeline-line-arrow" />
               <div class="timeline-ticks">
@@ -209,7 +304,10 @@ const getTickPosition = (branch: BranchDefinition, tickIdx: number) => {
                     :style="getTickPosition(branch, tickIdx)"
                     v-click="getClickIndex(idx, tick)"
                   >
-                    <div :class="['timeline-tick', { highlighted: isHighlighted(branch, tick) }]" />
+                    <div
+                      :class="['timeline-tick', { highlighted: isHighlighted(branch, tick) }]"
+                      :ref="setBranchTickRef(idx, tick)"
+                    />
                     <div :class="['timeline-label', { highlighted: isHighlighted(branch, tick) }]">
                       {{ tick }}{{ main.unit }}
                     </div>
@@ -223,7 +321,10 @@ const getTickPosition = (branch: BranchDefinition, tickIdx: number) => {
                     class="timeline-tick-wrapper"
                     :style="getTickPosition(branch, tickIdx)"
                   >
-                    <div :class="['timeline-tick', { highlighted: isHighlighted(branch, tick) }]" />
+                    <div
+                      :class="['timeline-tick', { highlighted: isHighlighted(branch, tick) }]"
+                      :ref="setBranchTickRef(idx, tick)"
+                    />
                     <div :class="['timeline-label', { highlighted: isHighlighted(branch, tick) }]">
                       {{ tick }}{{ main.unit }}
                     </div>
@@ -243,6 +344,16 @@ const getTickPosition = (branch: BranchDefinition, tickIdx: number) => {
   position: relative;
   width: 100%;
   padding: 1rem 0 1.5rem 0;
+}
+
+.connectors-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Main timeline styles */
@@ -358,13 +469,7 @@ const getTickPosition = (branch: BranchDefinition, tickIdx: number) => {
   width: 100%;
 }
 
-.vertical-connector {
-  position: absolute;
-  /* top and height set via inline style */
-  width: 3px;
-  background: #555;
-  z-index: 0;
-}
+/* Vertical connectors now drawn with SVG - see .connectors-overlay */
 
 .branch-content {
   display: flex;
