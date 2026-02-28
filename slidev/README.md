@@ -28,3 +28,5 @@ Stateful logic is loaded from: `./composables`
 The slides contents are in `./pages/*.md`, and imported from `./slides.md`
 
 Javascript code that is not Vue-related can be loaded from `./snippets.js`
+
+Export to PDF : `npx slidev export slides.md --format pdf --output presentation.pdf`
