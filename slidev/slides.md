@@ -62,9 +62,15 @@ layout: two-cols
 
 ---
 
-# Un sujet commun
+# Le temps
 
-Le temps
+Un problème récurrent :
+
+* toujours présent
+* intrinsèque à toutes les activités humaines
+* crucial dans de nombreux domaines
+* si intuitif
+* et pourtant si compliqué
 
 ---
 
