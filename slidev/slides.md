@@ -20,7 +20,7 @@ image: ./images/sponsors.png
 
 ---
 
-# 🚧 Work in progress 🚧
+## 🚧 Work in progress 🚧
 
 ---
 layout: two-cols
@@ -32,7 +32,7 @@ layout: two-cols
 
 ::right::
 
-# Qui suis-je ?
+## Qui suis-je ?
 
 <div />
 
@@ -62,15 +62,62 @@ layout: two-cols
 
 ---
 
-# Le temps
+## Le temps
 
 Un problème récurrent :
+
+<v-clicks>
 
 * toujours présent
 * intrinsèque à toutes les activités humaines
 * crucial dans de nombreux domaines
 * si intuitif
 * et pourtant si compliqué
+
+</v-clicks>
+
+---
+
+## Définition
+
+<v-click>
+
+> Milieu indéfini et homogène dans lequel se situent les êtres et les choses et qui est caractérisé par sa double nature, à la fois continuité et succession.
+> — [cntrl.fr](https://cnrtl.fr/definition/temps)
+
+</v-click>
+
+<v-click>
+
+<div class="mt-4">
+
+> Continuité indéfinie, milieu où se déroule la succession des évènements et des phénomènes, les changements, mouvements, et leur représentation dans la conscience.
+> — [dictionnaire.lerobert.com](https://dictionnaire.lerobert.com/definition/temps)
+
+</div>
+
+</v-click>
+
+<div class="mt-8 text-6xl flex flex-wrap gap-4">
+<v-clicks>
+<span>🤔</span>
+<span>🤨</span>
+<span>🧐</span>
+<span>🫤</span>
+<span>🙄</span>
+<span>😒</span>
+<span>🤯</span>
+<span>😑</span>
+<span>🙃</span>
+</v-clicks>
+</div>
+
+Ce qu'en dit la philo :
+
+* opérationaliste = c'est ce qu'on mesure, point
+* substantialisme absolutiste = c'est compliqué
+
+On va se passer de cette définition aujourd'hui ...
 
 ---
 
