@@ -78,7 +78,7 @@ Un problème récurrent :
 
 ---
 
-## Définition
+## Définition : le temps
 
 <v-click>
 
@@ -118,6 +118,12 @@ Ce qu'en dit la philo :
 * substantialisme absolutiste = c'est compliqué
 
 On va se passer de cette définition aujourd'hui ...
+
+---
+
+## Définition : les bugs <v-click><span>(temporels)</span></v-click>
+
+* 
 
 ---
 
