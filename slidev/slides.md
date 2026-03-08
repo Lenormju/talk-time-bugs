@@ -23,8 +23,48 @@ image: ./images/sponsors.png
 # 🚧 Work in progress 🚧
 
 ---
+layout: two-cols
+---
+
+<div class="flex items-center justify-center h-full">
+  <img src="./images/julien_lenormand_logo.png" class="w-86" />
+</div>
+
+::right::
 
 # Qui suis-je ?
+
+<div />
+
+<v-click>
+
+**Dev** = j'écris du code
+
+**Software Craft** = apprendre ensemble à faire bien
+
+</v-click>
+
+<v-clicks class="mt-4 text-sm">
+
+- gestion de personnel ferroviaire
+- gestion de crise nucléaire
+- appareils de mesure électrique
+- suivi de travaux BTP
+- gestion d'entrepôt logistique
+- scanners à bagages aéroportuaires
+- bornes de recharge de voiture électrique
+- télémétrie de matériel médical
+- analyse de trajets de camions routiers
+- détection/surveillance de sites de phishing
+- ...
+
+</v-clicks>
+
+---
+
+# Un sujet commun
+
+Le temps
 
 ---
 
