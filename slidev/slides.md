@@ -188,6 +188,51 @@ On va se passer de cette définition aujourd'hui ...
 
 ---
 
+# C'est parti pour un voyage ...
+
+A travers le(s) temps !
+
+<Youtube id="PxoKqVwyoOM" width="100%" height="400" />
+
+---
+
+# Une idée de start-up française !
+
+<v-click>
+    <img src="./images/personalgraphic-com-VzUE5RtCuBA-unsplash.jpg" class="max-h-96 mx-auto object-contain" />
+</v-click>
+
+---
+
+# Les problèmes commencent ...
+
+<ul>
+  <li v-click>Heure de livraison : 02 h 30 (du matin), le Dimanche 29 Mars 2026</li>
+  <li v-click>Durée du trajet :
+    45 minutes
+    <span v-if="$clicks >= 5" class="text-red-500"> + 1 heure !!!</span>
+  </li>
+  <li v-click>Heure de départ : 01 h 45</li>
+  <li v-click>
+    Heure d'arrivée : 03 h 30
+    <span v-if="$clicks >= 5" class="font-mono text-amber-400 ml-2">😰</span>
+  </li>
+</ul>
+
+<span v-click class="hidden" />
+
+<v-click>
+Que s'est-il passé ?
+</v-click>
+
+---
+
+# Décalage horaire
+
+
+
+---
+
 # Timeline Component Demo
 
 <Timeline name="Seconds" unit="s" :start="58" :count="5" :highlights="[60]" :chunks="[[58,59], [60], [61,62]]" />
@@ -251,3 +296,9 @@ On va se passer de cette définition aujourd'hui ...
 **Bug:** System skips leap second (60s), jumping directly from 59s to 00s
 
 </v-click>
+
+---
+
+# Crédits photo
+
+* Photo of a croissant by <a href="https://unsplash.com/@personal_graphic?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">personalgraphic.com</a> on <a href="https://unsplash.com/photos/a-croissant-sitting-on-top-of-a-white-surface-VzUE5RtCuBA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
