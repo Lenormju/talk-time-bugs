@@ -8,7 +8,6 @@ import {
   LINE_Y,
   TICK_RADIUS,
   getTickX,
-  getArrowPoints,
 } from '../composables/useSVGCoordinates'
 
 const TOTAL = 11
@@ -23,9 +22,16 @@ const gx = (i: number) => getTickX(i, TOTAL)
 //   left-connector:  LEFT_LINE_X2 → gx(3)   (continuous: 01:59:59 → 02:00:00)
 //   right-connector: gx(7)        → MID_LINE_X2  (continuous: 02:59:59 → 03:00:00)
 // Between middle ticks (gx(3)→gx(7)) there is NO line — only dots.
+// Line extends beyond the ticks on both sides
+const LINE_START_X  = 75                      // before first tick at gx(0)=100
+const LINE_END_X    = SVG_WIDTH - 50          // 950, after last tick at gx(10)=900
+
 const LEFT_LINE_X2  = (gx(2) + gx(3)) / 2   // 300  — left line ends here
 const MID_LINE_X2   = (gx(7) + gx(8)) / 2   // 700  — right line starts here
-const RIGHT_LINE_X2 = SVG_WIDTH - PADDING_X  // 900
+
+// Arrow at the end of the right line (right group), pointing right
+const arrowX = LINE_END_X
+const arrowPoints = `${arrowX},${LINE_Y} ${arrowX - 10},${LINE_Y - 6} ${arrowX - 10},${LINE_Y + 6}`
 
 // Dot clusters sitting in the gap between each pair of non-continuous middle ticks
 // 3 circles per gap, centered, no line behind them
@@ -40,7 +46,7 @@ const middleDotGroups = [3, 4, 5, 6].map(i => {
 const STITCH_DX = gx(3) - gx(8)  // -400
 
 const viewBox = `0 0 ${SVG_WIDTH} 120`
-const arrowPoints = getArrowPoints()
+
 
 const nav = useNav()
 
@@ -85,9 +91,9 @@ onMounted(async () => {
   <div class="w-full py-4">
     <svg :viewBox="viewBox" class="w-full" style="overflow: visible">
 
-      <!-- Always-visible left line -->
+      <!-- Always-visible left line (starts before first tick) -->
       <line
-        :x1="PADDING_X" :y1="LINE_Y"
+        :x1="LINE_START_X" :y1="LINE_Y"
         :x2="LEFT_LINE_X2" :y2="LINE_Y"
         stroke="#555" stroke-width="3"
       />
@@ -146,9 +152,10 @@ onMounted(async () => {
 
       <!-- Right group: right line + arrow + right ticks — slides on click 3 -->
       <g id="dst-right-group">
+        <!-- Line continues past the last tick, arrow at the end -->
         <line
           :x1="MID_LINE_X2" :y1="LINE_Y"
-          :x2="RIGHT_LINE_X2" :y2="LINE_Y"
+          :x2="LINE_END_X" :y2="LINE_Y"
           stroke="#555" stroke-width="3"
         />
         <polygon :points="arrowPoints" fill="#555" />
