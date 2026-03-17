@@ -225,6 +225,10 @@ A travers le(s) temps !
 Que s'est-il passé ?
 </v-click>
 
+<v-click>
+Décalage horaire : "daylight saving(s) time"
+</v-click>
+
 ---
 clicks: 3
 ---
@@ -234,6 +238,41 @@ clicks: 3
 <DSTTimelineSVG />
 
 ---
+
+# Problèmes
+
+* Non-continuité : DST
+
+---
+clicks: 4
+---
+
+# Et dans l'autre sens
+
+<DSTTimelineSVGFall />
+
+---
+
+# Problèmes
+
+* Non-continuité : DST
+* Non-unicité : DST
+
+---
+
+# Et encore dans l'autre sens
+
+<v-click>
+    <img src="./images/Aussie-Christmas-700x426.png" class="max-h-96 mx-auto object-contain" />
+</v-click>
+
+---
+
+# Problèmes
+
+* Non-continuité : DST
+* Non-unicité : DST
+* Non-homogénéité : DST
 
 # Pourquoi s'infliger ça ?
 
@@ -294,6 +333,15 @@ Réponse n°2 : 🌅 ☃️
   <DraggableAnnotation v-click="10" :labelX="19" :labelY="4" :tipX="19" :tipY="17">2026 : British Columbia</DraggableAnnotation>
   <span v-click="12" />
 </div>
+
+---
+
+# Problèmes
+
+* Non-continuité : DST
+* Non-unicité : DST
+* Non-homogénéité : DST
+* Non- : DST
 
 ---
 
@@ -378,3 +426,6 @@ Réponse n°2 : 🌅 ☃️
 # Ressources pour aller + loin
 
 * [Launch Pad Astronomy - The Sky Part 1: Local Sky and Alt-Az / Horizon Coordinates](https://www.youtube.com/watch?v=i2e0aRtwsCY) : explication des coordonnées célestes Altitude-Azimuth + très jolie visualisation des mouvements célestes en 2nde partie
+* [qntm - So You Want To Abolish Time Zones](https://qntm.org/abolish) : courte fiction sur les problèmes introduits par l'abolition des timezones
+* [qntm - So You Want Continuous Time Zones](https://qntm.org/continuous) : courte fiction sur les problèmes causés par la multiplication des timezones
+* Noël en Australie, © [myflag.com.au](https://myflag.com.au/product/aussie-christmas-flag-150-x-90cm/)
