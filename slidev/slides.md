@@ -241,7 +241,9 @@ clicks: 3
 
 # Problèmes
 
-* Non-continuité : DST
+<ul>
+  <li v-click class="text-orange-400">Non-continuité : DST</li>
+</ul>
 
 ---
 clicks: 4
@@ -255,8 +257,10 @@ clicks: 4
 
 # Problèmes
 
-* Non-continuité : DST
-* Non-unicité : DST
+<ul>
+  <li >Non-continuité : DST</li>
+  <li v-click class="text-orange-400">Non-unicité : DST</li>
+</ul>
 
 ---
 
@@ -270,9 +274,13 @@ clicks: 4
 
 # Problèmes
 
-* Non-continuité : DST
-* Non-unicité : DST
-* Non-homogénéité : DST
+<ul>
+  <li>Non-continuité : DST</li>
+  <li>Non-unicité : DST</li>
+  <li v-click class="text-orange-400">Non-homogénéité : DST</li>
+</ul>
+
+---
 
 # Pourquoi s'infliger ça ?
 
@@ -338,10 +346,12 @@ Réponse n°2 : 🌅 ☃️
 
 # Problèmes
 
-* Non-continuité : DST
-* Non-unicité : DST
-* Non-homogénéité : DST
-* Non- : DST
+<ul>
+  <li>Non-continuité : DST</li>
+  <li>Non-unicité : DST</li>
+  <li>Non-homogénéité : DST</li>
+  <li v-click class="text-orange-400">Non-constance : DST</li>
+</ul>
 
 ---
 
