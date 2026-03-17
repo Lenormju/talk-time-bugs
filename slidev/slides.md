@@ -237,8 +237,6 @@ clicks: 3
 
 # Pourquoi s'infliger ça ?
 
-
-
 <v-click>
 Réponse n°1 : 🛢️ 💲
 </v-click>
@@ -255,7 +253,7 @@ Réponse n°2 : 🌅 ☃️
 </v-click>
 
 <v-click>
-<WorkAndSchoolSchedule />
+<WorkAndSchoolSchedule :animated="$clicks >= 6" />
 </v-click>
 
 <v-click>
@@ -263,6 +261,8 @@ Réponse n°2 : 🌅 ☃️
 <SunDuration :x="18" :y="53" :width="45" :height="8" label="Aujourd'hui (31 mars)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 12h46 -->
 <SunDuration :x="18" :y="61" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
 </v-click>
+
+<span v-click />
 
 <!-- 31 mars : lever 7h32 coucher 20h18 -->
 
