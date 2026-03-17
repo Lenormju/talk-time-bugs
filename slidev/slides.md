@@ -238,15 +238,28 @@ clicks: 3
 # Evolutions
 
 <div class="relative w-full" style="height: 420px">
-  <v-clicks>
-    <img src="./images/20221130064830!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
-    <img src="./images/20230301205820!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
-    <img src="./images/20230327133024!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
-    <img src="./images/20231231112700!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
-    <img src="./images/20250324003440!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
-    <img src="./images/20251114224057!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
-    <img src="./images/20260308192300!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
-  </v-clicks>
+  <!-- Images at odd clicks: 1, 3, 5, 7, 9, 11, 13 -->
+  <img v-click="1" src="./images/20221130064830!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
+  <img v-click="3" src="./images/20230301205820!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
+  <img v-click="5" src="./images/20230327133024!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
+  <img v-click="7" src="./images/20250324003440!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
+  <img v-click="9" src="./images/20251114224057!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
+  <img v-click="11" src="./images/20260308192300!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
+
+  <!-- Empty steps at even clicks: 2, 4, 6, 8, 10, 12 — add DraggableAnnotations here -->
+  <span v-click="2" />
+  <DraggableAnnotation v-click="2" :labelX="10" :labelY="46" :tipX="18.5" :tipY="38.5">2022 : Mexico</DraggableAnnotation>
+  <span v-click="4" />
+  <DraggableAnnotation v-click="4" :labelX="60" :labelY="51.5" :tipX="57" :tipY="43.5">2023 : Egypt</DraggableAnnotation>
+  <span v-click="6" />
+  <DraggableAnnotation v-click="6" :labelX="52" :labelY="0" :tipX="45.5" :tipY="9">2023 : Greenland</DraggableAnnotation>
+  <DraggableAnnotation v-click="6" :labelX="64.5" :labelY="9.5" :tipX="57.7" :tipY="23.7">2023 : Ukraine</DraggableAnnotation>
+  <DraggableAnnotation v-click="6" :labelX="47.5" :labelY="69" :tipX="33.5" :tipY="71.5">2024 : Paraguay</DraggableAnnotation>
+  <span v-click="8" />
+  <DraggableAnnotation v-click="8" :labelX="46.5" :labelY="78.5" :tipX="30.5" :tipY="86.5">2025 : Chile</DraggableAnnotation>
+  <span v-click="10" />
+  <DraggableAnnotation v-click="10" :labelX="19" :labelY="4" :tipX="19" :tipY="17">2026 : British Columbia</DraggableAnnotation>
+  <span v-click="12" />
 </div>
 
 ---
@@ -320,3 +333,4 @@ clicks: 3
 # Crédits photo
 
 * Photo of a croissant by <a href="https://unsplash.com/@personal_graphic?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">personalgraphic.com</a> on <a href="https://unsplash.com/photos/a-croissant-sitting-on-top-of-a-white-surface-VzUE5RtCuBA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+* Images des évolutions des DST par Wikipedia : [DST_Countries_Map.png](https://en.wikipedia.org/w/index.php?title=File:DST_Countries_Map.png&offset=&limit=500)
