@@ -363,7 +363,18 @@ Réponse n°2 : 🌅 ☃️
 
 ---
 
+# Remerciements
+
+* Claude
+* Slidev.js
+
+---
+
 # Crédits photo
 
 * Photo of a croissant by <a href="https://unsplash.com/@personal_graphic?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">personalgraphic.com</a> on <a href="https://unsplash.com/photos/a-croissant-sitting-on-top-of-a-white-surface-VzUE5RtCuBA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 * Images des évolutions des DST par Wikipedia : [DST_Countries_Map.png](https://en.wikipedia.org/w/index.php?title=File:DST_Countries_Map.png&offset=&limit=500)
+
+# Ressources pour aller + loin
+
+* [Launch Pad Astronomy - The Sky Part 1: Local Sky and Alt-Az / Horizon Coordinates](https://www.youtube.com/watch?v=i2e0aRtwsCY) : explication des coordonnées célestes Altitude-Azimuth + très jolie visualisation des mouvements célestes en 2nde partie
