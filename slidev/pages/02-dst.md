@@ -54,6 +54,7 @@ clicks: 4
 <ul>
   <li >Non-continuité : DST</li>
   <li v-click class="text-orange-400">Non-unicité : DST</li>
+  <li v-click class="text-orange-400">Non-monotonicité : DST</li>
 </ul>
 
 ---
@@ -71,6 +72,7 @@ clicks: 4
 <ul>
   <li>Non-continuité : DST</li>
   <li>Non-unicité : DST</li>
+  <li>Non-monotonicité : DST</li>
   <li v-click class="text-orange-400">Non-homogénéité : DST</li>
 </ul>
 
@@ -147,6 +149,7 @@ Réponse n°2 : 🌅 ☃️
 <ul>
   <li>Non-continuité : DST</li>
   <li>Non-unicité : DST</li>
+  <li>Non-monotonicité : DST</li>
   <li>Non-homogénéité : DST</li>
   <li v-click class="text-orange-400">Non-constance : DST</li>
 </ul>

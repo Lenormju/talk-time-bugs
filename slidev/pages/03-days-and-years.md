@@ -23,7 +23,7 @@ Vous êtes ready ?
 # Oui, mais ...
 
 <ul>
-  <li v-click="1">jour solaire ? <span v-click="2">ou jour civil ?</span>
+  <li v-click="1">jour solaire ? <span v-click="2">civil ?</span>
     <ul>
       <li v-click="3">jour solaire : centré sur midi solaire (zénith)</li>
       <li v-click="4">donc aujourd'hui le 31 mars : 7:32 (UTC) --> 20:18 (ECST)</li>
@@ -31,13 +31,181 @@ Vous êtes ready ?
       <li v-click="6">donc midi solaire à pas du tout "midi"</li>
     </ul>
   </li>
-  <li v-click="7">saison biologique ? <span v-click="4">climatique ? </span><span v-click="5">calendaire ?</span>
+  <li v-click="7">saison biologique ? <span v-click="4">climatique ?</span> <span v-click="5">calendaire ?</span>
     <ul>
       <li v-click="8">"printemps/été" commence en septembre/Octobre, et "dure environ six mois" = (source: <a href="https://www.beadesigner.it/fr/blog-4/les-saisons-de-la-mode-lors-du-lancement-de-votre-collection/">beadesigner.it)</a></li>
       <li v-click="9">"super-été" (changement climatique) : date de l'été inchangée, caractéristiques différentes</li>
     </ul>
   </li>
-  <li v-click="10">année celeste ? <span v-click="7">tropicale ? </span>
-  TODO
+  <li v-click="10">année tropicale ? <span v-click="11">sidérale ?</span> <span v-click="12">civile ?</span>
+    <ul>
+      <li v-click="13">tropicale (retour du soleil au même point dans le ciel) : ~365.24219 jours "éphémérides" <span v-click="14">(2000)</span></li>
+      <li v-click="15">sidérale (retour de la Terre au même point sur son orbite) : 365.256363 jours <span v-click="16">(2025)</span></li>
+      <li v-click="17">différence de ~20 minutes et 24.7 seconds</li>
+      <li v-click="18">anodin ?</li>
+    </ul>
   </li>
 </ul>
+
+---
+
+# Une histoire de chocolat ?
+
+Pour la faire courte :
+
+<v-clicks>
+
+* Jésus-Christ a ressuscité <sup class="citation-needed">&#91;citation needed&#93;</sup>
+* les chrétiens ont souhaité commérer cette date :<br/>
+  1er dimanche après la pleine lune après le 21 Mars (approximation de l'équinoxe de Mars)
+* date mouvante = 😬
+* le calendrier Julien supposait qu'une année faisait exactement 365.25 jours
+* 😆
+* on se rend compte que les dates dérivent : le 21 Mars ne colle plus à l'équinoxe
+* 1545 : on souhaite revenir aux dates de 325
+* calendrier Grégorien
+* transition : 10 jours sautés (4/10/1582 J -> 15/10/1582 G)
+* année = 365 ou 366 jours ?
+
+</v-clicks>
+
+<!-- TODO(later): animation correspondance des calendriers -->
+
+<!--
+je vous passe les controverses sur comment calculer la date, ni les schismes religieux, ...
+je ne vous parle pas non plus du calendrier juif, encore utilisé au début de l'ère chrétienne, qui est lunisolaire
+-->
+
+<style>
+.citation-needed {
+  color: #3366cc;
+  font-size: 0.75em;
+  white-space: nowrap;
+  font-weight: normal;
+}
+</style>
+
+---
+
+# Quiz !
+
+<v-click>
+
+1. Règle pour les années bissextiles ❓
+
+</v-click>
+
+<v-clicks>
+
+* divisible par 4
+* mais **pas** par 100
+* mais quand même par 400
+
+</v-clicks>
+
+<v-click>
+
+2. Pourquoi "bissextile" ❓
+
+</v-click>
+
+<v-clicks>
+
+* car dans le calendrier Julien il s'insérait après le 24 Février
+* > ante diem bis sextum Kalendas Martias
+* > le sixième jour bis avant les calendes (le premier jour) de mars
+
+</v-clicks>
+
+<v-click>
+
+ℹ️ En anglais : "leap years" (l'inverse)
+
+</v-click>
+
+<v-click>
+
+3. Année civile basée sur : tropicale ou sidérale ❓
+
+</v-click>
+
+<v-clicks>
+
+* tropicale
+* on aime les équinoxes constants à travers les siècles (?)
+
+</v-clicks>
+
+---
+
+# Problèmes
+
+<ul>
+  <li>Non-continuité : DST</li>
+  <li>Non-unicité : DST</li>
+  <li>Non-monotonicité : DST</li>
+  <li>Non-homogénéité : DST</li>
+  <li>Non-constance : DST<span v-click>, <span class="text-orange-400">leap years</span></span></li>
+</ul>
+
+---
+
+# Les constantes qui ne le sont pas
+
+<v-clicks depth="2" class="tight-list">
+
+* ☪️ Musulman (Hijri) :
+  * lunisolaire ("basé sur la lune")
+  * la lune n'a pas une période synodique de X jours exactement (~29.53)
+  * année de 12 mois lunaires : 354 ou 355 jours
+  * (6×29 + 6×30 = 354 ; 5×29 + 7×30 = 355)
+  * les saisons tournent sur 33 ans
+* ✡️ Juif :
+  * mois lunaires "intercalaires" pour approximer l'année tropicale
+  * un mois supplémentaire tous les 2 ou 3 ans
+  * cycle métonique : 7 mois en 19 ans
+* ☦️ Orthodoxe :
+  * resté sur le calendrier Julien
+  * 13 jours de retard (non-rattrapés par le passage au Grégorien)
+  * règle des bisextiles Julien : simplement divisible par 4
+* calendriers 🕉️ bouddhiste, 🐉 chinois, 🕉️ hindou, ...
+
+</v-clicks>
+
+<v-click>
+
+Le calendrier ✝️ grégorien est le standard dans l'industrie occidentale.
+
+</v-click>
+
+<!--
+TODO(later): avoir la date en calendrier musulman, juif, ...
+-->
+
+<style>
+.tight-list li {
+  margin-top: 0.15em;
+  margin-bottom: 0.15em;
+  line-height: 1.3;
+}
+.tight-list ul {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+</style>
+
+---
+
+# Problèmes
+
+<ul>
+  <li>Non-continuité : DST</li>
+  <li>Non-unicité : DST</li>
+  <li>Non-monotonicité : DST</li>
+  <li>Non-homogénéité : DST<span v-click>, <span class="text-orange-400">leap years</span></span></li>
+  <li>Non-constance : DST, leap years</li>
+</ul>
+
+---
+
+# Des solutions ?

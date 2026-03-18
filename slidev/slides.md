@@ -35,12 +35,10 @@ src: ./pages/02-dst.md
 IMPORTED
 
 ---
-src: ./pages/02-days-and-years.md
+src: ./pages/03-days-and-years.md
 ---
 
 IMPORTED
-
----
 
 ---
 src: ./pages/19-outro.md
