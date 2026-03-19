@@ -52,7 +52,7 @@
 </v-clicks>
 
 ---
-clicks: 7
+clicks: 10
 ---
 
 # Et comment ça fonctionne ?
@@ -68,6 +68,7 @@ Ca dépend !
 
 <p style="margin:0">1. Ajout d'une seconde :</p>
 <LeapSecondTimelineSVG />
+
 </v-click>
 
 <span v-click />
@@ -80,7 +81,15 @@ Ca dépend !
 
 </v-click>
 
-TODO repeat
+<span v-click />
+<span v-click />
+
+<v-click>
+
+<p style="margin:0">3. Répétition d'une seconde :</p>
+<LeapSecondRepeatTimelineSVG />
+
+</v-click>
 
 TODO graphe du décalage, négatives
 

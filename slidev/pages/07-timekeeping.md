@@ -26,5 +26,7 @@
 * elles signalent leur position orbitale, et leur "GPS Time" :<br/>
   nombre de secondes atomiques depuis le 6 Janvier, 1980, 00:00:00 UTC
 * atomiques et pas UTC, donc il y a un décalage entre les deux !
+* et il s'agit de quadrianguler la position du récepteur dans l'espace/temps 😛
+* <img src="../images/Albert_Einstein_sticks_his_tongue_1951.jpg">
 
 </v-clicks>
