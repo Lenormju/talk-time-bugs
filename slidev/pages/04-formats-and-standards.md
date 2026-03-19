@@ -157,3 +157,33 @@ CHF 181,00 ↔️ EUR 199,15
   font-size: 0.82em;
 }
 </style>
+
+---
+
+# RFC 339
+
+<v-clicks depth="2">
+
+* "Date and Time on the Internet: Timestamps"
+* moins de versions, changements plus mineurs
+* définitif depuis 2002
+* accessible gratuitement
+* censé être un "profil" de l'ISO-8601 (version 1988 et 2000)
+* proche, mais différent de ISO-8601 :
+  * divergence : timezone `-00` signifie "unknown"
+  * divergence : un espace peut séparer la partie "date" de celle "time"
+  * obligation : timezone offset
+  * obligation : années sur 4 chiffres
+* dans les faits, souvent confondus
+
+</v-clicks>
+
+---
+
+# Autres formats "standards"
+
+* ISO/AWI 8601-1 : en cours de développement
+* Unix timestamps : TODO_TIMESTAMP
+* Java Long milliseconds : TODO_JAVA_MILLI_TIMESTAMP
+* RFC 7231 ("http date") : TODO_HTTP_DATE like "Tue, 19 Mar 2024 12:00:00 GMT"
+* RFC (2)822 ("mail date") : TODO_MAIL_DATE like "Mon, 19 Mar 2024 12:30:45 -0500"

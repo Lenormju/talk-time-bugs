@@ -8,6 +8,7 @@ drawings:
   persist: false
 transition: slide-left
 mdc: true
+selectable: true
 duration: 45min
 ---
 
