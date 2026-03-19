@@ -148,6 +148,6 @@ International date line :
 
 <v-click>
 
-<img src="../images/solartimevsstandardtime.png" class="max-h-80 mx-auto object-contain" />
+<ZoomableImage src="../images/solartimevsstandardtime.png" :initial-scale="0.5" />
 
 </v-click>
