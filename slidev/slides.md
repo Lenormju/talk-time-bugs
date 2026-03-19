@@ -48,5 +48,11 @@ src: ./pages/04-formats-and-standards.md
 IMPORTED
 
 ---
+src: ./pages/05-timezones.md
+---
+
+IMPORTED
+
+---
 src: ./pages/19-outro.md
 ---

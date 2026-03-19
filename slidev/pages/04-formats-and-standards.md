@@ -195,3 +195,28 @@ CHF 181,00 ↔️ EUR 199,15
   * <HttpDate />
 
 </v-clicks>
+
+---
+
+# Problèmes
+
+<ul>
+  <li>Non-continuité : DST</li>
+  <li>Non-unicité : DST</li>
+  <li>Non-monotonicité : DST</li>
+  <li>Non-homogénéité : DST, leap years</li>
+  <li>Non-constance : DST, leap years</li>
+  <li v-click class="text-orange-400">Non-standardized : dates and time formats</li>
+</ul>
+
+---
+
+# Le petit détail ...
+
+<v-click>
+
+<div>
+C'est quoi "GMT" ?
+</div>
+
+</v-click>
