@@ -141,3 +141,11 @@ International date line :
 * ou sinon, bien savoir ce qu'on fait
 
 </v-clicks>
+
+# Petit bonus : décalage solaire
+
+<v-click>
+
+<img src="../images/solartimevsstandardtime.png" class="max-h-80 mx-auto object-contain" />
+
+</v-click>

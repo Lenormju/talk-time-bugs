@@ -16,6 +16,8 @@
 * Image des timezones par Wikipedia : [Timezone-boundary-builder release 2023d.png](https://en.wikipedia.org/wiki/File:Timezone-boundary-builder_release_2023d.png)
 * Image des timezones de l'Arizona par : [travelness.com](https://travelness.com/arizona-time-zone)
 * Image des timezones autour de l'International date line par Wikipedia : [International Date Line.png](https://en.wikipedia.org/wiki/File:International_Date_Line.png)
+* Image du décalage entre UTC et heure solaire par [24timezones.com](https://24timezones.com/cms-static/images/uploads/solartimevsstandardtime.png)
+* Image du décalage entre UT1 et UTC par Wikipedia : [Leapsecond.ut1-utc.svg](https://en.wikipedia.org/wiki/File:Leapsecond.ut1-utc.svg)
 * Photo d'Albert Einstein par Wikimedia : [Albert Einstein sticks his tongue 1951.jpg](https://commons.wikimedia.org/wiki/File:Albert_Einstein_sticks_his_tongue_1951.jpg)
 
 ---
