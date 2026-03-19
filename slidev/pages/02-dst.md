@@ -81,7 +81,9 @@ clicks: 4
 # Pourquoi s'infliger ça ?
 
 <v-click>
+
 Réponse n°1 : 🛢️ 💲
+
 </v-click>
 
 <v-click>
@@ -92,21 +94,25 @@ Réponse n°1 : 🛢️ 💲
 </v-click>
 
 <v-click>
+
 Réponse n°2 : 🌅 ☃️
+
 </v-click>
 
 <v-click>
+
 <WorkAndSchoolSchedule :animated="$clicks >= 8" />
+
 </v-click>
 
 <v-click>
-    <SunDuration :x="18" :y="45" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
+    <SunDuration :x="18" :y="50" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
 </v-click>
 <v-click>
-    <SunDuration :x="18" :y="53" :width="45" :height="8" label="Aujourd'hui (31 mars)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 12h46 -->
+    <SunDuration :x="18" :y="58" :width="45" :height="8" label="Aujourd'hui (31 mars)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 12h46 -->
 </v-click>
 <v-click>
-    <SunDuration :x="18" :y="61" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
+    <SunDuration :x="18" :y="66" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
 </v-click>
 
 <span v-click />

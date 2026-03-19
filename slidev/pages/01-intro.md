@@ -89,6 +89,7 @@ Un problème récurrent :
 </div>
 
 <v-click>
+
 Ce qu'en dit la philo :
 </v-click>
 
@@ -100,7 +101,9 @@ Ce qu'en dit la philo :
 </v-clicks>
 
 <v-click>
+
 On va se passer de cette définition aujourd'hui ...
+
 </v-click>
 
 ---

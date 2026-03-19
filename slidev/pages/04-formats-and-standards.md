@@ -101,6 +101,7 @@
 <v-click>
 
 > Only informative sections of standards are publicly available. To view the full content, you will need to purchase the standard by clicking on the "Buy" button.
+> -- [iso.org](https://www.iso.org/obp/ui/#iso:std:iso:8601:-1:ed-1:v1:en)
 
 </v-click>
 

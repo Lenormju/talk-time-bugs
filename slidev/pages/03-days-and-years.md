@@ -14,9 +14,18 @@ Vous êtes ready ?
 
 <ul>
   <li v-click="1">le jour ☀️<span v-click="2">, la nuit 🌌🌙</span></li>
-  <li v-click="3">les saisons : <span v-click="4">🌱</span><span v-click="5">🌻</span><span v-click="6">🍂</span><span v-click="7">🪾</span></li>
-  <li v-click="8">les années 📆</li>
+  <li v-click="3">les 4 saisons <span v-click="8" class="no-space-when-hidden">astronomiques </span>: <span v-click="4">🌱</span><span v-click="5">🌻</span><span v-click="6">🍂</span><span v-click="7">🪾</span></li>
+  <ul>
+    <li v-click="8">les saisons équatoriales: <span v-click="9">🌧️</span><span v-click="10">☀️</span></li>
+  </ul>
+  <li v-click="11">les années 📆</li>
 </ul>
+
+<style>
+.no-space-when-hidden.slidev-vclick-hidden {
+  display: none;
+}
+</style>
 
 ---
 
@@ -119,7 +128,7 @@ je ne vous parle pas non plus du calendrier juif, encore utilisé au début de l
 
 <v-click>
 
-ℹ️ En anglais : "leap years" (l'inverse)
+ℹ️ En anglais : "leap years"
 
 </v-click>
 

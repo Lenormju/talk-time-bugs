@@ -24,14 +24,15 @@ Pour faire (très) court :
 
 ---
 
-# Rapide exemple
+# Bases et exemple
 
-<v-clicks depth="2">
+<v-clicks depth="2" class="tight-list">
 
 * "prime meridian" (IERS Reference Meridian) : Greenwich
   * (je vous passe l'histoire de Greenwich)
   * **a servi à définir UTC**
   * (je vous passe l'histoire d'UTC)
+  * UTC = Universel Temps Coordonné / Universal Time Coordinated
 * changement d'heure :
   * avant le 29 mars : European Central Time (ECT, UTC+1)
   * après le 29 mars : European Central Summer Time (ECST, UTC+2)
@@ -39,8 +40,30 @@ Pour faire (très) court :
   * UK suit le Greenwich Mean Time (GMT, UTC) ou le British Summer Time (BST, UTC+1)
   * a conservé son changement d'heure synchronisé avec le reste de l'Union Européenne
   * à l'aller je "perds" 1h, au retour je la regagne
+* (named) offset ou city :
+  * China Standard Time (CST) : `+08:00` ou `Asia/Beijing`
+  * Eastern Standard Time (EST) : `-05:00` ou `Cancún`
 
 </v-clicks>
+
+<style>
+.tight-list li {
+  margin-top: 0.15em;
+  margin-bottom: 0.15em;
+  line-height: 1.3;
+  font-size: 0.82em;
+}
+.tight-list li li {
+  font-size: 1em;
+}
+.tight-list ul {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+.tight-list code {
+  font-size: 0.82em;
+}
+</style>
 
 ---
 
@@ -62,6 +85,8 @@ Pour faire (très) court :
 * à mettre à jour régulièrement
 
 </v-clicks>
+
+TODO named timezeones
 
 TODO problème inconstant
 
