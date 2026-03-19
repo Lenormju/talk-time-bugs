@@ -52,7 +52,7 @@
 </v-clicks>
 
 ---
-clicks: 4
+clicks: 7
 ---
 
 # Et comment ça fonctionne ?
@@ -70,3 +70,20 @@ Ajout d'une seconde :
 <LeapSecondTimelineSVG />
 
 </v-click>
+
+<span v-click />
+<span v-click />
+
+<v-click>
+
+Smearing d'une seconde :
+
+<LeapSecondSmearingTimelineSVG />
+
+</v-click>
+
+TODO repeat
+
+TODO graphe du décalage, négatives
+
+TODO problèmes
