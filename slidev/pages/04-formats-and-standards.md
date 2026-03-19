@@ -182,8 +182,16 @@ CHF 181,00 ↔️ EUR 199,15
 
 # Autres formats "standards"
 
+<v-clicks depth="2">
+
 * ISO/AWI 8601-1 : en cours de développement
-* Unix timestamps : TODO_TIMESTAMP
-* Java Long milliseconds : TODO_JAVA_MILLI_TIMESTAMP
-* RFC 7231 ("http date") : TODO_HTTP_DATE like "Tue, 19 Mar 2024 12:00:00 GMT"
-* RFC (2)822 ("mail date") : TODO_MAIL_DATE like "Mon, 19 Mar 2024 12:30:45 -0500"
+* Unix timestamps : secondes écoulées depuis le 1er Janvier 1970 ("Epoch")
+  * <UnixTimestamp />
+* Java timestamps : **milli**secondes écoulées depuis l'Epoch Unix
+  * <JavaMilliTimestamp />
+* RFC (2)822 ("mail date") : format "human-readable"
+  * <MailDate />
+* RFC 7231 ("http date") : basé sur RFC 2822, mais toujours en GMT
+  * <HttpDate />
+
+</v-clicks>
