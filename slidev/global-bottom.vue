@@ -24,6 +24,7 @@ const logoVisibleOn: (number | [number, number | number[]])[] = [
   5,
   6,
   7,
+    // FIXME PTC
 ]
 
 const { currentPage, clicks } = useNav()

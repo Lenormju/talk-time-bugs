@@ -28,6 +28,7 @@
 * [Open Dataset des Années bissextiles sur gouv.fr](https://www.data.gouv.fr/datasets/annees-bissextiles)
 * [Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) : propose un glossaire parfait, devenu standard
 * [Colin Eberhardt - Exploring 120 years of timezones](https://blog.scottlogic.com/2021/09/14/120-years-timezone.html) : récit et visualisations de l'évolution des timezones au cours du temps
+* [Judah Levine - Everyday Time and Atomic Time: Part 4](https://www.nist.gov/blogs/taking-measure/everyday-time-and-atomic-time-part-4) : l'histoire de l'ancien GMT
 
 ---
 
