@@ -142,6 +142,8 @@ International date line :
 
 </v-clicks>
 
+---
+
 # Petit bonus : décalage solaire
 
 <v-click>

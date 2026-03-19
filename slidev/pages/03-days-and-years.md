@@ -261,3 +261,11 @@ Jours épagomènes ("supplémentaires") "sansculottides" tous les ans, et jour "
 <!--
 jours épagomènes, cf calendrier égyptien antique
 -->
+
+---
+
+# Vive la diversité !
+
+<img src="../images/today_calendars.png" class="max-h-96 mx-auto object-contain" />
+
+<!-- FIXME PTC screenshot https://en.wikipedia.org/wiki/Gregorian_calendar -->
