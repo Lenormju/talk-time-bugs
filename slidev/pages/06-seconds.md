@@ -59,16 +59,15 @@ clicks: 7
 
 <v-click>
 
+<div /> <!-- to to make it a subtitle -->
 Ca dépend !
 
 </v-click>
 
 <v-click>
 
-Ajout d'une seconde :
-
+<p style="margin:0">1. Ajout d'une seconde :</p>
 <LeapSecondTimelineSVG />
-
 </v-click>
 
 <span v-click />
@@ -76,8 +75,7 @@ Ajout d'une seconde :
 
 <v-click>
 
-Smearing d'une seconde :
-
+<p style="margin:0">2. Smearing d'une seconde :</p>
 <LeapSecondSmearingTimelineSVG />
 
 </v-click>
