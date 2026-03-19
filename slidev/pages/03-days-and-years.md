@@ -209,3 +209,46 @@ TODO(later): avoir la date en calendrier musulman, juif, ...
 ---
 
 # Des solutions ?
+
+<v-click>
+Symmetry 454
+</v-click>
+
+<v-click>
+
+<img src="../images/Symmetry454 calendar.png" class="h-72" />
+
+</v-click>
+
+<v-click>
+Semaine intercalaire !! 😭
+</v-click>
+
+<v-click>
+
+(52 × année + 146) mod 293 < 52 😵
+
+</v-click>
+
+<v-click>
+
+Bien d'autres ... mais impossible de faire parfait.
+
+</v-click>
+
+---
+
+# Pas de pétrole, mais des idées !
+
+<img src="../images/Deuxième_partie_d’un_calendrier_de_1801-1802,_avec_les_correspondances_grégoriennes,_orné_de_signes_allégoriques,_G.29855.jpg" class="max-h-96 mx-auto object-contain" />
+
+<v-click>
+Jours épagomènes ("supplémentaires") "sansculottides" tous les ans, et jour "sextile" tous les 6 ou 7 ans.
+</v-click>
+<v-click>
+
+</v-click>
+
+<!--
+jours épagomènes, cf calendrier égyptien antique
+-->
