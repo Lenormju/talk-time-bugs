@@ -52,15 +52,21 @@
 </v-clicks>
 
 ---
+clicks: 4
+---
 
 # Et comment ça fonctionne ?
 
 <v-click>
+
 Ca dépend !
+
 </v-click>
 
 <v-click>
-Ajout d'une seconde :
-</v-click>
 
-TODO_SECONDE_INTERCALAIRE
+Ajout d'une seconde :
+
+<LeapSecondTimelineSVG />
+
+</v-click>
