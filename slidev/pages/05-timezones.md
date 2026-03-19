@@ -43,6 +43,7 @@ Pour faire (très) court :
 * "offset" versus "timezone" :
   * China Standard Time (CST) = `+08:00` ou `Asia/Beijing`
   * Eastern Standard Time (EST) = `-05:00` ou `America/Cancún`
+* ni offset ni timezone = "naïve"
 
 </v-clicks>
 
@@ -103,13 +104,10 @@ Pour faire (très) court :
 
 # Un bazar infini !
 
-<v-click>
-  <img src="../images/arizona-time-zone.eddc9932.png" alt="Timezone-ception" />
-</v-click>
-
-<v-click>
-  <img src="../images/wikipedia_international_date_line_cropped.png" alt="International date line" />
-</v-click>
+<div class="absolute inset-0">
+  <img v-click="[1, 2]" src="../images/arizona-time-zone.eddc9932.png" alt="Timezone-ception" class="absolute inset-0 w-full h-full object-contain" />
+  <img v-click="2" src="../images/wikipedia_international_date_line_cropped.png" alt="International date line" class="absolute inset-0 w-full h-full object-contain" />
+</div>
 
 <!--
 International date line :
@@ -121,8 +119,25 @@ International date line :
 
 ---
 
-TODO cas tordus, et cas de changement de timezone, DST
+# Problèmes
 
-TODO tous les problèmes
+<ul>
+  <li>Non-continuité : DST<span v-click>, <span class="text-orange-400">timezones</span></span></li>
+  <li>Non-unicité : DST<span v-click>, <span class="text-orange-400">timezones</span></span></li>
+  <li>Non-monotonicité : DST<span v-click>, <span class="text-orange-400">timezones</span></span></li>
+  <li>Non-homogénéité : DST, leap years<span v-click>, <span class="text-orange-400">timezones</span></span></li>
+  <li>Non-constance : DST, leap years, timezones</li>
+  <li>Non-standardized : dates and time formats</li>
+</ul>
 
-TODO conclusion : jamais de naive, et privilégier très très fortement UTC, sauf si on sait ce qu'on fait !!
+---
+
+# Conseils
+
+<v-clicks>
+
+* jamais de datetime naïve
+* privilégier UTC autant que possible
+* ou sinon, bien savoir ce qu'on fait
+
+</v-clicks>
