@@ -178,10 +178,6 @@ Le calendrier ✝️ grégorien est le standard dans l'industrie occidentale.
 
 </v-click>
 
-<!--
-TODO(later): avoir la date en calendrier musulman, juif, ...
--->
-
 <style>
 .tight-list li {
   margin-top: 0.15em;
@@ -193,6 +189,10 @@ TODO(later): avoir la date en calendrier musulman, juif, ...
   margin-bottom: 0.1em;
 }
 </style>
+
+<!--
+TODO(later): avoir la date en calendrier musulman, juif, ...
+-->
 
 ---
 
