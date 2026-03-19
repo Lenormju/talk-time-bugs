@@ -24,7 +24,7 @@ Pour faire (très) court :
 
 ---
 
-# Bases et exemple
+# Bases et exemples
 
 <v-clicks depth="2" class="tight-list">
 
@@ -40,9 +40,9 @@ Pour faire (très) court :
   * UK suit le Greenwich Mean Time (GMT, UTC) ou le British Summer Time (BST, UTC+1)
   * a conservé son changement d'heure synchronisé avec le reste de l'Union Européenne
   * à l'aller je "perds" 1h, au retour je la regagne
-* (named) offset ou city :
-  * China Standard Time (CST) : `+08:00` ou `Asia/Beijing`
-  * Eastern Standard Time (EST) : `-05:00` ou `Cancún`
+* "offset" versus "timezone" :
+  * China Standard Time (CST) = `+08:00` ou `Asia/Beijing`
+  * Eastern Standard Time (EST) = `-05:00` ou `America/Cancún`
 
 </v-clicks>
 
@@ -86,9 +86,40 @@ Pour faire (très) court :
 
 </v-clicks>
 
-TODO named timezeones
+---
 
-TODO problème inconstant
+# Problèmes
+
+<ul>
+  <li>Non-continuité : DST</li>
+  <li>Non-unicité : DST</li>
+  <li>Non-monotonicité : DST</li>
+  <li>Non-homogénéité : DST, leap years</li>
+  <li>Non-constance : DST, leap years<span v-click>, <span class="text-orange-400">timezones</span></span></li>
+  <li>Non-standardized : dates and time formats</li>
+</ul>
+
+---
+
+# Un bazar infini !
+
+<v-click>
+  <img src="../images/arizona-time-zone.eddc9932.png" alt="Timezone-ception" />
+</v-click>
+
+<v-click>
+  <img src="../images/wikipedia_international_date_line_cropped.png" alt="International date line" />
+</v-click>
+
+<!--
+International date line :
+* discontinuité de 24 heures (changement de jour)
+* demi-heure
+* trois-quart d'heure (rare !)
+* kiribati -11/-10 devenu +13/+14
+-->
+
+---
 
 TODO cas tordus, et cas de changement de timezone, DST
 

@@ -186,6 +186,7 @@ CHF 181,00 ↔️ EUR 199,15
 <v-clicks depth="2">
 
 * ISO/AWI 8601-1 : en cours de développement
+* RFC 9557 : en cours de développement
 * Unix timestamps : secondes écoulées depuis le 1er Janvier 1970 ("Epoch")
   * <UnixTimestamp />
 * Java timestamps : **milli**secondes écoulées depuis l'Epoch Unix
@@ -194,6 +195,8 @@ CHF 181,00 ↔️ EUR 199,15
   * <MailDate />
 * RFC 7231 ("http date") : basé sur RFC 2822, mais toujours en GMT
   * <HttpDate />
+* CNS 7648 : adaptation taïwanaise d'ISO 8601 au calendrier ROC (Grégorien - 1911)
+* ...
 
 </v-clicks>
 
