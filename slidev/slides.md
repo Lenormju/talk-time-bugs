@@ -86,5 +86,11 @@ src: ./pages/09-technical-pitfalls.md
 IMPORTED
 
 ---
+src: ./pages/18-conclusion.md
+---
+
+IMPORTED
+
+---
 src: ./pages/19-outro.md
 ---
