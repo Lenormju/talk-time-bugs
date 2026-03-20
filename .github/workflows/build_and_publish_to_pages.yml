@@ -23,10 +23,15 @@ jobs:
       - name: Build Slidev
         working-directory: slidev
         run: npm run build -- --base /talk-time-bugs/
+      - name: Prepare publish directory
+        run: |
+          mkdir -p public
+          cp -r archive/public/. public/
+          cp -r slidev/dist/. public/
       - name: Upload build result
         uses: actions/upload-pages-artifact@v3
         with:
-          path: slidev/dist
+          path: public
 
   publish:
     permissions:
