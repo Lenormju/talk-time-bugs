@@ -33,7 +33,7 @@ layout: center
 <!-- -->
 </v-click>
 
-```python {1-3|1-4|1-5|1-6|all}
+```python {0|1-3|1-4|1-5|1-6|all}
 import datetime as dt
 
 start_time = dt.datetime(2026, 3, 29, 1, 45, 0)
@@ -72,6 +72,29 @@ clicks: 4
 # Et dans l'autre sens
 
 <DSTTimelineSVGFall />
+
+---
+
+# Avec du code
+
+```bash {1|3|3-4|3-5|3-6|3-7|3-8|8|3-9|3-10}
+# run something once every 15 minutes, and compute average speed
+
+# current_time=1:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:09:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:09:17  delta_time=-45:00  delta_quantity=147  speed=-9.8
+# current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
+```
+
+<style>
+.slidev-code-dishonored {
+  visibility: hidden;
+}
+</style>
 
 ---
 

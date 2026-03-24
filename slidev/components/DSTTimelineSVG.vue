@@ -58,14 +58,19 @@ onMounted(async () => {
 
   const tl = gsap.timeline({ paused: true })
 
-  // Section 1: highlight the missing hour in orange
+  // Section 1: highlight the missing hour in orange + show DST mark
   tl.to('#dst-mid-group circle', { attr: { fill: '#ff6b35', stroke: '#ff6b35' }, duration: 0.3 })
   tl.to('#dst-mid-group text',   { attr: { fill: '#ff6b35' }, duration: 0.3 }, '<')
   tl.to('#dst-mid-group line',   { attr: { stroke: '#ff6b35' }, duration: 0.3 }, '<')
+  tl.to('#dst-spring-mark',      { opacity: 1, duration: 0.3 }, '<')
   tl.addLabel('end-1')
 
-  // Section 2: cut — the missing hour disappears
+  // Section 2: cut — the missing hour disappears, bordering ticks turn blue
   tl.to(middleGroup, { opacity: 0, duration: 0.4, ease: 'power2.out' })
+  tl.to('#dst-left-last-tick circle',  { attr: { fill: '#60a5fa', stroke: '#60a5fa' }, duration: 0.3 }, '<')
+  tl.to('#dst-left-last-tick text',    { attr: { fill: '#60a5fa' }, duration: 0.3 }, '<')
+  tl.to('#dst-right-first-tick circle', { attr: { fill: '#60a5fa', stroke: '#60a5fa' }, duration: 0.3 }, '<')
+  tl.to('#dst-right-first-tick text',   { attr: { fill: '#60a5fa' }, duration: 0.3 }, '<')
   tl.addLabel('end-2')
 
   // Section 3: stitch — right group slides left to close the gap
@@ -99,7 +104,7 @@ onMounted(async () => {
       />
 
       <!-- Left ticks (always visible) -->
-      <g v-for="(label, i) in leftTicks" :key="label">
+      <g v-for="(label, i) in leftTicks" :key="label" :id="i === 2 ? 'dst-left-last-tick' : undefined">
         <circle
           :cx="gx(i)" :cy="LINE_Y" :r="TICK_RADIUS"
           fill="#fff" stroke="#555" stroke-width="3"
@@ -109,6 +114,12 @@ onMounted(async () => {
           text-anchor="middle" dominant-baseline="hanging"
           fill="#ccc" class="tick-label"
         >{{ label }}</text>
+      </g>
+
+      <!-- DST mark above 02:00:00 (initially hidden, appears at click 1) -->
+      <g id="dst-spring-mark" opacity="0">
+        <line :x1="gx(3)" :y1="LINE_Y - TICK_RADIUS - 5" :x2="gx(3)" :y2="LINE_Y - 30" stroke="#ff6b35" stroke-width="2" />
+        <text :x="gx(3)" :y="LINE_Y - 34" text-anchor="middle" dominant-baseline="auto" fill="#ff6b35" class="tick-label">↓ DST</text>
       </g>
 
       <!-- Middle group: short connectors + ticks + dots (orange click 1, fade click 2) -->
@@ -160,7 +171,7 @@ onMounted(async () => {
         />
         <polygon :points="arrowPoints" fill="#555" />
 
-        <g v-for="(label, i) in rightTicks" :key="label">
+        <g v-for="(label, i) in rightTicks" :key="label" :id="i === 0 ? 'dst-right-first-tick' : undefined">
           <circle
             :cx="gx(8 + i)" :cy="LINE_Y" :r="TICK_RADIUS"
             fill="#fff" stroke="#555" stroke-width="3"
