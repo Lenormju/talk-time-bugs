@@ -40,18 +40,12 @@ Vous êtes ready ?
       <li v-click="6">donc midi solaire à pas du tout "midi"</li>
     </ul>
   </li>
-  <li v-click="7">saison biologique ? <span v-click="4">climatique ?</span> <span v-click="5">calendaire ?</span>
+  <li v-click="7">année tropicale ? <span v-click="8">sidérale ?</span> <span v-click="9">civile ?</span>
     <ul>
-      <li v-click="8">"printemps/été" commence en septembre/Octobre, et "dure environ six mois" = (source: <a href="https://www.beadesigner.it/fr/blog-4/les-saisons-de-la-mode-lors-du-lancement-de-votre-collection/">beadesigner.it)</a></li>
-      <li v-click="9">"super-été" (changement climatique) : date de l'été inchangée, caractéristiques différentes</li>
-    </ul>
-  </li>
-  <li v-click="10">année tropicale ? <span v-click="11">sidérale ?</span> <span v-click="12">civile ?</span>
-    <ul>
-      <li v-click="13">tropicale (retour du soleil au même point dans le ciel) : ~365.24219 jours "éphémérides" <span v-click="14">(2000)</span></li>
-      <li v-click="15">sidérale (retour de la Terre au même point sur son orbite) : 365.256363 jours <span v-click="16">(2025)</span></li>
-      <li v-click="17">différence de ~20 minutes et 24.7 seconds</li>
-      <li v-click="18">anodin ?</li>
+      <li v-click="10">tropicale (retour du soleil au même point dans le ciel) : ~365.24219 jours "éphémérides" <span v-click="11">(2000)</span></li>
+      <li v-click="12">sidérale (retour de la Terre au même point sur son orbite) : 365.256363 jours <span v-click="13">(2025)</span></li>
+      <li v-click="14">différence de ~20 minutes et 24.7 seconds</li>
+      <li v-click="15">anodin ?</li>
     </ul>
   </li>
 </ul>
@@ -60,21 +54,20 @@ Vous êtes ready ?
 
 # Une histoire de chocolat ?
 
-Pour la faire courte :
-
-<v-clicks>
+<v-clicks depth="2">
 
 * Jésus-Christ a ressuscité <sup class="citation-needed">&#91;citation needed&#93;</sup>
-* les chrétiens ont souhaité commérer cette date :<br/>
-  1er dimanche après la pleine lune après le 21 Mars (approximation de l'équinoxe de Mars)
-* date mouvante = 😬
+  * les chrétiens ont souhaité commérer cette date
+  * 1er dimanche après la pleine lune après le 21 Mars (approximation de l'équinoxe de Mars)
+  * date mouvante = 😬
 * le calendrier Julien supposait qu'une année faisait exactement 365.25 jours
-* 😆
-* on se rend compte que les dates dérivent : le 21 Mars ne colle plus à l'équinoxe
-* 1545 : on souhaite revenir aux dates de 325
-* calendrier Grégorien
-* transition : 10 jours sautés (4/10/1582 J -> 15/10/1582 G)
-* année = 365 ou 366 jours ?
+  * année tropicale ≈ 365.2422
+  * on se rend compte que les dates dérivent : le 21 Mars ne colle plus à l'équinoxe
+  * 1545 : on souhaite revenir aux dates de 325
+* calendrier Grégorien !
+  * transition : 10 jours sautés d'un coup (4/10/1582 J -> 15/10/1582 G)
+  * année = 365.2425
+  * année = 365 ou 366 jours ?
 
 </v-clicks>
 
