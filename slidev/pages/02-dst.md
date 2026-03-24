@@ -24,6 +24,32 @@ Décalage horaire : "daylight saving(s) time"
 </v-click>
 
 ---
+layout: center
+---
+
+# Avec du code
+
+<v-click>
+<!-- -->
+</v-click>
+
+```python {1-3|1-4|1-5|1-6|all}
+import datetime as dt
+
+start_time = dt.datetime(2026, 3, 29, 1, 45, 0)
+end_time =   dt.datetime(2026, 3, 29, 3, 30, 0)
+duration = end_time - start_time
+print(duration)
+# 1:45:00
+```
+
+<style>
+.slidev-code-dishonored {
+  visibility: hidden;
+}
+</style>
+
+---
 clicks: 3
 ---
 
