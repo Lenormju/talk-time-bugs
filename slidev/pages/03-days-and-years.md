@@ -36,7 +36,7 @@ Vous êtes ready ?
     <ul>
       <li v-click="3">jour solaire : centré sur midi solaire (zénith)</li>
       <li v-click="4">donc aujourd'hui le 31 mars : 7:32 (UTC) --> 20:18 (ECST)</li>
-      <li v-click="5">donc midi solaire à (7:32+20h18)/2 = 13h55 (UTC)</li>
+      <li v-click="5">donc midi solaire à (7:32+20:18)/2 = 13:55 (UTC)</li>
       <li v-click="6">donc midi solaire à pas du tout "midi"</li>
     </ul>
   </li>

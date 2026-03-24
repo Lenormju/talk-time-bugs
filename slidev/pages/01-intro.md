@@ -172,11 +172,3 @@ On va se passer de cette définition aujourd'hui ...
 A travers le(s) temps !
 
 <Youtube id="PxoKqVwyoOM" width="100%" height="400" />
-
----
-
-# Une idée de start-up française !
-
-<v-click>
-    <img src="../images/personalgraphic-com-VzUE5RtCuBA-unsplash.jpg" class="max-h-96 mx-auto object-contain" />
-</v-click>
