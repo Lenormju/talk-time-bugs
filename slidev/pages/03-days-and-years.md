@@ -62,16 +62,15 @@ Vous êtes ready ?
   * date mouvante = 😬
 * le calendrier Julien supposait qu'une année faisait exactement 365.25 jours
   * année tropicale ≈ 365.2422
-  * on se rend compte que les dates dérivent : le 21 Mars ne colle plus à l'équinoxe
+  * les dates dérivent : le 21 Mars ne colle plus à l'équinoxe !
   * 1545 : on souhaite revenir aux dates de 325
 * calendrier Grégorien !
-  * transition : 10 jours sautés d'un coup (4/10/1582 J -> 15/10/1582 G)
+  * transition : 10 jours sautés d'un coup<br />
+    <CalendarCorrespondence />
   * année = 365.2425
   * année = 365 ou 366 jours ?
 
 </v-clicks>
-
-<!-- TODO(later): animation correspondance des calendriers -->
 
 <!--
 je vous passe les controverses sur comment calculer la date, ni les schismes religieux, ...
@@ -84,6 +83,9 @@ je ne vous parle pas non plus du calendrier juif, encore utilisé au début de l
   font-size: 0.75em;
   white-space: nowrap;
   font-weight: normal;
+}
+li {
+  line-height: 1.5em;
 }
 </style>
 
@@ -134,7 +136,7 @@ je ne vous parle pas non plus du calendrier juif, encore utilisé au début de l
 <v-clicks>
 
 * tropicale
-* on aime les équinoxes constants à travers les siècles (?)
+* on aime les équinoxes constants à travers les siècles (🤨)
 
 </v-clicks>
 
