@@ -176,7 +176,11 @@ li {
 
 </v-clicks>
 
-<v-click>
+<div v-click="[16, 17]" class="fixed inset-0 z-[999] flex items-center justify-center bg-black/80">
+  <img src="../images/today_calendars.png" class="max-h-[90%] max-w-[90%] object-contain" />
+</div>
+
+<v-click :at="17">
 
 Le calendrier ✝️ grégorien est le standard dans l'industrie occidentale.
 
@@ -194,10 +198,6 @@ Le calendrier ✝️ grégorien est le standard dans l'industrie occidentale.
 }
 </style>
 
-<!--
-TODO(later): avoir la date en calendrier musulman, juif, ...
--->
-
 ---
 
 # Problèmes
@@ -214,53 +214,44 @@ TODO(later): avoir la date en calendrier musulman, juif, ...
 
 # Des solutions ?
 
-<v-click>
-Symmetry 454
-</v-click>
+<div class="grid grid-cols-2 gap-8 mt-4">
+  <div class="flex flex-col items-center">
+    <LightboxImage v-click src="../images/Symmetry454 calendar.png" class="h-40 object-contain" />
+    <div class="mt-3 text-center">
+      <p v-click>Symmetry 454</p>
+      <p v-click>Semaine intercalaire !! 😭</p>
+      <p v-click>(52 × année + 146) mod 293 &lt; 52 😵</p>
+    </div>
+  </div>
+  <div class="flex flex-col items-center">
+    <LightboxImage v-click src="../images/Deuxième_partie_d’un_calendrier_de_1801-1802,_avec_les_correspondances_grégoriennes,_orné_de_signes_allégoriques,_G.29855.jpg" class="h-40 object-contain" />
+    <div class="mt-3 text-center">
+      <p v-click>L'égalité ou rien !</p>
+      <p v-click>12 mois de 30 jours ...</p>
+      <p v-click>+ 5 jours épagomènes ("supplémentaires") "sansculottides" tous les ans
+        <br/>+1 jour "sextile" tous les 6 ou 7 ans.</p>
+    </div>
+  </div>
+</div>
 
 <v-click>
 
-<img src="../images/Symmetry454 calendar.png" class="h-72" />
+<p class="text-center">Bien d'autres ... mais <strong class="text-4xl font-black">impossible de faire parfait</strong>.</p>
 
 </v-click>
 
-<v-click>
-Semaine intercalaire !! 😭
-</v-click>
-
-<v-click>
-
-(52 × année + 146) mod 293 < 52 😵
-
-</v-click>
-
-<v-click>
-
-Bien d'autres ... mais impossible de faire parfait.
-
-</v-click>
-
----
-
-# Pas de pétrole, mais des idées !
-
-<img src="../images/Deuxième_partie_d’un_calendrier_de_1801-1802,_avec_les_correspondances_grégoriennes,_orné_de_signes_allégoriques,_G.29855.jpg" class="max-h-96 mx-auto object-contain" />
-
-<v-click>
-Jours épagomènes ("supplémentaires") "sansculottides" tous les ans, et jour "sextile" tous les 6 ou 7 ans.
-</v-click>
-<v-click>
-
-</v-click>
+<style>
+.tight-list li {
+  margin-top: 0.15em;
+  margin-bottom: 0.15em;
+  line-height: 1.3;
+}
+.tight-list ul {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+</style>
 
 <!--
 jours épagomènes, cf calendrier égyptien antique
 -->
-
----
-
-# Vive la diversité !
-
-<img src="../images/today_calendars.png" class="max-h-96 mx-auto object-contain" />
-
-<!-- FIXME PTC screenshot https://en.wikipedia.org/wiki/Gregorian_calendar -->
