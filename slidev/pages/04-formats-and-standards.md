@@ -51,8 +51,8 @@
 <v-clicks class="tight-list">
 
 * Mercredi 1er ? (premier jour)
-* Jeudi 16 ? (même jour dans 4 semaines ≈ 1 mois) <!-- FIXME PTC -->
-* Dimanche 19 ? (même ordinal) <!-- FIXME PTC -->
+* Mardi 28 ? (même jour dans 4 semaines ≈ 1 mois)
+* Jeudi 30 ? (même ordinal, ou presque)
 
 </v-clicks>
 

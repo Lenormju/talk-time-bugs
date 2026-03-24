@@ -50,5 +50,30 @@
 
 # Questions et slides
 
-FIXME feedback link + QR code
-FIXME slides link + QR code
+<div class="grid grid-cols-2 gap-8">
+<div class="text-center">
+
+[lien pour le feedback](FIXME_PTC)
+
+TODO QR code FIXME PTC
+
+</div>
+<div class="text-center">
+
+[code des slides sur GitHub](https://github.com/Lenormju/talk-time-bugs)
+
+<img src="../images/qr-code-github.png" style="margin-bottom: 2rem;" />
+
+</div>
+</div>
+
+<style>
+.slidev-layout p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.slidev-layout a {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+</style>
