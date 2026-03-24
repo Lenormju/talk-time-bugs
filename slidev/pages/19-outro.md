@@ -3,6 +3,7 @@
 * Claude
 * Slidev.js
 * [Petter Salminen - It's All About Time ⏰ - What developers need to know about time](https://www.youtube.com/watch?v=IZRZ9ur6THk)
+* Le personnel du bar "Le Not a Beer"
 
 ---
 
