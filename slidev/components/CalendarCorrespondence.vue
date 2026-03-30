@@ -45,7 +45,12 @@ const columns = Array.from({ length: TOTAL_DAYS }, (_, i) => ({
 
 onMounted(() => {
   if (ribbonRef.value) {
-    ribbonRef.value.scrollLeft = (TRANSITION_IDX - 2) * CELL_WIDTH
+    const transitionCol = ribbonRef.value.querySelector<HTMLElement>('.col-last')
+    if (transitionCol) {
+      transitionCol.scrollIntoView({ inline: 'center', block: 'nearest' })
+    } else {
+      ribbonRef.value.scrollLeft = (TRANSITION_IDX - 2) * CELL_WIDTH
+    }
     ribbonRef.value.addEventListener('wheel', onWheel, { passive: false })
   }
 })
