@@ -74,9 +74,9 @@ const path = computed(() => `M${lPos.x},${lPos.y} L${tPos.x},${tPos.y}`)
       @mousedown="dragLabel"
     >
       <slot />
-      <span v-if="dragging" class="font-mono text-yellow-300 text-[9px] ml-1 opacity-80">
+      <!-- <span v-if="dragging" class="font-mono text-yellow-300 text-[9px] ml-1 opacity-80">
         {{ lPos.x }},{{ lPos.y }}
-      </span>
+      </span> -->
     </div>
 
     <!-- Arrowhead handle (visible on hover only) -->
@@ -94,9 +94,9 @@ const path = computed(() => `M${lPos.x},${lPos.y} L${tPos.x},${tPos.y}`)
       @mouseenter="onEnter" @mouseleave="onLeave"
       @mousedown="dragTip"
     >
-      <span v-if="dragging" class="absolute left-3 top-0 font-mono text-yellow-300 text-[9px] whitespace-nowrap opacity-80">
+      <!-- <span v-if="dragging" class="absolute left-3 top-0 font-mono text-yellow-300 text-[9px] whitespace-nowrap opacity-80">
         {{ tPos.x }},{{ tPos.y }}
-      </span>
+      </span> -->
     </div>
   </div>
 </template>
