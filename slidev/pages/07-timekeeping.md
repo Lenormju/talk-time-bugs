@@ -10,7 +10,7 @@
   OS, FAI, Français, ...
 * se brancher à un serveur PTP ("precise time protocol")
 * monter son propre serveur (stratum)
-* écouter la fréquence radio adéquate ([SFTS](Standard frequency and time signal service))
+* écouter la fréquence radio adéquate ([SFTS : Standard frequency and time signal service](https://en.wikipedia.org/wiki/Standard_frequency_and_time_signal_service))
 * écouter les signaux GPS
 * ...
 

@@ -161,7 +161,7 @@ CHF 181,00 ↔️ EUR 199,15
 
 ---
 
-# RFC 339
+# RFC 3339
 
 <v-clicks depth="2">
 
