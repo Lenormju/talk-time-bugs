@@ -24,7 +24,7 @@ Principe : éviter la perte d'information
 1. toujours prendre en input un datetime AVEC timezone, refuser autrement
 2. immédiatement convertir ce datetime en UTC, avant tout traitement<span v-click>, <span class="text-orange-400">et noter la version IANA utilisée</span></span>
 3. ne faire que des traitements en UTC
-4. stocker le datetime, avec sa timezone originale à-côté<span v-click>, <span class="text-orange-400">et la version IANA correspondante</span></span>
+4. stocker le datetime, avec sa timezone originale à côté<span v-click>, <span class="text-orange-400">et la version IANA correspondante</span></span>
    <span v-click class="text-orange-400"><br/>et à chaque changement de version IANA, re-convertir le datetime UTC vers sa nouvelle valeur</span>
 5. ne faire que des traitements en UTC
 6. seulement au moment de l'affichage, convertir dans la timezone locale du user
