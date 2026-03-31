@@ -19,6 +19,8 @@ layout: image
 image: ./images/sponsors.png
 ---
 
+<div></div> <!-- fix for image to be displayed-->
+
 ---
 src: ./pages/01-intro.md
 ---
