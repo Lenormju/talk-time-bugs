@@ -20,18 +20,6 @@ image: ./images/sponsors.png
 ---
 
 ---
-
-## 🚧 Work in progress 🚧
-
-<v-clicks>
-
-* Il reste quelques TODOs
-* Il y a quelques anachronismes<br/>(nous sommes le mardi 31 mars)
-* J'ai manqué un peu de temps 😅
-
-</v-clicks>
-
----
 src: ./pages/01-intro.md
 ---
 

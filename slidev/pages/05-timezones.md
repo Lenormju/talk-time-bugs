@@ -136,7 +136,8 @@ International date line :
 
 <v-clicks>
 
-* jamais de datetime naïve
+* c'est aussi important que l'unité dans une mesure
+* jamais de datetime naïve !!
 * privilégier UTC autant que possible
 * ou sinon, bien savoir ce qu'on fait
 
