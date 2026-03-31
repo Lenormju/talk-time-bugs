@@ -1,5 +1,6 @@
 # Remerciements
 
+* Meetup QA de Grenoble (et Rachel en particulier)
 * Claude
 * Slidev.js
 * [Petter Salminen - It's All About Time ⏰ - What developers need to know about time](https://www.youtube.com/watch?v=IZRZ9ur6THk)
@@ -84,7 +85,7 @@ Tooling
 
 [lien pour le feedback](FIXME_PTC)
 
-TODO QR code FIXME PTC
+<img src="../images/qr-code-rickroll.png" style="margin-bottom: 2rem;" />
 
 </div>
 <div class="text-center">
