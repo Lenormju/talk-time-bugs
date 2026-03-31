@@ -18,6 +18,8 @@
 
 # Le retour de la cosmologie !
 
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+
 <v-clicks>
 
 * il faut d'abord parler de UT(1), et donc de UT0 ...

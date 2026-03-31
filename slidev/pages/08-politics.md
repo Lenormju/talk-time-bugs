@@ -1,5 +1,7 @@
 # Les problèmes continuent
 
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+
 <v-clicks>
 
 * Pourquoi il y a 2 dates de début du Ramadan en 2026 ?

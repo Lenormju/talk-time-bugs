@@ -170,6 +170,8 @@ li {
 
 # Les constantes qui ne le sont pas
 
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+
 <v-clicks depth="2" class="tight-list">
 
 * ☪️ Musulman (Hijri) :

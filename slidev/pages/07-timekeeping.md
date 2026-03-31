@@ -35,6 +35,8 @@
 
 # Tout est relatif !
 
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+
 <v-clicks depth="2">
 
 * la relativité restreinte : référentiels inertiels (sans gravité)
@@ -70,6 +72,8 @@
 ---
 
 # Il n'y a pas que la Terre
+
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
 
 * Temps Lunaire
 * Temps martien

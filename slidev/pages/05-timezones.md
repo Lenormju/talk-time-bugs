@@ -70,6 +70,8 @@ Pour faire (très) court :
 
 # Un sacré bazar !
 
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+
 <v-clicks depth="2">
 
 * maintenu par l'IANA ("Internet Assigned Numbers Authority", filiale de l'ICANN), aussi connue pour :
@@ -146,6 +148,8 @@ International date line :
 ---
 
 # Petit bonus : décalage solaire
+
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
 
 <v-click>
 
