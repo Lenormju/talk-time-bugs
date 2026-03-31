@@ -140,6 +140,14 @@ CHF 181,00 ↔️ EUR 199,15
 
 </v-clicks>
 
+<v-click>
+
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 10; backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center;">
+  <img src="../images/iso8601_examples.png" style="max-height: 55vh; max-width: 70%; width: auto; height: auto;"/>
+</div>
+
+</v-click>
+
 <style>
 .tight-list li {
   margin-top: 0.15em;
