@@ -29,4 +29,6 @@ The slides contents are in `./pages/*.md`, and imported from `./slides.md`
 
 Javascript code that is not Vue-related can be loaded from `./snippets.js`
 
+Build : `npm run build` and serve: `python3 -m http.server 8080`
+
 Export to PDF : `npx slidev export slides.md --format pdf --output presentation.pdf`
