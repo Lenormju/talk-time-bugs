@@ -8,23 +8,24 @@ import { isTimeVisible } from './composables/useTimeVisibility'
 // - [slide, click]: show only for specific click (e.g., [3, 1])
 // - [slide, [clicks]]: show for multiple clicks (e.g., [4, [0, 2, 3]])
 const timeVisibleOn: (number | [number, number | number[]])[] = [
-  2,
-  3,
+  1,
   4,
   5,
   6,
-  7,
 ]
 
 // Configuration: when to show the PTC logo (bottom right)
 // Same format as timeVisibleOn
 const logoVisibleOn: (number | [number, number | number[]])[] = [
+  1,
   3,
   4,
   5,
   6,
-  7,
-    // FIXME PTC
+  65,
+  66,
+  67,
+  68,
 ]
 
 const { currentPage, clicks } = useNav()
