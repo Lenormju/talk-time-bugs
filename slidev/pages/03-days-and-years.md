@@ -232,7 +232,7 @@ Le calendrier ✝️ grégorien est le standard dans l'industrie occidentale.
 
 <div class="grid grid-cols-2 gap-8 mt-4">
   <div class="flex flex-col items-center">
-    <LightboxImage v-click src="../images/Symmetry454 calendar.png" class="h-40 object-contain" />
+    <LightboxImage v-click src="/images/Symmetry454 calendar.png" class="h-40 object-contain" />
     <div class="mt-3 text-center">
       <p v-click>Symmetry 454</p>
       <p v-click>Semaine intercalaire !! 😭</p>
@@ -240,7 +240,7 @@ Le calendrier ✝️ grégorien est le standard dans l'industrie occidentale.
     </div>
   </div>
   <div class="flex flex-col items-center">
-    <LightboxImage v-click src="../images/Deuxième_partie_d’un_calendrier_de_1801-1802,_avec_les_correspondances_grégoriennes,_orné_de_signes_allégoriques,_G.29855.jpg" class="h-40 object-contain" />
+    <LightboxImage v-click src="/images/Deuxième_partie_d’un_calendrier_de_1801-1802,_avec_les_correspondances_grégoriennes,_orné_de_signes_allégoriques,_G.29855.jpg" class="h-40 object-contain" />
     <div class="mt-3 text-center">
       <p v-click>L'égalité ou rien !</p>
       <p v-click>12 mois de 30 jours ...</p>

@@ -16,7 +16,7 @@ duration: 45min
 
 ---
 layout: image
-image: ./images/sponsors.png
+image: /images/sponsors.png
 ---
 
 <div></div> <!-- fix for image to be displayed-->
