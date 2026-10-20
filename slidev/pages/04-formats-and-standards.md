@@ -123,7 +123,7 @@ CHF 181,00 ↔️ EUR 199,15
 
 * années : `YYYY`
   * sachant que l'année `0000` n'existe pas dans le calendrier grégorien
-  * `YYY` est autorisé pour désigner une décade, `YY` pour un sicèle
+  * `YYY` est autorisé pour désigner une décade, `YY` pour un siècle
 * dates calendaires : `YYYY-MM-DD` ou `YYYY-MM` ou `YYYYMMDD` (et d'autres "disparus")
 * semaines de l'année : `YYYY-Www` ou `YYYYWww` (avec `ww` entre `01` et `53`)
   * la première de l'année contient le premier jeudi

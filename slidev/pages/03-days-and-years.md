@@ -174,14 +174,14 @@ li {
 
 <v-clicks depth="2" class="tight-list">
 
-* ☪️ Musulman (Hijri) :
-  * lunisolaire ("basé sur la lune")
+* ☪️ Musulman (Hijri / Hégirien / "islamic") :
+  * lunaire ("basé sur la lune")
   * la lune n'a pas une période synodique de X jours exactement (~29.53)
   * année de 12 mois lunaires : 354 ou 355 jours
   * (6×29 + 6×30 = 354 ; 5×29 + 7×30 = 355)
   * les saisons tournent sur 33 ans
-* ✡️ Juif :
-  * mois lunaires "intercalaires" pour approximer l'année tropicale
+* ✡️ Juif (hébraïque / "hebrew") :
+  * mois luni-solaires "intercalaires" pour approximer l'année tropicale
   * un mois supplémentaire tous les 2 ou 3 ans
   * cycle métonique : 7 mois en 19 ans
 * ☦️ Orthodoxe :
