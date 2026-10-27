@@ -50,9 +50,9 @@
 
 <v-clicks class="tight-list">
 
-* Mercredi 1er ? (premier jour)
-* Mardi 28 ? (même jour dans 4 semaines ≈ 1 mois)
-* Jeudi 30 ? (même ordinal, ou presque)
+* Dimanche 1er ? (premier jour)
+* Vendredi 27 ? (même jour dans 4 semaines ≈ 1 mois)
+* Lundi 30 ? (même ordinal, ou presque)
 
 </v-clicks>
 
