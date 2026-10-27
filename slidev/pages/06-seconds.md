@@ -120,9 +120,9 @@ Abolition en 2035 ? Offset fixe entre TAI et UTC
 # Problèmes
 
 <ul>
-  <li>Non-continuité : DST, timezones<span v-click>, <span class="text-orange-400">leap seconds</span></span></li>
   <li>Non-unicité : DST, timezones<span v-click>, <span class="text-orange-400">leap seconds</span></span></li>
   <li>Non-monotonicité : DST, timezones<span v-click>, <span class="text-orange-400">leap seconds</span></span></li>
+  <li>Non-continuité : DST, timezones<span v-click>, <span class="text-orange-400">leap seconds</span></span></li>
   <li>Non-homogénéité : DST, leap years, timezones<span v-click>, <span class="text-orange-400">leap seconds</span></span></li>
   <li>Non-constance : DST, leap years, timezones<span v-click>, <span class="text-orange-400">leap seconds</span></span></li>
   <li>Non-standardized : dates and time formats<span v-click>, <span class="text-orange-400">leap seconds</span></span></li>
