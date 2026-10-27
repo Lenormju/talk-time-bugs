@@ -158,7 +158,7 @@ Réponse n°2 : 🌅 ☃️
     <SunDuration :x="18" :y="50" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
 </v-click>
 <v-click>
-    <SunDuration :x="18" :y="58" :width="45" :height="8" label="Aujourd'hui (31 mars)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 12h46 -->
+    <SunDuration :x="18" :y="58" :width="35.8" :height="8" label="Aujourd'hui (30 octobre)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 10h03 -->
 </v-click>
 <v-click>
     <SunDuration :x="18" :y="66" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
@@ -166,7 +166,7 @@ Réponse n°2 : 🌅 ☃️
 
 <span v-click />
 
-<!-- 31 mars : lever 7h32 coucher 20h18 -->
+<!-- 30 octobre (Paris) : lever 7h32 coucher 17h35 -->
 
 ---
 
@@ -214,7 +214,7 @@ Réponse n°2 : 🌅 ☃️
 # Avez-vous remarqué ?
 
 <SunDuration :x="18" :y="25" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
-<SunDuration :x="18" :y="33" :width="45" :height="8" label="Aujourd'hui (31 mars)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 12h46 -->
+<SunDuration :x="18" :y="33" :width="35.8" :height="8" label="Aujourd'hui (30 octobre)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 10h03 -->
 <SunDuration :x="18" :y="41" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
 
 <!-- pas la même durée -->
