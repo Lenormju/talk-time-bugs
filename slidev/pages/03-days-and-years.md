@@ -9,10 +9,10 @@ import datetime
 
 today = datetime.date.today()  # 30 octobre 2026
 today.replace(month=11)  # 30 novembre 2026
-today.replace(month=2)  # ValueError: day is out of range for month
+today.replace(month=2)  # ValueError: day 30 must be in range 1..28 for month 2 in year 2026
 # ne marche jamais
 tomorrow = today + datetime.timedelta(days=1)  # 31 octobre 2026
-tomorrow.replace(month=11)  # ValueError: day is out of range for month
+tomorrow.replace(month=11)  # ValueError: day 31 must be in range 1..30 for month 11 in year 2026
 # marche aujourd'hui, mais pas demain
 ```
 
