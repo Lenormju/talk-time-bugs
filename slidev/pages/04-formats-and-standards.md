@@ -201,7 +201,7 @@ CHF 181,00 ↔️ EUR 199,15
 
 * ISO/AWI 8601-1 : en cours de développement
 * RFC 9557 : en cours de développement
-* Unix timestamps : secondes écoulées depuis le 1er Janvier 1970 ("Epoch")
+* Unix timestamps : secondes écoulées depuis le 1er Janvier 1970 ("Epoch"), hors secondes intercalaires
   * <UnixTimestamp />
 * Java timestamps : **milli**secondes écoulées depuis l'Epoch Unix
   * <JavaMilliTimestamp />
