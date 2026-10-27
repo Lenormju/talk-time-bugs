@@ -41,7 +41,7 @@ Pour faire (très) court :
   * a conservé son changement d'heure synchronisé avec le reste de l'Union Européenne
   * à l'aller je "perds" 1h, au retour je la regagne
 * "offset" versus "timezone" :
-  * China Standard Time (CST) = `+08:00` ou `Asia/Shangai`
+  * China Standard Time (CST) = `+08:00` ou `Asia/Shanghai`
   * Eastern Standard Time (EST) = `-05:00` ou `America/Cancún`
 * ni offset ni timezone = "naïve"
 
