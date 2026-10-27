@@ -1,6 +1,108 @@
 # Les problèmes commencent ...
 
 <ul>
+  <li v-click>Heure de livraison : 02 h 30 (du matin), le Dimanche 25 Octobre 2026</li>
+  <li v-click>Durée du trajet :
+    45 minutes
+    <span v-if="$clicks >= 5" class="text-red-500"> ... ou 1 h 45 ???</span>
+  </li>
+  <li v-click>Heure de départ : 01 h 45</li>
+  <li v-click>
+    Heure d'arrivée : 02 h 30
+    <span v-if="$clicks >= 5" class="font-mono text-amber-400 ml-2">😰 la première ou la seconde ?</span>
+  </li>
+</ul>
+
+<span v-click class="hidden" />
+
+<v-click>
+Que s'est-il passé ?
+</v-click>
+
+<v-click>
+Décalage horaire : "daylight saving(s) time"
+</v-click>
+
+---
+layout: center
+---
+
+# Avec du code
+
+<v-click>
+<!-- -->
+</v-click>
+
+```python {0|1-3|1-4|1-5|1-6|all}
+import datetime as dt
+
+start_time = dt.datetime(2026, 10, 25, 1, 45, 0)
+end_time =   dt.datetime(2026, 10, 25, 2, 30, 0)
+duration = end_time - start_time
+print(duration)
+# 0:45:00
+# ... ou 1:45:00 : impossible de le savoir
+```
+
+<style>
+.slidev-code-dishonored {
+  visibility: hidden;
+}
+</style>
+
+---
+clicks: 4
+---
+
+# Décalage horaire : automne
+
+<DSTTimelineSVGFall />
+
+---
+
+# Problèmes
+
+<ul>
+  <li v-click class="text-orange-400">Non-unicité : DST</li>
+</ul>
+
+---
+
+# Avec du code
+
+```bash {1|3|3-4|3-5|3-6|3-7|3-8|8|3-9|3-10}
+# run something once every 15 minutes, and compute average speed
+
+# current_time=1:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:09:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:09:17  delta_time=-45:00  delta_quantity=147  speed=-2.66667
+# current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
+# current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
+```
+
+<style>
+.slidev-code-dishonored {
+  visibility: hidden;
+}
+</style>
+
+---
+
+# Problèmes
+
+<ul>
+  <li>Non-unicité : DST</li>
+  <li v-click class="text-orange-400">Non-monotonicité : DST</li>
+</ul>
+
+---
+
+# Et dans l'autre sens
+
+<ul>
   <li v-click>Heure de livraison : 02 h 30 (du matin), le Dimanche 29 Mars 2026</li>
   <li v-click>Durée du trajet :
     45 minutes
@@ -20,7 +122,7 @@ Que s'est-il passé ?
 </v-click>
 
 <v-click>
-Décalage horaire : "daylight saving(s) time"
+02 h 30 n'a pas existé ce jour-là : après 01 h 59, il était 03 h 00
 </v-click>
 
 ---
@@ -53,7 +155,7 @@ print(duration)
 clicks: 3
 ---
 
-# Décalage horaire
+# Décalage horaire : printemps
 
 <DSTTimelineSVG />
 
@@ -62,48 +164,9 @@ clicks: 3
 # Problèmes
 
 <ul>
+  <li>Non-unicité : DST</li>
+  <li>Non-monotonicité : DST</li>
   <li v-click class="text-orange-400">Non-continuité : DST</li>
-</ul>
-
----
-clicks: 4
----
-
-# Et dans l'autre sens
-
-<DSTTimelineSVGFall />
-
----
-
-# Avec du code
-
-```bash {1|3|3-4|3-5|3-6|3-7|3-8|8|3-9|3-10}
-# run something once every 15 minutes, and compute average speed
-
-# current_time=1:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:09:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:09:17  delta_time=-45:00  delta_quantity=147  speed=-2.66667
-# current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
-```
-
-<style>
-.slidev-code-dishonored {
-  visibility: hidden;
-}
-</style>
-
----
-
-# Problèmes
-
-<ul>
-  <li >Non-continuité : DST</li>
-  <li v-click class="text-orange-400">Non-unicité : DST</li>
-  <li v-click class="text-orange-400">Non-monotonicité : DST</li>
 </ul>
 
 ---
@@ -119,9 +182,9 @@ clicks: 4
 # Problèmes
 
 <ul>
-  <li>Non-continuité : DST</li>
   <li>Non-unicité : DST</li>
   <li>Non-monotonicité : DST</li>
+  <li>Non-continuité : DST</li>
   <li v-click class="text-orange-400">Non-homogénéité : DST</li>
 </ul>
 
@@ -202,9 +265,9 @@ Réponse n°2 : 🌅 ☃️
 # Problèmes
 
 <ul>
-  <li>Non-continuité : DST</li>
   <li>Non-unicité : DST</li>
   <li>Non-monotonicité : DST</li>
+  <li>Non-continuité : DST</li>
   <li>Non-homogénéité : DST</li>
   <li v-click class="text-orange-400">Non-constance : DST</li>
 </ul>
