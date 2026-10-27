@@ -7,13 +7,13 @@ Vraiment très compliqué ...
 ```python {1|3|3,4|3-5|5|5-6|3-7|3-8|8|8-9}
 import datetime
 
-today = datetime.date.today()  # 31 mars 2026
-today.replace(month=5)  # 31 mai 2026
-today.replace(month=4)  # ValueError: day is out of range for month
-# marchait hier, mais pas aujourd'hui
-today.replace(month=3)  # 31 mars 2026
+today = datetime.date.today()  # 30 octobre 2026
+today.replace(month=11)  # 30 novembre 2026
 today.replace(month=2)  # ValueError: day is out of range for month
 # ne marche jamais
+tomorrow = today + datetime.timedelta(days=1)  # 31 octobre 2026
+tomorrow.replace(month=11)  # ValueError: day is out of range for month
+# marche aujourd'hui, mais pas demain
 ```
 
 <style>
