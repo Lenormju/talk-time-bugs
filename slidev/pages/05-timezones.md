@@ -34,8 +34,8 @@ Pour faire (très) court :
   * (je vous passe l'histoire d'UTC)
   * UTC = Universel Temps Coordonné / Universal Time Coordinated
 * changement d'heure :
-  * avant le 29 mars : European Central Time (ECT, UTC+1)
-  * après le 29 mars : European Central Summer Time (ECST, UTC+2)
+  * avant le 25 octobre : European Central Summer Time (ECST, UTC+2)
+  * après le 25 octobre : European Central Time (ECT, UTC+1)
 * voyage au Royaume-Uni :
   * UK suit le Greenwich Mean Time (GMT, UTC) ou le British Summer Time (BST, UTC+1)
   * a conservé son changement d'heure synchronisé avec le reste de l'Union Européenne
