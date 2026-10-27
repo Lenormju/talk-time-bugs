@@ -49,8 +49,8 @@ tomorrow.replace(month=11)  # ValueError: day is out of range for month
   <li v-click="1">jour solaire ? <span v-click="2">civil ?</span>
     <ul>
       <li v-click="3">jour solaire : centré sur midi solaire (zénith)</li>
-      <li v-click="4">aujourd'hui le 31 mars : 7:32 (ECST) --> 20:18 (ECST)</li>
-      <li v-click="5">donc midi solaire à (7:32+20:18)/2 = 13:55 (ECST)</li>
+      <li v-click="4">aujourd'hui le 30 octobre : 7:32 (ECT) --> 17:35 (ECT)</li>
+      <li v-click="5">donc midi solaire à (7:32+17:35)/2 = 12:33 (ECT)</li>
       <li v-click="6">donc midi solaire à pas du tout "midi"</li>
     </ul>
   </li>
