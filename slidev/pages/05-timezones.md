@@ -94,9 +94,9 @@ Pour faire (très) court :
 # Problèmes
 
 <ul>
-  <li>Non-continuité : DST</li>
   <li>Non-unicité : DST</li>
   <li>Non-monotonicité : DST</li>
+  <li>Non-continuité : DST</li>
   <li>Non-homogénéité : DST, leap years</li>
   <li>Non-constance : DST, leap years<span v-click>, <span class="text-orange-400">timezones</span></span></li>
   <li>Non-standardized : dates and time formats</li>
@@ -124,9 +124,9 @@ International date line :
 # Problèmes
 
 <ul>
-  <li>Non-continuité : DST<span v-click>, <span class="text-orange-400">timezones</span></span></li>
   <li>Non-unicité : DST<span v-click>, <span class="text-orange-400">timezones</span></span></li>
   <li>Non-monotonicité : DST<span v-click>, <span class="text-orange-400">timezones</span></span></li>
+  <li>Non-continuité : DST<span v-click>, <span class="text-orange-400">timezones</span></span></li>
   <li>Non-homogénéité : DST, leap years<span v-click>, <span class="text-orange-400">timezones</span></span></li>
   <li>Non-constance : DST, leap years, timezones</li>
   <li>Non-standardized : dates and time formats</li>
