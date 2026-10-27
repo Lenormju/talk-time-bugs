@@ -2,7 +2,7 @@
 
 <v-click>
 
-1. Quel jour et mois désignent `10/11/2025` ❓
+1. Quel jour et mois désignent `10/11/2026` ❓
 
 </v-click>
 
