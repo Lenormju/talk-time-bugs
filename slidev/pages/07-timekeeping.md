@@ -61,9 +61,9 @@
 # Problèmes
 
 <ul>
-  <li>Non-continuité : DST, timezones, leap seconds</li>
   <li>Non-unicité : DST, timezones, leap seconds</li>
   <li>Non-monotonicité : DST, timezones, leap seconds</li>
+  <li>Non-continuité : DST, timezones, leap seconds</li>
   <li>Non-homogénéité : DST, leap years, timezones, leap seconds<span v-click>, <span class="text-orange-400">general and special relativity</span></span></li>
   <li>Non-constance : DST, leap years, timezones, leap seconds</li>
   <li>Non-standardized : dates and time formats</li>
