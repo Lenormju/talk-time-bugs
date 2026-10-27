@@ -159,9 +159,9 @@ li {
 # Problèmes
 
 <ul>
-  <li>Non-continuité : DST</li>
   <li>Non-unicité : DST</li>
   <li>Non-monotonicité : DST</li>
+  <li>Non-continuité : DST</li>
   <li>Non-homogénéité : DST</li>
   <li>Non-constance : DST<span v-click>, <span class="text-orange-400">leap years</span></span></li>
 </ul>
@@ -219,9 +219,9 @@ Le calendrier ✝️ grégorien est le standard dans l'industrie occidentale.
 # Problèmes
 
 <ul>
-  <li>Non-continuité : DST</li>
   <li>Non-unicité : DST</li>
   <li>Non-monotonicité : DST</li>
+  <li>Non-continuité : DST</li>
   <li>Non-homogénéité : DST<span v-click>, <span class="text-orange-400">leap years</span></span></li>
   <li>Non-constance : DST, leap years</li>
 </ul>
