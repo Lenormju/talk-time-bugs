@@ -1,1 +1,9 @@
-/* empty for now */
+/* Center the content of default-layout slides, both vertically and horizontally.
+   A single grid column sized to the widest child keeps all blocks (title, list,
+   paragraphs) sharing the same left edge while the whole block is centered.
+   Opt out on a slide with `class: no-center` in its frontmatter. */
+.slidev-layout.default:not(.no-center) {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
