@@ -271,3 +271,119 @@ Le calendrier ✝️ grégorien est le standard dans l'industrie occidentale.
 <!--
 jours épagomènes, cf calendrier égyptien antique
 -->
+
+---
+
+# De vraies solutions
+
+<v-click>
+
+> Temporal [...] learned from the many failures and dead bodies that came before it. And it had lots of good implementations to look at: Joda Time, Chrono, etc.
+> -- [news.ycombinator.com](https://news.ycombinator.com/item?id=46597195)
+
+</v-click>
+
+<v-clicks depth="2">
+
+* ajouter une **durée "claire"** : un nombre fixe de secondes → `timedelta(days=1)`
+* ajouter une **durée calendaire** : « +1 mois », « +1 an », longueur variable
+  * une API qui accepte la réalité des calendriers : `relativedelta`, `Temporal.PlainDate.add`, Java `plusMonths`, SQL `interval '1 month'`
+  * jamais de `replace(month=...)`, ni d'arithmétique à la main
+
+</v-clicks>
+
+---
+
+# +1 mois, le 31 octobre 2026
+
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div v-click>
+
+Python : plante
+
+```python
+d = date(2026, 10, 31)
+d.replace(month=11)  # ValueError: day 31 must be in range 1..30
+d + relativedelta(months=1)  # 2026-11-30
+```
+
+</div>
+<div v-click>
+
+JavaScript : déborde en silence
+
+```js
+const d = new Date(2026, 9, 31)  // mois de 0 à 11
+d.setMonth(10)  // "Tue Dec 01 2026", donc month=11 !!
+```
+
+</div>
+<div v-click>
+
+Go : déborde en silence
+
+```go
+d := time.Date(2026, 10, 31, 0, 0, 0, 0, time.UTC)
+d.AddDate(0, 1, 0)  // 2026-12-01
+```
+
+</div>
+<div v-click>
+
+Temporal : écrête, ou rejette sur demande
+
+```js
+const d = Temporal.PlainDate.from("2026-10-31")
+d.add({ months: 1 })  // 2026-11-30
+d.add({ months: 1 }, { overflow: "reject" })  // RangeError
+```
+
+</div>
+</div>
+
+<v-click>
+
+<p class="text-center text-xl mt-4">Un résultat faux <strong>silencieux</strong> est pire qu'une erreur.</p>
+
+</v-click>
+
+---
+
+# Vécu, tests, et la suite
+
+<v-clicks depth="2" class="tight-list">
+
+* 🐛 Vécu : le site Hugo grenoble-meetups, bouton « mois suivant »
+  * `$now.AddDate 0 1 0` le 31 août → « 31 septembre » → 1er octobre
+  * remède : ancrer sur le 1er du mois, puis décaler ([commit 61b7a67](https://github.com/Lenormju/grenoble-meetups/commit/61b7a6713590ff2f45eecbea2467a66a66c964c9))
+* « +1 mois » métier (échéance, abonnement), « +1 an » au 29 février :
+  * **règle métier explicite**, à décider : dernier jour du mois ? jour écrêté ?
+* ⚠️ ne **pas** coder la règle bissextile soi-même
+* 🧪 tests : 28 et 29 février, le 31, 1900 / 2000 / 2100, property-based
+* hors scope : calendriers non grégoriens, dates avant 1582
+
+</v-clicks>
+
+<v-click>
+
+<p class="text-center text-2xl mt-4"><strong>Une date n'est pas un instant</strong> : voir fuseaux.</p>
+
+</v-click>
+
+<!--
+même bug que la slide d'ouverture (replace(month=...)) : Python plante, Go et JS débordent
+symétrique au 31 décembre avec AddDate(0,-1,0)
+ancrer sur le 1er : OK pour une navigation, pas pour une échéance
+-->
+
+<style>
+.tight-list li {
+  margin-top: 0.15em;
+  margin-bottom: 0.15em;
+  line-height: 1.3;
+}
+.tight-list ul {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+</style>
