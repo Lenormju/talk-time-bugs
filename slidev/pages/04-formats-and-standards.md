@@ -229,6 +229,53 @@ CHF 181,00 ↔️ EUR 199,15
 
 ---
 
+# Éviter / détecter (formats) : échanger des dates
+
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div v-click>
+
+<div class="text-red-500 font-bold">Contre-exemple</div>
+
+```json
+{
+  "date": "10/11/2026",
+  "created": "30/10/26 9h",
+  "timeout": 30
+}
+```
+
+</div>
+<div v-click>
+
+<div class="text-green-500 font-bold">Bon exemple</div>
+
+```json
+{
+  "date": "2026-11-10",
+  "created_at": "2026-10-30T08:00:00Z",
+  "timeout_seconds": 30
+}
+```
+
+</div>
+</div>
+
+<v-clicks depth="2">
+
+* **toujours** un format standard : ISO 8601, ou plutôt son profil **RFC 3339**
+* ⚠️ les langages **mélangent les deux noms** :
+  * Python `isoformat()` : « ISO 8601 », mais sans fuseau si le datetime est naïf
+  * JS `toISOString()` : toujours en `Z` ; `Date.parse` lit un sous-ensemble d'ISO 8601
+  * Go `time.RFC3339` : strict, ni espace ni fuseau manquant
+  * Java `Instant.parse()` : « ISO 8601 », fuseau obligatoire
+  * Rust (chrono) `to_rfc3339()` : écrit `+00:00` (pas `Z`), lit aussi avec un espace
+* **pas de "format maison"**, ni à l'écriture, ni à la lecture
+* l'**unité dans le nom** du champ : `timeout_seconds`, `duration_ms`, `size_bytes`
+
+</v-clicks>
+
+---
+
 # Le petit détail ...
 
 <v-click>
