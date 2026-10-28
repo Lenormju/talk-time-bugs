@@ -30,7 +30,7 @@
 
 <v-click>
 
-3. Je dois me lever tôt ou me coucher tard pour une réunion à 9 heures ?
+3. Je dois me lever tôt ou pas pour une réunion à « 8 heures » ❓
 
 </v-click>
 
@@ -44,7 +44,7 @@
 
 <v-click>
 
-4. Quel jour on sera "le mois prochain" ?
+4. Quel jour on sera « le mois prochain » ❓
 
 </v-click>
 
