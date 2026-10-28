@@ -16,6 +16,12 @@ tomorrow.replace(month=11)  # ValueError: day 31 must be in range 1..30 for mont
 # marche aujourd'hui, mais pas demain
 ```
 
+<v-click>
+
+site Hugo [grenoble-meetups.fr](https://github.com/Lenormju/grenoble-meetups/commit/61b7a6713590ff2f45eecbea2467a66a66c964c9), bouton « mois suivant » : `$now.AddDate 0 1 0` le 31 août → « 31 septembre » → 1er octobre
+
+</v-click>
+
 <style>
 .slidev-code-dishonored {
   visibility: hidden;
@@ -289,6 +295,7 @@ jours épagomènes, cf calendrier égyptien antique
 * ajouter une **durée calendaire** : « +1 mois », « +1 an », longueur variable
   * une API qui accepte la réalité des calendriers : `relativedelta`, `Temporal.PlainDate.add`, Java `plusMonths`, SQL `interval '1 month'`
   * jamais de `replace(month=...)`, ni d'arithmétique à la main
+* 🧪 tester : 28 et 29 février, le 31, 1900 / 2000 / 2100, et en property-based
 
 </v-clicks>
 
@@ -347,43 +354,13 @@ d.add({ months: 1 }, { overflow: "reject" })  // RangeError
 
 </v-click>
 
----
-
-# Vécu, tests, et la suite
-
-<v-clicks depth="2" class="tight-list">
-
-* 🐛 Vécu : le site Hugo grenoble-meetups, bouton « mois suivant »
-  * `$now.AddDate 0 1 0` le 31 août → « 31 septembre » → 1er octobre
-  * remède : ancrer sur le 1er du mois, puis décaler ([commit 61b7a67](https://github.com/Lenormju/grenoble-meetups/commit/61b7a6713590ff2f45eecbea2467a66a66c964c9))
-* « +1 mois » métier (échéance, abonnement), « +1 an » au 29 février :
-  * **règle métier explicite**, à décider : dernier jour du mois ? jour écrêté ?
-* ⚠️ ne **pas** coder la règle bissextile soi-même
-* 🧪 tests : 28 et 29 février, le 31, 1900 / 2000 / 2100, property-based
-* hors scope : calendriers non grégoriens, dates avant 1582
-
-</v-clicks>
-
 <v-click>
 
-<p class="text-center text-2xl mt-4"><strong>Une date n'est pas un instant</strong> : voir fuseaux.</p>
+<p class="text-center mt-2">« +1 mois » d'une échéance, « +1 an » un 29 février : <strong>règle métier explicite</strong>, dernier jour du mois ou jour écrêté ?</p>
 
 </v-click>
 
 <!--
 même bug que la slide d'ouverture (replace(month=...)) : Python plante, Go et JS débordent
-symétrique au 31 décembre avec AddDate(0,-1,0)
-ancrer sur le 1er : OK pour une navigation, pas pour une échéance
+c'est la règle d'écrêtage de Temporal : à choisir et à documenter, pas à subir
 -->
-
-<style>
-.tight-list li {
-  margin-top: 0.15em;
-  margin-bottom: 0.15em;
-  line-height: 1.3;
-}
-.tight-list ul {
-  margin-top: 0.1em;
-  margin-bottom: 0.1em;
-}
-</style>
