@@ -274,6 +274,108 @@ Réponse n°2 : 🌅 ☃️
 
 ---
 
+# Éviter / détecter (DST) : comparer deux instants
+
+<v-click>
+<!-- -->
+</v-click>
+
+```python {0|1-6|1-8|1-9|all}
+import datetime as dt
+from zoneinfo import ZoneInfo
+paris = ZoneInfo("Europe/Paris")
+
+start = dt.datetime(2026, 10, 25, 1, 45, tzinfo=paris)
+end   = dt.datetime(2026, 10, 25, 2, 30, tzinfo=paris, fold=1)  # 2e passage
+print(start)  # 2026-10-25 01:45:00+02:00
+print(end)  #   2026-10-25 02:30:00+01:00
+print(end - start)  # 0:45:00
+utc = dt.timezone.utc
+print(end.astimezone(utc) - start.astimezone(utc))  # 1:45:00
+```
+
+<v-clicks>
+
+- Dates **avec fuseau** (`zoneinfo`), `fold` pour lever l'ambiguïté, durées calculées **en UTC**
+- Tester les heures ambiguës ou inexistantes (changements d'heure), en figeant l'horloge : `time-machine` (slide suivante), `libfaketime`
+
+</v-clicks>
+
+<style>
+.slidev-code-dishonored {
+  visibility: hidden;
+}
+</style>
+
+---
+
+# Éviter / détecter (DST) : mesurer une durée
+
+```python
+# processus lancé avec TZ=Europe/Paris
+import datetime as dt, time, time_machine
+from zoneinfo import ZoneInfo
+paris = ZoneInfo("Europe/Paris")
+before = dt.datetime(2026, 10, 25, 2, 50, tzinfo=paris)         # 02:50 +02:00
+after  = dt.datetime(2026, 10, 25, 2, 5, tzinfo=paris, fold=1)  # 02:05 +01:00
+```
+
+<div class="grid grid-cols-2 gap-4 mt-2">
+
+<div v-click="1" class="wall">
+<div class="text-red-500 font-bold">Horloge murale</div>
+
+```python {0|1|1-3|1-4|all} {at:1}
+with time_machine.travel(before) as clock:
+    start = dt.datetime.now()
+    time.sleep(15 * 60)
+    clock.move_to(after)
+    delta = dt.datetime.now() - start
+    print(round(delta.total_seconds()))
+# -2700
+```
+
+</div>
+
+<div v-click="5" class="mono">
+<div class="text-green-500 font-bold">Horloge monotone</div>
+
+```python {0|1-4|all} {at:5}
+with time_machine.travel(before) as clock:
+    start = time.monotonic()
+    time.sleep(15 * 60)
+    clock.move_to(after)
+    delta = time.monotonic() - start
+    print(round(delta))
+# 900
+```
+
+</div>
+</div>
+
+<div v-click="7" class="raw mt-2">
+
+```python
+print(round(time.monotonic(), 2))  # 24164.39
+```
+
+L'horloge monotone n'est pas une date, juste un compteur qui n'avance que vers l'avant.
+
+</div>
+
+<style>
+.slidev-code-dishonored {
+  visibility: hidden;
+}
+.wall .line:is(:nth-child(2), :nth-child(5)) > span:nth-child(n+3):nth-child(-n+8),
+.mono .line:is(:nth-child(2), :nth-child(5)) > span:nth-child(n+3):nth-child(-n+6),
+.raw .line:first-child > span:nth-child(n+5):nth-child(-n+8) {
+  font-weight: bold;
+}
+</style>
+
+---
+
 # Avez-vous remarqué ?
 
 <SunDuration :x="18" :y="25" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
