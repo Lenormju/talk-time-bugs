@@ -16,6 +16,12 @@ tomorrow.replace(month=11)  # ValueError: day 31 must be in range 1..30 for mont
 # marche aujourd'hui, mais pas demain
 ```
 
+<v-click>
+
+site Hugo [grenoble-meetups.fr](https://github.com/Lenormju/grenoble-meetups/commit/61b7a6713590ff2f45eecbea2467a66a66c964c9), bouton « mois suivant » : `$now.AddDate 0 1 0` le 31 août → « 31 septembre » → 1er octobre
+
+</v-click>
+
 <style>
 .slidev-code-dishonored {
   visibility: hidden;
@@ -270,4 +276,91 @@ Le calendrier ✝️ grégorien est le standard dans l'industrie occidentale.
 
 <!--
 jours épagomènes, cf calendrier égyptien antique
+-->
+
+---
+
+# De vraies solutions
+
+<v-click>
+
+> Temporal [...] learned from the many failures and dead bodies that came before it. And it had lots of good implementations to look at: Joda Time, Chrono, etc.
+> -- [news.ycombinator.com](https://news.ycombinator.com/item?id=46597195)
+
+</v-click>
+
+<v-clicks depth="2">
+
+* ajouter une **durée "claire"** : un nombre fixe de secondes → `timedelta(days=1)`
+* ajouter une **durée calendaire** : « +1 mois », « +1 an », longueur variable
+  * une API qui accepte la réalité des calendriers : `relativedelta`, `Temporal.PlainDate.add`, Java `plusMonths`, SQL `interval '1 month'`
+  * jamais de `replace(month=...)`, ni d'arithmétique à la main
+* 🧪 tester : 28 et 29 février, le 31, 1900 / 2000 / 2100, et en property-based
+
+</v-clicks>
+
+---
+
+# +1 mois, le 31 octobre 2026
+
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div v-click>
+
+Python : plante
+
+```python
+d = date(2026, 10, 31)
+d.replace(month=11)  # ValueError: day 31 must be in range 1..30
+d + relativedelta(months=1)  # 2026-11-30
+```
+
+</div>
+<div v-click>
+
+JavaScript : déborde en silence
+
+```js
+const d = new Date(2026, 9, 31)  // mois de 0 à 11
+d.setMonth(10)  // "Tue Dec 01 2026", donc month=11 !!
+```
+
+</div>
+<div v-click>
+
+Go : déborde en silence
+
+```go
+d := time.Date(2026, 10, 31, 0, 0, 0, 0, time.UTC)
+d.AddDate(0, 1, 0)  // 2026-12-01
+```
+
+</div>
+<div v-click>
+
+Temporal : écrête, ou rejette sur demande
+
+```js
+const d = Temporal.PlainDate.from("2026-10-31")
+d.add({ months: 1 })  // 2026-11-30
+d.add({ months: 1 }, { overflow: "reject" })  // RangeError
+```
+
+</div>
+</div>
+
+<v-click>
+
+<p class="text-center text-xl mt-4">Un résultat faux <strong>silencieux</strong> est pire qu'une erreur.</p>
+
+</v-click>
+
+<v-click>
+
+<p class="text-center mt-2">« +1 mois » d'une échéance, « +1 an » un 29 février : <strong>règle métier explicite</strong>, dernier jour du mois ou jour écrêté ?</p>
+
+</v-click>
+
+<!--
+même bug que la slide d'ouverture (replace(month=...)) : Python plante, Go et JS débordent
+c'est la règle d'écrêtage de Temporal : à choisir et à documenter, pas à subir
 -->
