@@ -238,3 +238,19 @@ C'est quoi "GMT" ?
 </div>
 
 </v-click>
+
+<v-click>
+
+<div>
+C'est quoi "+0200" ?
+</div>
+
+</v-click>
+
+<v-click>
+
+<div>
+C'est quoi "Z" ?
+</div>
+
+</v-click>
