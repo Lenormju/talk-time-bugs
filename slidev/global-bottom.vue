@@ -14,7 +14,7 @@ const timeVisibleOn: (number | [number, number | number[]])[] = [
   6,
 ]
 
-// Configuration: when to show the PTC logo (bottom right)
+// Configuration: when to show the BDX I/O logo (bottom right)
 // Same format as timeVisibleOn
 const logoVisibleOn: (number | [number, number | number[]])[] = [
   1,
@@ -78,7 +78,7 @@ onUnmounted(() => {
   <div v-if="shouldShow && isTimeVisible" class="time-display">
     {{ currentTime }}
   </div>
-  <img v-if="shouldShowLogo" src="./images/logo_ptc.png" class="logo-display" />
+  <img v-if="shouldShowLogo" src="./images/logo_bdxio.svg" class="logo-display" />
 </template>
 
 <style scoped>
