@@ -1,15 +1,12 @@
 # Les problèmes commencent ...
 
 <ul>
-  <li v-click>Heure de livraison : 02 h 30 (du matin), le Dimanche 25 Octobre 2026</li>
-  <li v-click>Durée du trajet :
-    45 minutes
-    <span v-if="$clicks >= 5" class="text-red-500"> ... ou 1 h 45 ???</span>
-  </li>
-  <li v-click>Heure de départ : 01 h 45</li>
+  <li v-click>Dimanche 25 Octobre 2026, je rentre de soirée ...</li>
+  <li v-click>mon Apple Watch affiche : 02 h 30</li>
+  <li v-click>je marche 45 minutes</li>
   <li v-click>
-    Heure d'arrivée : 02 h 30
-    <span v-if="$clicks >= 5" class="font-mono text-amber-400 ml-2">😰 la première ou la seconde ?</span>
+    j'arrive : 02 h 15
+    <span v-if="$clicks >= 5" class="font-mono text-amber-400 ml-2">😰 avant d'être parti ?</span>
   </li>
 </ul>
 
@@ -20,7 +17,7 @@ Que s'est-il passé ?
 </v-click>
 
 <v-click>
-Décalage horaire : "daylight saving(s) time"
+Changement d'heure : "daylight saving(s) time"
 </v-click>
 
 ---
@@ -36,12 +33,12 @@ layout: center
 ```python {0|1-3|1-4|1-5|1-6|all}
 import datetime as dt
 
-start_time = dt.datetime(2026, 10, 25, 1, 45, 0)
-end_time =   dt.datetime(2026, 10, 25, 2, 30, 0)
+start_time = dt.datetime(2026, 10, 25, 2, 30, 0)
+end_time =   dt.datetime(2026, 10, 25, 2, 15, 0)
 duration = end_time - start_time
 print(duration)
-# 0:45:00
-# ... ou 1:45:00 : impossible de le savoir
+# -1 day, 23:45:00
+# ... soit -15 minutes : arrivé avant d'être parti
 ```
 
 <style>
@@ -54,7 +51,7 @@ print(duration)
 clicks: 4
 ---
 
-# Décalage horaire : automne
+# Changement d'heure : automne
 
 <DSTTimelineSVGFall />
 
@@ -155,7 +152,7 @@ print(duration)
 clicks: 3
 ---
 
-# Décalage horaire : printemps
+# Changement d'heure : printemps
 
 <DSTTimelineSVG />
 
