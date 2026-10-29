@@ -55,8 +55,8 @@ site Hugo [grenoble-meetups.fr](https://github.com/Lenormju/grenoble-meetups/com
   <li v-click="1">jour solaire ? <span v-click="2">civil ?</span>
     <ul>
       <li v-click="3">jour solaire : centré sur midi solaire (zénith)</li>
-      <li v-click="4">aujourd'hui le 30 octobre : 7:32 (ECT) --> 17:35 (ECT)</li>
-      <li v-click="5">donc midi solaire à (7:32+17:35)/2 = 12:33 (ECT)</li>
+      <li v-click="4">aujourd'hui le 30 octobre : 7:32 (CET) --> 17:35 (CET)</li>
+      <li v-click="5">donc midi solaire à (7:32+17:35)/2 = 12:33 (CET)</li>
       <li v-click="6">donc midi solaire à pas du tout "midi"</li>
     </ul>
   </li>
