@@ -56,6 +56,8 @@ Un problème récurrent :
 
 ## Définition : le temps
 
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+
 <v-click>
 
 > Milieu indéfini et homogène dans lequel se situent les êtres et les choses et qui est caractérisé par sa double nature, à la fois continuité et succession.
