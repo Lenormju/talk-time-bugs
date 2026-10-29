@@ -4,7 +4,9 @@
 Vraiment très compliqué ...
 </v-click>
 
-```python {1|3|3,4|3-5|5|5-6|3-7|3-8|8|8-9}
+<v-click>
+
+```python {1|3|3,4|3-5|5|5-6|3-7|3-8|8|4,8-9}
 import datetime
 
 today = datetime.date.today()  # 30 octobre 2026
@@ -16,9 +18,13 @@ tomorrow.replace(month=11)  # ValueError: day 31 must be in range 1..30 for mont
 # marche aujourd'hui, mais pas demain
 ```
 
+</v-click>
+
 <v-click>
 
-site Hugo [grenoble-meetups.fr](https://github.com/Lenormju/grenoble-meetups/commit/61b7a6713590ff2f45eecbea2467a66a66c964c9), bouton « mois suivant » : `$now.AddDate 0 1 0` le 31 août → « 31 septembre » → 1er octobre
+site Hugo [grenoble-meetups.fr](https://github.com/Lenormju/grenoble-meetups/commit/61b7a6713590ff2f45eecbea2467a66a66c964c9), bouton « mois suivant » : `$now.AddDate 0 1 0`
+
+le 31 août → « 31 septembre » → 1er octobre
 
 </v-click>
 
