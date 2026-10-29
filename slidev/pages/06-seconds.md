@@ -105,15 +105,24 @@ Ca dépend !
 
 <v-click>
 
-Bientôt la toute première seconde intercalaire négative ?
+Dernière seconde intercalaire : 31 décembre 2016. TAI − UTC reste à 37 s.
 
 </v-click>
 
 <v-click>
 
-Abolition en 2035 ? Offset fixe entre TAI et UTC
+**Breaking news** : 15 octobre 2026, CGPM, Résolution 5 : « On the technical actions needed to ensure the continuity of UTC »
+
+- UTC continu à partir du **20 mai 2027** : plus de seconde intercalaire
+- UT1 − UTC pourra dériver jusqu'à **1 heure** (au lieu de 0,9 s)
 
 </v-click>
+
+<!--
+Sources :
+* BIPM (Résolution 5 de la 28e Conférence générale des poids et mesures (CGPM), 15 oct. 2026) : https://www.bipm.org/en/cgpm-2026/resolution-5
+* IERS Bulletin C 72 pour les 37 s : https://datacenter.iers.org/data/16/bulletinc-072.txt
+-->
 
 ---
 
