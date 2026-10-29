@@ -291,23 +291,23 @@ class: no-center
 <!-- -->
 </v-click>
 
-```python {0|1-6|1-8|1-9|all}
+```python {0|1-3|1-6|1-8|1-9|all}
 import datetime as dt
 from zoneinfo import ZoneInfo
 paris = ZoneInfo("Europe/Paris")
 
-start = dt.datetime(2026, 10, 25, 1, 45, tzinfo=paris)
-end   = dt.datetime(2026, 10, 25, 2, 30, tzinfo=paris, fold=1)  # 2e passage
-print(start)  # 2026-10-25 01:45:00+02:00
-print(end)  #   2026-10-25 02:30:00+01:00
-print(end - start)  # 0:45:00
-utc = dt.timezone.utc
-print(end.astimezone(utc) - start.astimezone(utc))  # 1:45:00
+premier = dt.datetime(2026, 10, 25, 2, 30, tzinfo=paris)          # fold=0
+second  = dt.datetime(2026, 10, 25, 2, 30, tzinfo=paris, fold=1)
+print(premier)  # 2026-10-25 02:30:00+02:00
+print(second)   # 2026-10-25 02:30:00+01:00
+print(second - premier)  # 0:00:00  (python/cpython#112638)
+print(second.timestamp() - premier.timestamp())  # 3600.0
 ```
 
 <v-clicks>
 
-- Dates **avec fuseau** (`zoneinfo`), `fold` pour lever l'ambiguïté, durées calculées **en UTC**
+- Même heure affichée, 02:30, mais **deux instants différents** : `fold` choisit le 1ᵉʳ ou le 2ᵉ passage
+- L'offset (`+02:00` / `+01:00`) change selon `fold` ; si on l'ignore, la durée calculée est fausse
 - Tester les heures ambiguës ou inexistantes (changements d'heure), en figeant l'horloge : `time-machine` (slide suivante), `freezegun`, `libfaketime`, [Symfony Clock](https://symfony.com/doc/current/components/clock.html) (PHP)
 
 </v-clicks>
