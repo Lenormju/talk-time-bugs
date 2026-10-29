@@ -17,6 +17,10 @@ Que s'est-il passé ?
 </v-click>
 
 <v-click>
+  <img src="../images/iphonesoft_apple_watchos_27_bug.png" class="w-96 border-2 border-gray-400" />
+</v-click>
+
+<v-click>
 Changement d'heure : "daylight saving(s) time"
 </v-click>
 
