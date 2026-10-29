@@ -36,7 +36,9 @@
   * générer des tests de couverture
   * brainstormer des test cases
   * générer des tests property-based
-* `freezetime` et autres
-* [`libfaketime`](https://github.com/wolfcw/libfaketime) (syscall-level) via `LD_PRELOAD`
+* figer / manipuler l'horloge dans les tests :
+  * Python : [`time-machine`](https://github.com/adamchainz/time-machine), [`freezegun`](https://github.com/spulec/freezegun)
+  * PHP : [Symfony Clock](https://symfony.com/doc/current/components/clock.html) (`MockClock`, PSR-20)
+  * tout langage : [`libfaketime`](https://github.com/wolfcw/libfaketime) (syscall-level) via `LD_PRELOAD`
 
 </v-clicks>

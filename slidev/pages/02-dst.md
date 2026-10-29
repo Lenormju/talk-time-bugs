@@ -297,7 +297,7 @@ print(end.astimezone(utc) - start.astimezone(utc))  # 1:45:00
 <v-clicks>
 
 - Dates **avec fuseau** (`zoneinfo`), `fold` pour lever l'ambiguïté, durées calculées **en UTC**
-- Tester les heures ambiguës ou inexistantes (changements d'heure), en figeant l'horloge : `time-machine` (slide suivante), `libfaketime`
+- Tester les heures ambiguës ou inexistantes (changements d'heure), en figeant l'horloge : `time-machine` (slide suivante), `freezegun`, `libfaketime`, [Symfony Clock](https://symfony.com/doc/current/components/clock.html) (PHP)
 
 </v-clicks>
 
