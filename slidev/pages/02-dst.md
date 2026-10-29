@@ -190,24 +190,24 @@ Réponse n°2 : 🌅 ☃️
 
 <v-click>
 
-<WorkAndSchoolSchedule :animated="$clicks >= 8" />
+<WorkAndSchoolSchedule :animated="$clicks >= 8" :shown="Math.max(0, Math.min(3, $clicks - 4))" />
 
 </v-click>
 
 <v-click>
-    <SunDuration ghost :x="38.2" :y="50" :width="29.4" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h41 -> 16h56 (8h15) -->
+    <SunDuration :x="41.8" :y="50" :width="29.4" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 9h41 -> 17h56 en UTC+2 (8h15) -->
 </v-click>
 <v-click>
-    <SunDuration ghost :x="34.2" :y="58" :width="35.6" :height="8" label="Aujourd'hui (30 octobre)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 7h34 -> 17h34 (10h) -->
+    <SunDuration :x="37.8" :y="58" :width="35.6" :height="8" label="Aujourd'hui (30 octobre)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 8h34 -> 18h34 en UTC+2 (10h) -->
 </v-click>
 <v-click>
-    <SunDuration ghost :x="27.9" :y="66" :width="57.6" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 5h47 -> 21h58 (16h11) -->
+    <SunDuration :x="27.9" :y="66" :width="57.6" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 5h47 -> 21h58 en UTC+2 (16h11) -->
 </v-click>
 
 <span v-click />
 
 <!--
-Sources des rectangles SunDuration (position `ghost` = cible de calage).
+Sources des repères de lever/coucher de WorkAndSchoolSchedule et des positions des SunDuration.
 
 Données (Paris, 48.8566 N / 2.3522 E, heure légale) :
 https://api.sunrise-sunset.org/json?lat=48.8566&lng=2.3522&date=YYYY-MM-DD&formatted=0&tzid=Europe/Paris
@@ -216,16 +216,24 @@ https://api.sunrise-sunset.org/json?lat=48.8566&lng=2.3522&date=YYYY-MM-DD&forma
 - 2026-10-30 (aujourd'hui, UTC+1)      : lever 07:34:23, coucher 17:34:06, durée 35983 s = 10h00
 - 2026-06-21 (solstice d'été, UTC+2)   : lever 05:46:55, coucher 21:57:54, durée 58259 s = 16h11
 
+Référentiel : tout est exprimé en heure d'été (UTC+2). La frise part de l'heure d'été ; au clic 8
+elle revient à l'heure d'hiver (l'heure 2h-3h est répétée, les libellés glissent d'une heure vers
+la droite, les rectangles ne bougent pas) : le soleil se lit 1 h plus tôt.
+Seuls l'hiver et aujourd'hui changent (l'API les donne en UTC+1) : +1 h.
+hiver 09:41:09 -> 17:56:08 ; aujourd'hui 08:34:23 -> 18:34:06 ; été inchangé.
+
 Calculé (estimé, pas mesuré) à partir de l'axe de WorkAndSchoolSchedule.vue :
 - x(h) = 20 + 40·h dans un viewBox de 1000, soit 3,56 % de la slide par heure
   (calibré sur les largeurs d'origine : 28,47 % pour 8 h)
 - début de l'axe (0h) à ~7,3 % de la slide (marge du layout ~56 px sur 980 px)
 - x% = 7,3 + 3,56 × heure_du_lever ; width% = 3,56 × durée
-- hiver : x = 7,3 + 3,56 × 8,68 = 38,2 ; width = 3,56 × 8,25 = 29,4
-- aujourd'hui : x = 7,3 + 3,56 × 7,57 = 34,2 ; width = 3,56 × 10,0 = 35,6
+- hiver : x = 7,3 + 3,56 × 9,69 = 41,8 ; width = 3,56 × 8,25 = 29,4
+- aujourd'hui : x = 7,3 + 3,56 × 8,57 = 37,8 ; width = 3,56 × 10,0 = 35,6
 - été : x = 7,3 + 3,56 × 5,78 = 27,9 ; width = 3,56 × 16,18 = 57,6
 -->
 
+---
+class: no-center
 ---
 
 # Evolutions
