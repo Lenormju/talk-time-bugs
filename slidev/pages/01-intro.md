@@ -109,6 +109,8 @@ On va se passer de cette définition aujourd'hui ...
 </v-click>
 
 ---
+class: no-center
+---
 
 ## Définition : les bugs <v-click><span>(temporels)</span></v-click>
 
