@@ -36,15 +36,16 @@ layout: center
 <!-- -->
 </v-click>
 
-```python {0|1-3|1-4|1-5|1-6|all}
+```python {0|1-3|1-4|1-5|1-7|all}
 import datetime as dt
 
-start_time = dt.datetime(2026, 10, 25, 2, 30, 0)
-end_time =   dt.datetime(2026, 10, 25, 2, 15, 0)
-duration = end_time - start_time
-print(duration)
-# -1 day, 23:45:00
-# ... soit -15 minutes : arrivé avant d'être parti
+depart  = dt.datetime(2026, 10, 25, 2, 30, 0)
+arrivee = dt.datetime(2026, 10, 25, 2, 15, 0)
+coucher = dt.datetime(2026, 10, 25, 2, 30, 0)
+print(arrivee - depart)
+# -1 day, 23:45:00 : la marche a duré 45 minutes
+print(coucher == depart)
+# True : alors qu'il y a 1 heure d'écart
 ```
 
 <style>
