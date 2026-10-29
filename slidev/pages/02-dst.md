@@ -1,26 +1,28 @@
 # Les problèmes commencent ...
 
 <ul>
-  <li v-click>Dimanche 25 Octobre 2026, je rentre de soirée ...</li>
-  <li v-click>mon Apple Watch affiche : 02 h 30</li>
-  <li v-click>je marche 45 minutes</li>
-  <li v-click>
+  <li v-click="1">Dimanche 25 Octobre 2026, je rentre de soirée ...</li>
+  <li v-click="2">mon Apple Watch affiche : 02 h 30</li>
+  <li v-click="3">je marche 45 minutes</li>
+  <li v-click="4">
     j'arrive : 02 h 15
-    <span v-if="$clicks >= 5" class="font-mono text-amber-400 ml-2">😰 avant d'être parti ?</span>
+    <span v-click="5" class="font-mono text-amber-400 ml-2">😰 avant d'être parti ?</span>
+  </li>
+  <li v-click="6">
+    je vais me coucher : 02 h 30 de nouveau
+    <span v-click="7" class="font-mono text-amber-400 ml-2">😰 encore ?!</span>
   </li>
 </ul>
 
-<span v-click class="hidden" />
-
-<v-click>
+<v-click at="8">
 Que s'est-il passé ?
 </v-click>
 
-<v-click>
+<v-click at="9">
   <img src="../images/iphonesoft_apple_watchos_27_bug.png" class="w-96 border-2 border-gray-400" />
 </v-click>
 
-<v-click>
+<v-click at="10">
 Changement d'heure : "daylight saving(s) time"
 </v-click>
 
@@ -223,18 +225,36 @@ Réponse n°2 : 🌅 ☃️
 </v-click>
 
 <v-click>
-    <SunDuration :x="18" :y="50" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
+    <SunDuration ghost :x="38.2" :y="50" :width="29.4" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h41 -> 16h56 (8h15) -->
 </v-click>
 <v-click>
-    <SunDuration :x="18" :y="58" :width="35.8" :height="8" label="Aujourd'hui (30 octobre)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 10h03 -->
+    <SunDuration ghost :x="34.2" :y="58" :width="35.6" :height="8" label="Aujourd'hui (30 octobre)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 7h34 -> 17h34 (10h) -->
 </v-click>
 <v-click>
-    <SunDuration :x="18" :y="66" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
+    <SunDuration ghost :x="27.9" :y="66" :width="57.6" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 5h47 -> 21h58 (16h11) -->
 </v-click>
 
 <span v-click />
 
-<!-- 30 octobre (Paris) : lever 7h32 coucher 17h35 -->
+<!--
+Sources des rectangles SunDuration (position `ghost` = cible de calage).
+
+Données (Paris, 48.8566 N / 2.3522 E, heure légale) :
+https://api.sunrise-sunset.org/json?lat=48.8566&lng=2.3522&date=YYYY-MM-DD&formatted=0&tzid=Europe/Paris
+(consulté le 2026-10-29 ; timeanddate.com renvoyait un 403)
+- 2026-12-21 (solstice d'hiver, UTC+1) : lever 08:41:09, coucher 16:56:08, durée 29699 s = 8h15
+- 2026-10-30 (aujourd'hui, UTC+1)      : lever 07:34:23, coucher 17:34:06, durée 35983 s = 10h00
+- 2026-06-21 (solstice d'été, UTC+2)   : lever 05:46:55, coucher 21:57:54, durée 58259 s = 16h11
+
+Calculé (estimé, pas mesuré) à partir de l'axe de WorkAndSchoolSchedule.vue :
+- x(h) = 20 + 40·h dans un viewBox de 1000, soit 3,56 % de la slide par heure
+  (calibré sur les largeurs d'origine : 28,47 % pour 8 h)
+- début de l'axe (0h) à ~7,3 % de la slide (marge du layout ~56 px sur 980 px)
+- x% = 7,3 + 3,56 × heure_du_lever ; width% = 3,56 × durée
+- hiver : x = 7,3 + 3,56 × 8,68 = 38,2 ; width = 3,56 × 8,25 = 29,4
+- aujourd'hui : x = 7,3 + 3,56 × 7,57 = 34,2 ; width = 3,56 × 10,0 = 35,6
+- été : x = 7,3 + 3,56 × 5,78 = 27,9 ; width = 3,56 × 16,18 = 57,6
+-->
 
 ---
 
