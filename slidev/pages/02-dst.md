@@ -331,8 +331,8 @@ with time_machine.travel(before) as clock:
     time.sleep(15 * 60)
     clock.move_to(after)
     delta = dt.datetime.now() - start
-    print(round(delta.total_seconds()))
-# -2700
+    print(delta.total_seconds())
+# -2700.0
 ```
 
 </div>
@@ -346,8 +346,8 @@ with time_machine.travel(before) as clock:
     time.sleep(15 * 60)
     clock.move_to(after)
     delta = time.monotonic() - start
-    print(round(delta))
-# 900
+    print(delta)
+# 900.0006…
 ```
 
 </div>
