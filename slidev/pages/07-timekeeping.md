@@ -1,3 +1,49 @@
+# Deux horloges ne sont jamais d'accord
+
+<div class="grid grid-cols-2 gap-6 items-start">
+<div>
+
+<DriftingClocks :step="$clicks" />
+
+<span v-click="1" />
+<span v-click="2" />
+<span v-click="3" />
+
+</div>
+<div class="drift-text">
+
+<ul>
+  <li v-click="4">des logs dans le désordre d'une machine à l'autre</li>
+  <li v-click="5">un certificat TLS «&nbsp;pas encore valide&nbsp;» ou «&nbsp;expiré&nbsp;»</li>
+  <li v-click="6">un commit ou une release antidaté</li>
+  <li v-click="7">l'heure qui saute d'un coup, parfois en arrière !</li>
+</ul>
+
+<p v-click="8">➡️ qui remet les pendules à l'heure ?</p>
+
+</div>
+</div>
+
+<style>
+.drift-text p {
+  margin: 0.4rem 0;
+}
+.drift-text ul {
+  margin-top: 0;
+  font-size: 0.9em;
+}
+</style>
+
+<!--
+Constater seulement : pas de solution ici, la slide suivante explique.
+Clics 1 à 3 : les deux horloges font un tour, B finit un peu en retard (1 jour, 1 mois, 1 an). Écarts exagérés (le dire à l'oral, ce n'est plus écrit) : ce ne sont pas des mesures.
+À dire à l'oral : deux oscillateurs ne sont jamais identiques, la dérive est inévitable ; parfois elle devient assez grande pour casser quelque chose (clics 4 à 7).
+Ordre de grandeur (plus affiché) : ±20 ppm = tolérance max à 25 °C d'un quartz 32,768 kHz (datasheet Abracon AB26T) ; 20e-6 × 86 400 s = 1,728 s/jour (calcul). La datasheet donne aussi un coefficient de température de -0,034 ppm/°C² et un vieillissement de ±3 ppm la 1re année.
+TODO Julien : ton cas vécu (quelle machine, quel écart, ce qui a cassé) ; capture de la release korlabs (runner désynchronisé, commit antidaté) à retrouver et valider avant de la montrer (B12).
+-->
+
+---
+
 # Comment être toujours à l'heure ?
 
 <v-clicks>
