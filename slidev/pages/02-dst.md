@@ -53,6 +53,7 @@ print(duration)
 
 ---
 clicks: 4
+class: no-center
 ---
 
 # Changement d'heure : automne
@@ -154,6 +155,7 @@ print(duration)
 
 ---
 clicks: 3
+class: no-center
 ---
 
 # Changement d'heure : printemps
