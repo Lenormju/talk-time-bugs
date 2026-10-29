@@ -34,15 +34,15 @@ Pour faire (très) court :
   * (je vous passe l'histoire d'UTC)
   * UTC = Universel Temps Coordonné / Universal Time Coordinated
 * changement d'heure :
-  * avant le 25 octobre : European Central Summer Time (ECST, UTC+2)
-  * après le 25 octobre : European Central Time (ECT, UTC+1)
+  * avant le 25 octobre : Central European Summer Time (CEST, UTC+2)
+  * après le 25 octobre : Central European Time (CET, UTC+1)
 * voyage au Royaume-Uni :
   * UK suit le Greenwich Mean Time (GMT, UTC) ou le British Summer Time (BST, UTC+1)
   * a conservé son changement d'heure synchronisé avec le reste de l'Union Européenne
   * à l'aller je "perds" 1h, au retour je la regagne
 * "offset" versus "zoned" :
   * China Standard Time (CST) = `+08:00` ou `Asia/Shanghai`
-  * Eastern Standard Time (EST) = `-05:00` ou `America/Cancún`
+  * Eastern Standard Time (EST) = `-05:00` ou `America/Cancun`
 * ni offset ni timezone = "naïve"
 
 </v-clicks>
@@ -146,7 +146,7 @@ bases de données : le fuseau n'est presque jamais conservé (`timestamptz` le p
 
 * l'intention : « 10h à Mexico City » = une heure + un lieu
 * un offset (`-05:00`) est un résultat calculé, pas une intention
-  * réunion hebdo à `09:00+02:00` (ECST) : 08:00 à Paris dès le 28 octobre
+  * réunion hebdo à `09:00+02:00` (CEST) : 08:00 à Paris dès le 28 octobre
 * une zone stocke un lieu plutôt qu'une valeur : bien plus stable
 * l'UTC est un cache dérivé : le garder, mais le recalculer quand tzdata change
   * recalculer les événements postérieurs à la date d'effet de la règle (+ valeurs dérivées : compteurs à rebours…)
