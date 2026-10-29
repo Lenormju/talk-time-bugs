@@ -74,38 +74,6 @@ class: no-center
 
 ---
 
-# Avec du code
-
-```bash {1|3|3-4|3-5|3-6|3-7|3-8|8|3-9|3-10}
-# run something once every 15 minutes, and compute average speed
-
-# current_time=1:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:09:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:09:17  delta_time=-45:00  delta_quantity=147  speed=-3.26667
-# current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
-```
-
-<style>
-.slidev-code-dishonored {
-  visibility: hidden;
-}
-</style>
-
----
-
-# Problèmes
-
-<ul>
-  <li>Non-unicité : DST</li>
-  <li>Non-monotonicité : DST</li>
-</ul>
-
----
-
 # Et dans l'autre sens
 
 <ul>
