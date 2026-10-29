@@ -248,8 +248,9 @@ class: no-center
   <img v-click="7" src="../images/20250324003440!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
   <img v-click="9" src="../images/20251114224057!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
   <img v-click="11" src="../images/20260308192300!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
+  <img v-click="13" src="../images/20261020031724!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
 
-  <!-- Empty steps at even clicks: 2, 4, 6, 8, 10, 12 — add DraggableAnnotations here -->
+  <!-- Even clicks: 2, 4, 6, 8, 10, 12 — DraggableAnnotations drawn first, then the odd click swaps the image under the arrows. Last even click (14) is empty on purpose. -->
   <span v-click="2" />
   <DraggableAnnotation v-click="2" :labelX="10" :labelY="46" :tipX="18.5" :tipY="38.5">2022 : Mexico</DraggableAnnotation>
   <span v-click="4" />
@@ -261,8 +262,13 @@ class: no-center
   <span v-click="8" />
   <DraggableAnnotation v-click="8" :labelX="46.5" :labelY="78.5" :tipX="30.5" :tipY="86.5">2025 : Chile</DraggableAnnotation>
   <span v-click="10" />
-  <DraggableAnnotation v-click="10" :labelX="19" :labelY="4" :tipX="19" :tipY="17">2026 : British Columbia</DraggableAnnotation>
+  <DraggableAnnotation v-click="10" :labelX="13.2" :labelY="6.8" :tipX="17.9" :tipY="17.5">2026 : British Columbia</DraggableAnnotation>
   <span v-click="12" />
+  <DraggableAnnotation v-click="12" :labelX="9.1" :labelY="26.9" :tipX="18.8" :tipY="22.4">2026 : Alberta</DraggableAnnotation>
+  <DraggableAnnotation v-click="12" :labelX="24.2" :labelY="0" :tipX="24.7" :tipY="8.8">2026 : Territoires du Nord-Ouest</DraggableAnnotation>
+  <DraggableAnnotation v-click="12" :labelX="33.9" :labelY="34.8" :tipX="26.6" :tipY="22.8">2026 : Manitoba</DraggableAnnotation>
+  <!-- Clic vide final : évite de quitter la slide sans faire exprès -->
+  <span v-click="14" />
 </div>
 
 ---
