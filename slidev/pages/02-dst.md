@@ -192,6 +192,8 @@ class: no-center
 </ul>
 
 ---
+class: no-center
+---
 
 # Pourquoi s'infliger ça ?
 
