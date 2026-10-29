@@ -83,7 +83,7 @@ class: no-center
 # current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
 # current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
 # current_time=2:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:09:17  delta_time=-45:00  delta_quantity=147  speed=-2.66667
+# current_time=2:09:17  delta_time=-45:00  delta_quantity=147  speed=-3.26667
 # current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
 # current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
 ```
