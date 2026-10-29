@@ -167,6 +167,51 @@ RFC 9557 : stdlib Python ne le supporte pas, Temporal / Java / whenever oui. Z =
 
 ---
 
+# Une date, ce n'est pas un instant
+
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+
+<div class="grid grid-cols-[minmax(0,1fr)_25rem] gap-4 items-start mt-5">
+<div>
+
+```html
+<input type="date" id="input" />
+```
+
+```js {none|1|2-3|4-10}
+const value = input.value
+const instant = new Date(value)
+instant.toISOString()
+const fmt = { dateStyle: 'long', timeStyle: 'short' }
+instant.toLocaleString('fr-FR', {
+  ...fmt, timeZone: 'Europe/Paris',
+})
+instant.toLocaleString('fr-FR', {
+  ...fmt, timeZone: 'America/New_York',
+})
+```
+
+</div>
+
+<DatePickerTrap />
+
+</div>
+
+<style>
+.slidev-code, .slidev-code code, .slidev-code pre { font-size: 0.85rem !important; }
+</style>
+
+<!--
+JS n'a pas de type « date seule » : `Date` est toujours un instant, d'où l'heure et le fuseau inventés. Une chaîne date seule est lue en UTC, alors qu'une date-heure sans offset est lue en heure locale.
+
+* `valueAsDate` donne le même résultat que `new Date(value)`
+* `"2025/03/01"` (non standard) est interprété en heure locale (vérifié par exécution, Node 20 et 26)
+* `Temporal.PlainDate` règle le problème → voir la solution 05-10 plus tard
+* le navigateur du speaker est à Paris, d'où le fuseau forcé à l'affichage
+-->
+
+---
+
 # Quand tzdata change : des questions à trancher
 
 <img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
