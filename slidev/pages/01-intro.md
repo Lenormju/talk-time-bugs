@@ -175,4 +175,6 @@ class: no-center
 
 A travers le(s) temps !
 
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+
 <Youtube id="PxoKqVwyoOM" width="100%" height="400" />
