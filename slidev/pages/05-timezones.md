@@ -146,6 +146,7 @@ bases de données : le fuseau n'est presque jamais conservé (`timestamptz` le p
 
 * l'intention : « 10h à Mexico City » = une heure + un lieu
 * un offset (`-05:00`) est un résultat calculé, pas une intention
+  * réunion hebdo à `09:00+02:00` (ECST) : 08:00 à Paris dès le 28 octobre
 * une zone stocke un lieu plutôt qu'une valeur : bien plus stable
 * l'UTC est un cache dérivé : le garder, mais le recalculer quand tzdata change
   * recalculer les événements postérieurs à la date d'effet de la règle (+ valeurs dérivées : compteurs à rebours…)
@@ -157,8 +158,9 @@ bases de données : le fuseau n'est presque jamais conservé (`timestamptz` le p
 <!--
 Mexique, tzdata 2022f (28/10/2022) : le DST est abrogé, 2 jours de préavis pour Chihuahua.
 10 h à Mexico le 12/04/2023 = 15:00 UTC avec tzdata 2022e, 16:00 UTC avec 2022f.
-L'UTC stocké en 2022 est faux d'une heure, l'intention (10 h + zone) reste juste.
-Pourquoi garder l'UTC : les bases ne gardent presque jamais la zone (PostgreSQL, MySQL, MongoDB, SQL Server ; seul Oracle garde la région),
+L'UTC stocké en 2022 est faux d'une heure, l'intention (10 h + zone) reste juste ; un offset `-05:00` figé donnerait 09 h à Mexico.
+Offset ou zone : l'offset est figé et casse au prochain changement d'heure ou de règle ; la zone suit tzdata, d'où la version de tzdata notée avec l'UTC.
+Pourquoi garder l'UTC : les bases ne gardent presque jamais la zone (PostgreSQL, MySQL, MongoDB, SQL Server ; seul Oracle garde la région ; `timestamptz` la perd), donc une colonne dédiée pour la zone,
 et chaque couche a sa copie de tzdata (MySQL : rechargement manuel + redémarrage ; JVM : redémarrage ; zoneinfo : cache).
 RFC 9557 : stdlib Python ne le supporte pas, Temporal / Java / whenever oui. Z = instant connu, offset inconnu ; +00:00 n'est pas un fuseau (Londres l'hiver).
 -->
