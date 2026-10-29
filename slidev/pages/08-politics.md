@@ -42,6 +42,13 @@
 
 # Choix politiques
 
-* Arrêter les secondes intercalaires
-* Arrêter les DST
-* Arrêter les changements brusques de timezones
+<v-clicks depth="2">
+
+* Arrêter les secondes intercalaires : **décidé** le 15 octobre 2026 (CGPM)
+* Arrêter les DST : débattu dans l'UE depuis 2018, voté en 2019, mis en pause lors du Covid-19, **toujours bloqué**
+* Changer les règles d'un pays, **avec un préavis très court** :
+  * Mexique (tzdata 2022f) : DST abrogé le 28/10/2022, Chihuahua change le 30/10 : **2 jours**
+  * Égypte (2016f) : DST du 07/07 annulé le 05/07 : **2 jours**
+  * Kazakhstan (2024a) : UTC+5 annoncé le 01/02/2024 pour le 01/03 : **1 mois**
+
+</v-clicks>
