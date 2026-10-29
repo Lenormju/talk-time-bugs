@@ -99,7 +99,7 @@ Ca dépend !
 
 <v-click>
 
-<img src="../images/Leapsecond.ut1-utc.svg.png" class="max-h-80 mx-auto object-contain" />
+<img src="../images/Leapsecond.ut1-utc.svg.png" class="max-h-56 mx-auto object-contain" />
 
 </v-click>
 
