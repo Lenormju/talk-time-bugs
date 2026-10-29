@@ -69,6 +69,7 @@ class: no-center
 
 <ul>
   <li v-click class="text-orange-400">Non-unicité : DST</li>
+  <li v-click class="text-orange-400">Non-monotonicité : DST</li>
 </ul>
 
 ---
@@ -100,7 +101,7 @@ class: no-center
 
 <ul>
   <li>Non-unicité : DST</li>
-  <li v-click class="text-orange-400">Non-monotonicité : DST</li>
+  <li>Non-monotonicité : DST</li>
 </ul>
 
 ---
