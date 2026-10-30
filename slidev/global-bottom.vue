@@ -9,9 +9,6 @@ import { isTimeVisible } from './composables/useTimeVisibility'
 // - [slide, [clicks]]: show for multiple clicks (e.g., [4, [0, 2, 3]])
 const timeVisibleOn: (number | [number, number | number[]])[] = [
   1,
-  4,
-  5,
-  6,
 ]
 
 const { currentPage, clicks } = useNav()
