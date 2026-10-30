@@ -61,7 +61,7 @@ class: no-center
 
 <div v-click.hide="5" class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-6 mt-6 items-start">
 <ul>
-  <li v-click="1">écrit par des volontaires : liste <code>tz@iana.org</code>, dépôt <code>eggert/tz</code>, publié par l'IANA</li>
+  <li v-click="1">écrit par des volontaires :<br/>liste <code>tz@iana.org</code><br/>dépôt <code>eggert/tz</code><br/>publié par l'IANA</li>
   <li v-click="2">des fichiers texte de règles (<code>europe</code>, <code>northamerica</code>…)</li>
   <li v-click="3">compilés par <code>zic</code> en fichiers binaires, installés dans <code>/usr/share/zoneinfo</code></li>
   <li v-click="4">des releases fréquentes : 3 en 2025, 6 en 2026 (déjà)</li>
@@ -170,7 +170,7 @@ International date line :
   <li>Non-continuité : DST<span v-click>, <span class="text-orange-400">timezones</span></span></li>
   <li>Non-homogénéité : DST, leap years<span v-click>, <span class="text-orange-400">timezones</span></span></li>
   <li>Non-constance : DST, leap years<span v-click>, <span class="text-orange-400">timezones</span></span></li>
-  <li>Non-standardized : dates and time formats</li>
+  <li>Non-standardized : dates and time formats<span v-click>, <span class="text-orange-400">timezones</span></span></li>
 </ul>
 
 ---
@@ -196,16 +196,17 @@ bases de données : le fuseau n'est presque jamais conservé (`timestamptz` le p
 
 # Conseils : l'intention versus l'offset
 
-<v-clicks>
+<v-clicks depth="2">
 
-* l'intention : « 10h à Mexico City » = une heure + un lieu
+* l'intention : « 10h à Mexico City » = une heure + un zone
 * un offset (`-05:00`) est un résultat calculé, pas une intention
-  * réunion hebdo à `09:00+02:00` (CEST) : 08:00 à Paris dès le 28 octobre
-* une zone stocke un lieu plutôt qu'une valeur : bien plus stable
+* une zone stocke un lieu plutôt qu'une valeur (stabilité !)
 * l'UTC est un cache dérivé : le garder, mais le recalculer quand tzdata change
-  * recalculer les événements postérieurs à la date d'effet de la règle (+ valeurs dérivées : compteurs à rebours…)
-  * métier : décider quoi faire des événements déplacés ou déjà déclenchés à la mauvaise heure
-* échanger : RFC 9557 (2024), `2027-03-03T09:00+01:00[Europe/Paris]`, support parcellaire
+  * recalculer les événements postérieurs à la date d'effet de la règle (+ valeurs dérivées)
+  * métier : décider que faire des événements déplacés ou déjà déclenchés à la mauvaise heure
+* échanger :
+  * RFC 9557 depuis 2024 (`2027-03-03T09:00+01:00[Europe/Paris]`), support parcellaire
+  * sinon l'émuler avec :  « RFC 3339 / ISO-8601 / ... » UTC + string de la zone
 
 </v-clicks>
 
@@ -224,10 +225,12 @@ RFC 9557 : stdlib Python ne le supporte pas, Temporal / Java / whenever oui. Z =
 
 <v-clicks>
 
-* inventorier : où tourne mon code, et quelles couches ont leur propre copie
-* savoir d'où vient chaque tzdata : paquet, runtime, image, base de données (cf. le schéma)
-* mettre à jour : les releases sont fréquentes et le préavis court
-  * reconstruire les images, redémarrer ce qui garde un cache
+* inventorier : où tourne mon code, et d'où vient sa tzdata
+* mettre à jour : releases fréquentes et délai court
+  * reconstruire les images,
+  * redémarrer les OS ou les services
+  * faire monter de version les paquets
+  * ...
 
 </v-clicks>
 

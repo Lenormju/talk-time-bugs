@@ -99,12 +99,6 @@ TODO Julien : ton cas vécu (quelle machine, quel écart, ce qui a cassé) ; cap
 
 <v-click>
 
-**Surveiller l'offset**
-
-</v-click>
-
-<v-click>
-
 ```text {1,4}
 $ timedatectl timesync-status
        Server: 185.125.190.58 (ntp.ubuntu.com)

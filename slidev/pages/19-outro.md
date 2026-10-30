@@ -1,7 +1,7 @@
 # Remerciements
 
 * Meetup QA de Grenoble (et Rachel en particulier)
-* Claude
+* Claude Code + Sonnet
 * Slidev.js
 * [Petter Salminen - It's All About Time ⏰ - What developers need to know about time](https://www.youtube.com/watch?v=IZRZ9ur6THk)
 * Le personnel du bar "Le Not a Beer"
@@ -89,7 +89,7 @@ Tooling
 <div class="grid grid-cols-2 gap-8">
 <div class="text-center">
 
-[feedback sur Slido](https://app.sli.do/event/vzx7CYcriyPCtX7G7S5Yie/live/polls)
+[feedback sur Roti.express](https://app.sli.do/event/vzx7CYcriyPCtX7G7S5Yie/live/polls)
 
 <img src="../images/qr-code-feedback-bdxio.png" style="margin-bottom: 2rem;" />
 

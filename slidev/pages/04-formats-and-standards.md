@@ -262,10 +262,10 @@ CHF 181,00 ↔️ EUR 199,15
 
 * **toujours** un format standard : ISO 8601, ou plutôt son profil **RFC 3339**
 * ⚠️ les langages **mélangent les deux noms** :
-  * Python `isoformat()` : « ISO 8601 », mais sans fuseau si le datetime est naïf
-  * JS `toISOString()` : toujours en `Z`, `Date.parse` lit un « ISO 8601 simplifié »
-  * Go `time.RFC3339` : strict, ni espace ni fuseau manquant
-  * Java `Instant.parse()` : « ISO 8601 », fuseau obligatoire
+  * Python `isoformat()` : « ISO 8601 » (mais sans fuseau si le datetime est naïf)
+  * JS `toISOString()` : « ISO 8601 simplifié » (lu par `Date.parse`, écrit toujours `Z`)
+  * Go `time.RFC3339` : strict
+  * Java `Instant.parse()` : « ISO 8601 » (fuseau obligatoire)
   * Rust (chrono) `to_rfc3339()` : écrit `+00:00` (pas `Z`), lit aussi avec un espace
 * **pas de "format maison"**, ni à l'écriture, ni à la lecture
 * l'**unité dans le nom** du champ : `timeout_seconds`, `duration_ms`, `size_bytes`
@@ -274,7 +274,7 @@ CHF 181,00 ↔️ EUR 199,15
 
 ---
 
-# Le petit détail ...
+# Les petits détails ...
 
 <v-click>
 

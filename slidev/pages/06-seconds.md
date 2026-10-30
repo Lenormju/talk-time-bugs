@@ -10,7 +10,7 @@
   -- [wikipedia.org](https://fr.wikipedia.org/wiki/Seconde_(temps))
 * mesuré à partir d'horloges "atomiques"
 * on obtient le TAI : Temps Atomique International
-* ➡️ quelle différence avec UTC ? (Universel Temps Coordonné)
+* ➡️ quelle différence avec UTC ?
 
 </v-clicks>
 
@@ -82,9 +82,10 @@
 
 <v-clicks>
 
-- UTC continu à partir du **20 mai 2027** : plus de seconde intercalaire
-- UT1 − UTC pourra dériver jusqu'à **1 heure** (au lieu de 0,9 s)
-- Dernière seconde intercalaire : 31 décembre 2016. TAI − UTC reste à 37 s
+- UTC continu à partir du **20 mai 2027** : plus de seconde intercalaire !
+- $UT1 − UTC$ pourra dériver jusqu'à **1 heure** (au lieu de 0,9 s)
+- Dernière seconde intercalaire en date : 31 décembre 2016.
+- désormais $TAI − UTC = 37 s$
 
 </v-clicks>
 
@@ -105,7 +106,7 @@ clicks: 10
 class: no-center
 ---
 
-# Et comment ça fonctionnait ?
+# Et comment ça ~fonctionne~ fonctionnait ?
 
 <Skip hard />
 

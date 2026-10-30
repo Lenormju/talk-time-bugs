@@ -6,7 +6,7 @@ Vraiment très compliqué ...
 
 <v-click>
 
-```python {1|3|3,4|3-5|5|5-6|3-7|3-8|8|4,8-9}
+```python {2|1|3|3,4|3-5|5-6|7|7-8|7-9}
 import datetime
 
 today = datetime.date.today()  # 30 octobre 2026
@@ -91,7 +91,7 @@ class: no-center
 * le calendrier Julien supposait qu'une année faisait exactement 365.25 jours
   * année tropicale ≈ 365.2422
   * les dates dérivent : le 21 Mars ne colle plus à l'équinoxe !
-  * 1545 : on souhaite revenir aux dates de 325
+  * 1545 : on souhaite revenir à la « vraie » date qu'il était en l'an 325
 * calendrier Grégorien !
   * transition : 10 jours sautés d'un coup<br />
     <CalendarCorrespondence />
@@ -307,7 +307,7 @@ jours épagomènes, cf calendrier égyptien antique
 * ajouter une **durée "ambigüe"** : « +1 mois », « +1 an », longueur variable
   * une API qui accepte la réalité des calendriers : `relativedelta`, `Temporal.PlainDate.add`, Java `plusMonths`, SQL `interval '1 month'`
   * jamais de `replace(month=...)`, ni d'arithmétique à la main
-* 🧪 tester : 28 et 29 février, le 31, 1900 / 2000 / 2100, et en property-based
+* tester : 28 et 29 février, le 31, 1900 / 2000 / 2100 ... et en property-based
 
 </v-clicks>
 
