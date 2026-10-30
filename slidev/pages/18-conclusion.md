@@ -28,7 +28,7 @@
 * instant, UTC, offset
 * naïf contre zoned
 * date seule
-* durée contre période calendaire
+* durée exacte contre durée relative
 
 </div>
 
