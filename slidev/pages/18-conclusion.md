@@ -23,6 +23,19 @@
 
 <div v-click>
 
+### Problèmes
+
+* non-unicité
+* non-monotonicité
+* non-continuité
+* non-homogénéité
+* non-constance
+* non-standardisation
+
+</div>
+
+<div v-click>
+
 ### Vocabulaire
 
 * instant, UTC, offset
