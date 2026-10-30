@@ -22,6 +22,8 @@ Pour faire (très) court :
 
 ---
 
+# Tellement de timezones !
+
 <img src="../images/Timezone-boundary-builder_release_2023d.png" class="max-h-96 mx-auto object-contain" />
 
 ---
@@ -162,7 +164,7 @@ International date line :
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
   <li>Non-unicité : DST<span v-click>, <span class="text-orange-400">timezones</span></span></li>
@@ -175,7 +177,7 @@ International date line :
 
 ---
 
-# Conseils : stocker et conserver
+# Solution (timezones) : stocker et conserver
 
 <v-clicks depth="2">
 
@@ -194,7 +196,7 @@ bases de données : le fuseau n'est presque jamais conservé (`timestamptz` le p
 
 ---
 
-# Conseils : l'intention versus l'offset
+# Solution (timezones) : l'intention versus l'offset
 
 <v-clicks depth="2">
 
@@ -221,7 +223,7 @@ RFC 9557 : stdlib Python ne le supporte pas, Temporal / Java / whenever oui. Z =
 
 ---
 
-# Conseils : maintenir tzdata
+# Solution (timezones) : maintenir tzdata
 
 <v-clicks>
 

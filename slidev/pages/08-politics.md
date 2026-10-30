@@ -82,7 +82,7 @@ Autres exemples, pas sur la slide :
 - Saskatchewan : nouvelle Time Act 2026 en vigueur le 30/10/2026, aucun changement attendu
 - Moldavie (2026a) : correction historique (heures de transition UE depuis 2022), pas un changement de 2026, donc pas sur la slide
 - TNO et Alberta : rien ne change dans le passé (déjà en UTC−6 l'été), mais la règle arrive après la loi. tzdata modélise le changement au 01/11 à 02:00 (contournement temporaire pour CLDR / ICU)
-- Maroc : depuis le décret du 26/10/2018, UTC+1 = heure standard, UTC+0 pendant le Ramadan (modélisé en DST négatif). Même impact dev qu'un DST (tzdata à déployer), mais ce n'est pas un DST. Absent de la carte « Evolutions » qui ne montre que le DST
+- Maroc : depuis le décret du 26/10/2018, UTC+1 = heure standard, UTC+0 pendant le Ramadan (modélisé en DST négatif). Même impact dev qu'un DST (tzdata à déployer), mais ce n'est pas un DST. Absent de la carte « Évolutions » qui ne montre que le DST
 - 2026f dit aussi : plus de secondes intercalaires, les tables leap-seconds n'expirent plus
 
 UE : la dernière discussion au Conseil date du 02/12/2019 (avant le Covid). Le Covid (puis l'Ukraine) a fait passer le sujet au second plan, mais le blocage vient du désaccord heure d'été / heure d'hiver.

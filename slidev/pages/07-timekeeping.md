@@ -195,7 +195,7 @@ Métrique Prometheus vérifiée (collector/timex.go de node_exporter, Linux) : n
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
   <li>Non-unicité : DST, timezones, leap seconds</li>
