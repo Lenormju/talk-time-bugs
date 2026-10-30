@@ -55,6 +55,7 @@
 
 ---
 clicks: 10
+class: no-center
 ---
 
 # Et comment ça fonctionne ?
