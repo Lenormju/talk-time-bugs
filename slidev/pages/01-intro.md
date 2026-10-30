@@ -175,7 +175,7 @@ class: no-center
 
 # C'est parti pour un voyage ...
 
-A travers le(s) temps !
+<div>A travers le(s) temps !</div>
 
 <Skip hard />
 
