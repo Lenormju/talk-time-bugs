@@ -67,11 +67,11 @@ const clusters: Cluster[] = [
   {
     id: 'systeme', click: 2, x: 0, y: 275, w: 215, title: 'Lisent le système',
     items: [
-      { name: 'Python', note: 'zoneinfo' },
-      { name: '.NET', note: 'TimeZoneInfo' },
+      { name: 'glibc', note: 'localtime(), date' },
       { name: 'PostgreSQL', note: '--with-system-tzdata' },
       { name: 'MySQL' },
-      { name: 'glibc', note: 'localtime(), date' },
+      { name: 'Python', note: 'zoneinfo' },
+      { name: '.NET', note: 'TimeZoneInfo' },
       { name: 'Ruby', note: 'tzinfo' },
       { name: 'Rust', note: 'jiff' },
       { name: 'C++', note: 'libstdc++' },
@@ -94,7 +94,7 @@ const clusters: Cluster[] = [
     items: [{ name: 'luxon', lang: 'js' }, { name: 'date-fns-tz', lang: 'js' }, { name: 'polyfill Temporal', lang: 'js' }],
   },
   {
-    id: 'pypi', click: 9, x: 700, y: 345, w: 240, title: 'Via le paquet PyPI tzdata',
+    id: 'pypi', click: 9, x: 700, y: 345, w: 240, title: 'Via le paquet tzdata',
     items: [{ name: 'python-dateutil 3', lang: 'py' }, { name: 'arrow', lang: 'py' }, { name: 'pendulum', lang: 'py' }],
   },
 ]
@@ -124,7 +124,7 @@ const path = (e: Edge) => {
 
 // Niveau d'un badge par rapport à LATEST ; les couleurs ne s'appliquent qu'une fois la question finale
 // révélée (voir le CSS : `.question` sans la classe `slidev-vclick-hidden`) ; les badges à jour (`ok`) se colorent en même
-// temps que les autres (la source, référence, est verte dès le début)
+// temps que les autres (la source aussi)
 function level(version?: string): string {
   if (!version) return ''
   if (version === 'n/d') return 'nd'
@@ -258,9 +258,7 @@ function level(version?: string): string {
   font-weight: bold;
   background: #e2e8f0;
 }
-.source .version {
-  background: #bbf7d0;
-}
+.tzdb-graph:has(.question:not(.slidev-vclick-hidden)) .source .version,
 .tzdb-graph:has(.question:not(.slidev-vclick-hidden)) .version.ok {
   background: #bbf7d0;
 }
