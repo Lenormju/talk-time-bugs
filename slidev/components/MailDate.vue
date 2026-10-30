@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { computed } from 'vue'
+import { useSecondTick } from '../composables/useSecondTick'
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -16,19 +17,8 @@ function formatMailDate(d: Date): string {
   return `${DAYS[d.getDay()]}, ${pad(d.getDate())} ${MONTHS[d.getMonth()]} ${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())} ${offsetStr}`
 }
 
-const date = ref(formatMailDate(new Date()))
-
-let interval: ReturnType<typeof setInterval>
-
-onMounted(() => {
-  interval = setInterval(() => {
-    date.value = formatMailDate(new Date())
-  }, 1000)
-})
-
-onUnmounted(() => {
-  clearInterval(interval)
-})
+const now = useSecondTick()
+const date = computed(() => formatMailDate(new Date(now.value)))
 </script>
 
 <template>
