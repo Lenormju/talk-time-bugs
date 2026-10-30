@@ -86,7 +86,7 @@ Tooling
 
 [feedback sur Slido](https://app.sli.do/event/vzx7CYcriyPCtX7G7S5Yie/live/polls)
 
-<img src="../images/qr-code-feedback-ptc.png" style="margin-bottom: 2rem;" />
+<img src="../images/qr-code-feedback-bdxio.png" style="margin-bottom: 2rem;" />
 
 </div>
 <div class="text-center">
