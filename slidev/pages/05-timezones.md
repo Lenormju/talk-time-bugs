@@ -300,7 +300,7 @@ class: no-center
 
 # Quand tzdata change : des questions à trancher
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip hard />
 
 * Intention (heure + zone) : E<sub>ancien</sub> et E<sub>nouveau</sub> sont l'UTC calculé avec l'ancienne et la nouvelle tzdata, U l'instant de la mise à jour
 
@@ -343,7 +343,7 @@ Ne pas filtrer par `UTC_cache > now()` (rate le cas 3, recalcule le cas 4 en sil
 
 # Petit bonus : décalage solaire
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip hard />
 
 <v-click>
 

@@ -95,7 +95,7 @@ TODO Julien : ton cas vécu (quelle machine, quel écart, ce qui a cassé) ; cap
 
 # Tout est relatif !
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip hard />
 
 <v-clicks depth="2">
 
@@ -133,7 +133,7 @@ TODO Julien : ton cas vécu (quelle machine, quel écart, ce qui a cassé) ; cap
 
 # Il n'y a pas que la Terre
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip hard />
 
 * Temps Lunaire
 * Temps martien

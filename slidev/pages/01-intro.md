@@ -56,7 +56,7 @@ Un problème récurrent :
 
 ## Définition : le temps
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip hard />
 
 <v-click>
 
@@ -114,7 +114,7 @@ class: no-center
 
 ## Définition : les bugs <v-click><span>(temporels)</span></v-click>
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip hard />
 
 <div class="relative h-96">
   <v-click>
@@ -177,6 +177,6 @@ class: no-center
 
 A travers le(s) temps !
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip hard />
 
 <Youtube id="PxoKqVwyoOM" width="100%" height="400" />
