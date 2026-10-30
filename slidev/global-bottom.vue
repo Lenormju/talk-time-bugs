@@ -22,10 +22,10 @@ const logoVisibleOn: (number | [number, number | number[]])[] = [
   4,
   5,
   6,
+  65,
+  66,
   67,
   68,
-  69,
-  70,
 ]
 
 const { currentPage, clicks } = useNav()

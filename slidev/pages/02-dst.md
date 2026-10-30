@@ -308,7 +308,7 @@ print(second.timestamp() - premier.timestamp())  # 3600.0
 
 - Même heure affichée, 02:30, mais **deux instants différents** : `fold` choisit le 1ᵉʳ ou le 2ᵉ passage
 - L'offset (`+02:00` / `+01:00`) change selon `fold` ; si on l'ignore, la durée calculée est fausse
-- Tester les heures ambiguës ou inexistantes (changements d'heure), en figeant l'horloge : `time-machine` (slide suivante), `freezegun`, `libfaketime`, [Symfony Clock](https://symfony.com/doc/current/components/clock.html) (PHP)
+- Tester les heures ambiguës ou inexistantes (changements d'heure), en figeant l'horloge : `time-machine` (slide suivante), `freezegun`, `libfaketime`, [Symfony Clock](https://symfony.com/doc/current/components/clock.html) (PHP : `MockClock`, [PSR-20](https://www.php-fig.org/psr/psr-20/))
 
 </v-clicks>
 
