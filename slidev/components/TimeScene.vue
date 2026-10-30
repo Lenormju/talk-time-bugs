@@ -138,7 +138,7 @@ const cand = [Date.UTC(2026, 9, 25, 0, 30), Date.UTC(2026, 9, 25, 1, 30)].map(t 
 const nSwitchX = nx(SWITCH)
 // heures locales de Paris affichées au-dessus des bandes, toutes les 30 min
 const localMarks = Array.from({ length: 9 }, (_, i) => Date.UTC(2026, 9, 24, 23) + i * H / 2)
-  .map(t => ({ x: nx(t), label: parts('Europe/Paris', t).hm, hot: parts('Europe/Paris', t).hm === '02:30' }))
+  .map(t => ({ x: nx(t), label: parts('Europe/Paris', t).hm, hot: parts('Europe/Paris', t).hm === '02:30', color: t === cand[0].t ? '#2563eb' : '#ea580c' }))
 
 // ---------- animations ----------
 const s = reactive({
@@ -282,8 +282,8 @@ onMounted(() => {
             <text :x="(N_X0 + nSwitchX) / 2" y="183" text-anchor="middle" class="band-label">{{ parisBefore }}</text>
             <text :x="(nSwitchX + N_X1) / 2" y="183" text-anchor="middle" class="band-label">{{ parisAfter }}</text>
             <g v-for="m in localMarks" :key="m.x">
-              <line :x1="m.x" y1="148" :x2="m.x" y2="160" :stroke="m.hot ? '#ea580c' : '#64748b'" stroke-width="2" />
-              <text :x="m.x" y="142" text-anchor="middle" class="tick" :class="{ hot: m.hot }">{{ m.label }}</text>
+              <line :x1="m.x" y1="148" :x2="m.x" y2="160" :stroke="m.hot ? m.color : '#64748b'" stroke-width="2" />
+              <text :x="m.x" y="142" text-anchor="middle" class="tick" :class="{ hot: m.hot }" :style="m.hot ? { fill: m.color } : undefined">{{ m.label }}</text>
             </g>
             <!-- 02:30 locale → UTC, via la bande -->
             <line :x1="cand[0].x" y1="194" :x2="cand[0].x" :y2="N_LINE_Y - 14" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="5 4" />
