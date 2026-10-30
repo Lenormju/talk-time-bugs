@@ -80,6 +80,8 @@ TODO Julien : ton cas vécu (quelle machine, quel écart, ce qui a cassé) ; cap
 
 # D'où vient l'heure de ma machine ?
 
+<Skip />
+
 <div class="grid grid-cols-2 gap-6 items-start">
 <div>
 
