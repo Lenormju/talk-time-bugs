@@ -41,7 +41,7 @@
 
 <v-clicks>
 
-* une seconde UT1 une fraction (1/86400) de la durée de rotation entre deux zéniths
+* une seconde UT1 est une fraction (1/86400) de la durée de rotation entre deux zéniths
 * mais la Terre n'a pas une rotation constante<br/>
   (forces de marées, convection du noyau, fonte glaciaire, gros séismes)
 * donc les secondes UT1 n'ont pas une durée constante par rapport à TAI
