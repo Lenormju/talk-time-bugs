@@ -153,6 +153,19 @@ Métrique Prometheus vérifiée (collector/timex.go de node_exporter, Linux) : n
 
 ---
 
+# Problèmes du temps
+
+<ul>
+  <li>Non-unicité : DST, timezones, leap seconds<span v-click>, <span class="text-orange-400">clock drift</span></span></li>
+  <li>Non-monotonicité : DST, timezones, leap seconds<span v-click>, <span class="text-orange-400">clock drift</span></span></li>
+  <li>Non-continuité : DST, timezones, leap seconds<span v-click>, <span class="text-orange-400">clock drift</span></span></li>
+  <li>Non-homogénéité : DST, leap years, timezones, leap seconds<span v-click>, <span class="text-orange-400">clock drift</span></span></li>
+  <li>Non-constance : DST, leap years, timezones, leap seconds<span v-click>, <span class="text-orange-400">clock drift</span></span></li>
+  <li>Non-standardized : dates and time formats, leap seconds</li>
+</ul>
+
+---
+
 # Le GPS c'est compliqué !
 
 <Skip hard />
@@ -198,11 +211,11 @@ Métrique Prometheus vérifiée (collector/timex.go de node_exporter, Linux) : n
 # Problèmes du temps
 
 <ul>
-  <li>Non-unicité : DST, timezones, leap seconds</li>
-  <li>Non-monotonicité : DST, timezones, leap seconds</li>
-  <li>Non-continuité : DST, timezones, leap seconds</li>
-  <li>Non-homogénéité : DST, leap years, timezones, leap seconds<span v-click>, <span class="text-orange-400">general and special relativity</span></span></li>
-  <li>Non-constance : DST, leap years, timezones, leap seconds<span v-click>, <span class="text-orange-400">general and special relativity</span></span></li>
+  <li>Non-unicité : DST, timezones, leap seconds, clock drift</li>
+  <li>Non-monotonicité : DST, timezones, leap seconds, clock drift</li>
+  <li>Non-continuité : DST, timezones, leap seconds, clock drift</li>
+  <li>Non-homogénéité : DST, leap years, timezones, leap seconds, clock drift<span v-click>, <span class="text-orange-400">general and special relativity</span></span></li>
+  <li>Non-constance : DST, leap years, timezones, leap seconds, clock drift<span v-click>, <span class="text-orange-400">general and special relativity</span></span></li>
   <li>Non-standardized : dates and time formats, leap seconds</li>
 </ul>
 
