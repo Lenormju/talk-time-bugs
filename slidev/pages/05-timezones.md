@@ -242,7 +242,7 @@ Le lien avec le schéma précédent : chaque boîte est une copie à mettre à j
 
 # Une date, ce n'est pas un instant
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip />
 
 <div class="grid grid-cols-[minmax(0,1fr)_25rem] gap-4 items-start mt-5">
 <div>

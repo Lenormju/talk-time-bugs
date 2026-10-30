@@ -1,6 +1,6 @@
 # Les problèmes continuent
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip />
 
 <v-clicks>
 

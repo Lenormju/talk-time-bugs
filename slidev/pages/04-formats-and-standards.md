@@ -173,7 +173,7 @@ CHF 181,00 ↔️ EUR 199,15
 
 # RFC 3339
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip />
 
 <v-clicks depth="2">
 
