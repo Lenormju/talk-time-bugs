@@ -148,36 +148,42 @@ const sign = (n: number) => (n >= 0 ? '+' : '−') + Math.abs(n).toFixed(1)
       <section>
         <h4>Résultat</h4>
         <table>
-          <tr><td>décalage (offset)</td><td>{{ sign(data.offset_ms) }} ms</td></tr>
-          <tr><td>délai (delay)</td><td>{{ data.delay_ms.toFixed(1) }} ms</td></tr>
-          <tr><td>stratum</td><td>{{ v(data.stratum) }}</td></tr>
-          <tr><td>refid</td><td>{{ v(data.refid) }}</td></tr>
-          <tr><td>serveur</td><td>{{ v(data.server) }} <small>{{ data.server_ip }}</small></td></tr>
+          <tbody>
+            <tr><td>décalage (offset)</td><td>{{ sign(data.offset_ms) }} ms</td></tr>
+            <tr><td>délai (delay)</td><td>{{ data.delay_ms.toFixed(1) }} ms</td></tr>
+            <tr><td>stratum</td><td>{{ v(data.stratum) }}</td></tr>
+            <tr><td>refid</td><td>{{ v(data.refid) }}</td></tr>
+            <tr><td>serveur</td><td>{{ v(data.server) }} <small>{{ data.server_ip }}</small></td></tr>
+          </tbody>
         </table>
       </section>
       <section class="hdr">
         <h4>En-tête du paquet</h4>
         <table class="dense">
-          <tr><td>leap indicator</td><td>{{ v(data.leap) }} <small>{{ data.leap_text }}</small></td></tr>
-          <tr><td>version</td><td>{{ v(data.version) }}</td></tr>
-          <tr><td>mode</td><td>{{ v(data.mode) }} <small>{{ data.mode_text }}</small></td></tr>
-          <tr><td>poll</td><td>{{ pow(data.poll) }}</td></tr>
-          <tr><td>precision</td><td>{{ pow(data.precision) }}</td></tr>
-          <tr><td>root delay</td><td>{{ ms(data.root_delay_ms) }}</td></tr>
-          <tr><td>root dispersion</td><td>{{ ms(data.root_dispersion_ms) }}</td></tr>
-          <tr><td>refid (brut)</td><td>{{ v(data.refid_raw) }} <small>{{ data.refid_kind }}</small></td></tr>
+          <tbody>
+            <tr><td>leap indicator</td><td>{{ v(data.leap) }} <small>{{ data.leap_text }}</small></td></tr>
+            <tr><td>version</td><td>{{ v(data.version) }}</td></tr>
+            <tr><td>mode</td><td>{{ v(data.mode) }} <small>{{ data.mode_text }}</small></td></tr>
+            <tr><td>poll</td><td>{{ pow(data.poll) }}</td></tr>
+            <tr><td>precision</td><td>{{ pow(data.precision) }}</td></tr>
+            <tr><td>root delay</td><td>{{ ms(data.root_delay_ms) }}</td></tr>
+            <tr><td>root dispersion</td><td>{{ ms(data.root_dispersion_ms) }}</td></tr>
+            <tr><td>refid (brut)</td><td>{{ v(data.refid_raw) }} <small>{{ data.refid_kind }}</small></td></tr>
+          </tbody>
         </table>
       </section>
       <section class="ts">
         <h4>Horodatages (UTC)</h4>
         <table>
-          <tr><td>reference</td><td>{{ v(data.reference_time) }}</td></tr>
-          <tr><td>T1 envoi client</td><td>{{ v(data.t1_origin) }}</td></tr>
-          <tr><td>T2 réception serveur</td><td>{{ v(data.t2_receive) }}</td></tr>
-          <tr><td>T3 envoi serveur</td><td>{{ v(data.t3_transmit) }}</td></tr>
-          <tr><td>T4 réception client</td><td>{{ v(data.t4_destination) }}</td></tr>
-          <tr v-if="data.precision_s"><td>précision</td><td>±{{ data.precision_s }} s</td></tr>
-          <tr v-if="data.errors?.length"><td>échecs</td><td><small>{{ data.errors.join(' | ') }}</small></td></tr>
+          <tbody>
+            <tr><td>reference</td><td>{{ v(data.reference_time) }}</td></tr>
+            <tr><td>T1 envoi client</td><td>{{ v(data.t1_origin) }}</td></tr>
+            <tr><td>T2 réception serveur</td><td>{{ v(data.t2_receive) }}</td></tr>
+            <tr><td>T3 envoi serveur</td><td>{{ v(data.t3_transmit) }}</td></tr>
+            <tr><td>T4 réception client</td><td>{{ v(data.t4_destination) }}</td></tr>
+            <tr v-if="data.precision_s"><td>précision</td><td>±{{ data.precision_s }} s</td></tr>
+            <tr v-if="data.errors?.length"><td>échecs</td><td><small>{{ data.errors.join(' | ') }}</small></td></tr>
+          </tbody>
         </table>
       </section>
     </div>
@@ -210,6 +216,6 @@ section:first-child table { font-size: 1.1em; }
 .ts table { font-size: 0.75em; }
 /* En-tête du paquet : petit, atténué, dense sur 2 colonnes de paires */
 .hdr { opacity: 0.7; font-size: 0.65em; }
-.hdr table { display: grid; grid-template-columns: repeat(2, auto auto); column-gap: 1rem; }
+.hdr tbody { display: grid; grid-template-columns: repeat(2, auto auto); column-gap: 1rem; }
 .hdr tr { display: contents; }
 </style>
