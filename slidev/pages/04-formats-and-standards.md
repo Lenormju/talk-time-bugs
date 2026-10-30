@@ -84,9 +84,15 @@ ul.tight-list {
   </v-click>
 </div>
 
+<v-click>
+  <img src="../images/Ljubljana_festival_date.jpeg" alt="Affiche de festival à Ljubljana avec une date" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded shadow-2xl border-4 border-white" style="max-height: 80vh; max-width: 85%; width: auto; height: auto;"/>
+</v-click>
+
 ---
 
 # ISO-8601 : pas très accessible
+
+<Skip />
 
 <v-clicks>
 
