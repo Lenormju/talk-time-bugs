@@ -115,7 +115,7 @@ CHF 181,00 ↔️ EUR 199,15
 
 # ISO-8601 : de nombreux concepts
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip hard />
 
 <v-clicks depth="2" class="tight-list">
 

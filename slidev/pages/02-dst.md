@@ -169,7 +169,7 @@ class: no-center
 
 # Pourquoi s'infliger ça ?
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip hard />
 
 <v-click>
 
