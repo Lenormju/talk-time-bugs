@@ -72,8 +72,6 @@
 
 # La joie des standards
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
-
 <div class="flex gap-4 items-start">
   <v-click class="w-1/2">
     <img src="../images/xkcd_927_standards.png" alt="xkcd.com 927 &quot;Standards&quot;" style="max-height: 60vh; max-width: 100%; width: auto; height: auto;"/>
