@@ -77,6 +77,8 @@ le 31 août → « 31 septembre » → 1er octobre
 </ul>
 
 ---
+class: no-center
+---
 
 # Une histoire de chocolat ?
 
@@ -213,6 +215,10 @@ li {
 Le calendrier ✝️ grégorien est le standard dans l'industrie occidentale.
 
 </v-click>
+
+<!--
+Image des calendriers : https://en.wikipedia.org/wiki/Calendar_date
+-->
 
 <style>
 .tight-list li {
