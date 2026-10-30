@@ -204,6 +204,8 @@ CHF 181,00 ↔️ EUR 199,15
 
 # Autres formats "standards"
 
+<Skip />
+
 <v-clicks depth="2">
 
 * ISO/AWI 8601-1 : en cours de développement

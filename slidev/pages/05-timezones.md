@@ -1,5 +1,7 @@
 # L'histoire des timezones
 
+<Skip />
+
 <v-click>
 Pour faire (très) court :
 </v-click>
