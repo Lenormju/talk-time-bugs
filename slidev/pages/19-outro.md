@@ -22,6 +22,8 @@
 * Image du décalage entre UTC et heure solaire par [24timezones.com](https://24timezones.com/cms-static/images/uploads/solartimevsstandardtime.png)
 * Image du décalage entre UT1 et UTC par Wikipedia : [Leapsecond.ut1-utc.svg](https://en.wikipedia.org/wiki/File:Leapsecond.ut1-utc.svg)
 * Photo d'Albert Einstein par Wikimedia : [Albert Einstein sticks his tongue 1951.jpg](https://commons.wikimedia.org/wiki/File:Albert_Einstein_sticks_his_tongue_1951.jpg)
+* Bande dessinée « Standards » par Randall Munroe, xkcd : [xkcd.com/927](https://xkcd.com/927/) (CC BY-NC 2.5)
+* Bande dessinée « ISO 8601 » par Randall Munroe, xkcd : [xkcd.com/1179](https://xkcd.com/1179/) (CC BY-NC 2.5)
 
 ---
 
