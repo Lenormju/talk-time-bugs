@@ -64,9 +64,9 @@ class: no-center
 <div v-click.hide="5" class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-6 mt-6 items-start">
 <ul>
   <li v-click="1">écrit par des volontaires :<br/>liste <code>tz@iana.org</code><br/>dépôt <code>eggert/tz</code><br/>publié par l'IANA</li>
-  <li v-click="2">des fichiers texte de règles (<code>europe</code>, <code>northamerica</code>…)</li>
+  <li v-click="2">des fichiers texte de règles (<code>europe</code>, <code>northamerica</code>, <code>asia</code>…)</li>
   <li v-click="3">compilés par <code>zic</code> en fichiers binaires, installés dans <code>/usr/share/zoneinfo</code></li>
-  <li v-click="4">des releases fréquentes : 3 en 2025, 6 en 2026 (déjà)</li>
+  <li v-click="4">des releases fréquentes :<br/>3 en 2025<br/>6 en 2026 (déjà)</li>
 </ul>
 <div v-click="2">
 
@@ -75,8 +75,6 @@ class: no-center
 +Rule Cuba 2012 2025 - Nov Sun>=1 0:00s 0 S
 +Rule Cuba 2027 max  - Nov Sun>=1 0:00s 0 S
 ```
-
-<div class="text-sm opacity-80">extrait du commit du 26/10/2026 : Cuba ne reculera pas l'heure le 1er novembre</div>
 </div>
 </div>
 
@@ -86,7 +84,7 @@ class: no-center
 
 <!--
 Qui : des volontaires. Le fil `tz@iana.org` reçoit les annonces (ici, un contributeur a signalé celle de Cuba), `eggert/tz` est le dépôt, l'IANA publie les releases sur data.iana.org/time-zones. Paul Eggert signe les tags (2026f : 28/10/2026 06:16:49 UTC, soit le soir du 27 à Los Angeles, où NEWS date la release du 27/10).
-Quoi : des fichiers texte (`africa`, `europe`, `northamerica`…) avec des lignes `Rule` : `NOM DE À - MOIS JOUR HEURE DÉCALAGE LETTRE`. Pour Cuba, la règle « retour en heure standard le 1er dimanche de novembre » s'arrête en 2025 (donc pas de retour en 2026) et reprend en 2027, le 7 novembre. Le commit contient aussi un commentaire sourcé (annonce du 24/10, retard de 30 minutes des horaires d'école et de travail).
+Quoi : des fichiers texte (`africa`, `asia`, `europe`, `northamerica`…) avec des lignes `Rule` : `NOM DE À - MOIS JOUR HEURE DÉCALAGE LETTRE`. Pour Cuba, la règle « retour en heure standard le 1er dimanche de novembre » s'arrête en 2025 (donc pas de retour en 2026) et reprend en 2027, le 7 novembre. Le commit contient aussi un commentaire sourcé (annonce du 24/10, retard de 30 minutes des horaires d'école et de travail).
 Comment : `zic` (« zone information compiler », `man zic`) lit ces fichiers texte et produit des fichiers binaires TZif (`/usr/share/zoneinfo`). C'est ce que lisent glibc, Python…
 Releases : 3 en 2025 (2025a/b/c), 6 en 2026 au 30/10 (2026a à 2026f). Vérifié dans NEWS : https://data.iana.org/time-zones/tzdb/NEWS
 
