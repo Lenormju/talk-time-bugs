@@ -9,7 +9,7 @@
 <v-clicks class="tight-list">
 
 * 10 novembre (mois n°11), format US `MM-DD-YYYY`
-* 11 octobre (mois n°10), format Européen
+* 11 octobre (mois n°10), format Européen `DD-MM-YYYY`
 * aucun moyen de savoir sans contexte
 
 </v-clicks>
