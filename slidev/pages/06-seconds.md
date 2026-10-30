@@ -43,8 +43,8 @@
 
 * une seconde UT1 est une fraction (1/86400) de la durée de rotation entre deux zéniths
 * mais la Terre n'a pas une rotation constante<br/>
-  (forces de marées, convection du noyau, fonte glaciaire, gros séismes)
-* donc les secondes UT1 n'ont pas une durée constante par rapport à TAI
+  (forces de marées, convection du noyau, fonte glaciaire, gros séismes, ...)
+* donc les secondes UT1 n'ont pas une durée constante par rapport à celles TAI
 * or les secondes UTC sont des secondes TAI
 * et UTC doit garantir $|\text{UTC} - \text{UT1}| < 0.9$
 * donc c'est le nombre de secondes par jour qui change !
