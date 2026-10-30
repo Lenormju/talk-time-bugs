@@ -66,6 +66,9 @@
   margin-top: 0.1em;
   margin-bottom: 0.1em;
 }
+ul.tight-list {
+  margin-left: 1.5em;
+}
 </style>
 
 ---
