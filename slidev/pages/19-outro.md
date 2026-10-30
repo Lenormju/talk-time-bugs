@@ -33,6 +33,7 @@ Culture
 
 * [Erik Naggum - The Long, Painful History of Time](https://naggum.no/lugm-time.html) : très complet, surtout pour la vision historique
 * [Revues du monde - Le futur n'a pas toujours existé](https://www.youtube.com/watch?v=EakwdPrTy5Y) : vidéo qui démonte notre rapport au temps, très lié à notre époque/culture
+* [Scilabus - Le jetlag social, ce décalage que vous vivez chaque week-end](https://www.youtube.com/watch?v=fqk7agy4Tr8)
 
 Timezones
 
