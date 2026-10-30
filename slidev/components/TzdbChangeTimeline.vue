@@ -55,9 +55,9 @@ const caption = computed(() => {
 
 const uLabel = computed(() => {
   switch (step.value) {
-    case 3: return 'U : 1er nov. 2022'
+    case 3: return 'U : bien avant'
     case 4: return 'U : 15:30Z'
-    case 5: return 'U : 20 avril 2023'
+    case 5: return 'U : bien après'
     default: return 'U : 07:30Z'
   }
 })
