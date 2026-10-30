@@ -1,4 +1,4 @@
-# Quiz !
+# Quiz sur les formats !
 
 <v-click>
 
@@ -225,7 +225,7 @@ CHF 181,00 ↔️ EUR 199,15
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
   <li>Non-unicité : DST</li>
@@ -238,7 +238,7 @@ CHF 181,00 ↔️ EUR 199,15
 
 ---
 
-# Éviter / détecter (formats) : échanger des dates
+# Solution (formats) : échanger des dates
 
 <div class="grid grid-cols-2 gap-4 mt-2">
 <div v-click>

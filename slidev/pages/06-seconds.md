@@ -59,7 +59,7 @@
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
   <li>Non-unicité : DST, timezones<span v-click>, <span class="text-orange-400">leap seconds</span></span></li>
@@ -72,7 +72,7 @@
 
 ---
 
-# La fin des secondes intercalaires
+# Solution (leap seconds) : la fin
 
 <div v-click>
 

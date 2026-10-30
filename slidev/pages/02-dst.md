@@ -30,7 +30,7 @@ Changement d'heure : "daylight saving(s) time"
 layout: center
 ---
 
-# Avec du code
+# Heure d'hiver, avec du code
 
 <v-click>
 <!-- -->
@@ -61,13 +61,13 @@ clicks: 4
 class: no-center
 ---
 
-# Changement d'heure : automne
+# Changement d'heure : hiver
 
 <DSTTimelineSVGFall />
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
   <li v-click class="text-orange-400">Non-unicité : DST</li>
@@ -105,7 +105,7 @@ Que s'est-il passé ?
 layout: center
 ---
 
-# Avec du code
+# Heure d'été, avec du code
 
 <v-click>
 <!-- -->
@@ -132,13 +132,13 @@ clicks: 3
 class: no-center
 ---
 
-# Changement d'heure : printemps
+# Changement d'heure : été
 
 <DSTTimelineSVG />
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
   <li>Non-unicité : DST</li>
@@ -156,7 +156,7 @@ class: no-center
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
   <li>Non-unicité : DST</li>
@@ -240,7 +240,7 @@ Calculé (estimé, pas mesuré) à partir de l'axe de WorkAndSchoolSchedule.vue 
 class: no-center
 ---
 
-# Evolutions
+# Évolutions
 
 <div class="relative w-full" style="height: 420px">
   <!-- Images at odd clicks: 1, 3, 5, 7, 9, 11, 13 -->
@@ -275,7 +275,7 @@ class: no-center
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
   <li>Non-unicité : DST</li>
@@ -287,7 +287,7 @@ class: no-center
 
 ---
 
-# Éviter / détecter (DST) : comparer deux instants
+# Éviter / détecter (DST) : soustraire deux datetimes
 
 <v-click>
 <!-- -->
@@ -326,7 +326,7 @@ print(second.timestamp() - premier.timestamp())  # 3600.0
 
 ---
 
-# Éviter / détecter (DST) : mesurer une durée
+# Éviter / détecter (DST) : une durée se mesure en monotone
 
 ```python
 # processus lancé avec TZ=Europe/Paris

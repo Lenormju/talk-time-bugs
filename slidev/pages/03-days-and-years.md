@@ -121,7 +121,7 @@ li {
 
 ---
 
-# Quiz !
+# Quiz sur les calendriers !
 
 <v-click>
 
@@ -172,7 +172,7 @@ li {
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
   <li>Non-unicité : DST</li>
@@ -236,7 +236,7 @@ Image des calendriers : https://en.wikipedia.org/wiki/Calendar_date
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
   <li>Non-unicité : DST</li>
@@ -248,7 +248,7 @@ Image des calendriers : https://en.wikipedia.org/wiki/Calendar_date
 
 ---
 
-# Des solutions ?
+# Solution (calendriers) : réformer le calendrier ?
 
 <div class="grid grid-cols-2 gap-8 mt-4">
   <div class="flex flex-col items-center">
@@ -294,7 +294,7 @@ jours épagomènes, cf calendrier égyptien antique
 
 ---
 
-# De vraies solutions
+# Solution (calendriers) : les bonnes pratiques de code
 
 <v-click>
 
@@ -315,7 +315,7 @@ jours épagomènes, cf calendrier égyptien antique
 
 ---
 
-# +1 mois, le 31 octobre 2026
+# Solution (calendriers) : en pratique
 
 <div class="grid grid-cols-2 gap-4 mt-2">
 <div v-click>
