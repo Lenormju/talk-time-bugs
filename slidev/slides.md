@@ -124,12 +124,6 @@ src: ./pages/08-politics.md
 IMPORTED
 
 ---
-src: ./pages/09-technical-pitfalls.md
----
-
-IMPORTED
-
----
 src: ./pages/18-conclusion.md
 ---
 

@@ -67,6 +67,9 @@ Astronomie et astrophysique
 
 Tooling
 
+* [jsdate.wtf](https://jsdate.wtf/) : le recueil des pièges de `Date` en JavaScript
+* [Astropy](https://www.astropy.org/) : bibliothèque Python pour l'astronomie, avec ses propres échelles de temps (UTC, TAI, TT, UT1…)
+* [Symfony Clock](https://symfony.com/doc/current/components/clock.html) : `MockClock` pour figer l'horloge en PHP, basé sur [PSR-20](https://www.php-fig.org/psr/psr-20/)
 * [Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) : propose un glossaire parfait, devenu standard
 * [Arie Bovenberg - Ten Python datetime pitfalls, and what libraries are (not) doing about it](https://dev.arie.bovenberg.net/blog/python-datetime-pitfalls/) : des exemples de bugs causés par de mauvais outils, ayant mené à la création de `whenever`
 * [BurntSushi - about leap seconds](https://github.com/BurntSushi/jiff/issues/7) : Why leap seconds wont be supported in jiff, and why they are complicated and not very useful, also some reading recommendations
