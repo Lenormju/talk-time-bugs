@@ -64,6 +64,18 @@ TODO Julien : ton cas vécu (quelle machine, quel écart, ce qui a cassé) ; cap
 
 ---
 
+# Démo : interroger un serveur NTP
+
+<div class="ntp-big">
+  <NtpDemo />
+</div>
+
+<style>
+.ntp-big { font-size: 1em; }
+</style>
+
+---
+
 # Le GPS c'est compliqué !
 
 <v-clicks>
