@@ -114,6 +114,8 @@ class: no-center
 
 ## Définition : les bugs <v-click><span>(temporels)</span></v-click>
 
+<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+
 <div class="relative h-96">
   <v-click>
     <div class="absolute w-72 top-1 left-4 rotate-[-3deg]">
