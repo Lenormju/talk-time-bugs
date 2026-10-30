@@ -131,7 +131,7 @@ CHF 181,00 ↔️ EUR 199,15
 * "times" (heures) : `Thh:mm:ss.sss` (ou sans `.sss`, ou sans aucun `:`, ou sans `:ss.sss`, ou `.mmm`, ou ...)
   * tellement de cas !
   * pas de limite au nombre de chiffres pour la partie décimale, "à définir soi-même"
-* timezones : `Z` (prononcé "zulu") ou `±hh:mm` (ou sans `:` ou sans `:mm`)
+* offset : `Z` (prononcé "zulu") ou `±hh:mm` (ou sans `:` ou sans `:mm`)
   * mais `-00` est interdit
   * depuis 2019 on peut ajouter `:ss` ou bien `:ss.sss`
 * le `T` est obligatoire entre la partie "date" et la partie "time"
@@ -183,7 +183,7 @@ CHF 181,00 ↔️ EUR 199,15
 * accessible gratuitement
 * censé être un "profil" de l'ISO-8601 (version 1988 et 2000)
 * proche, mais différent de ISO-8601 :
-  * divergence : timezone `-00` signifie "unknown"
+  * divergence : offset `-00` signifie "unknown"
   * divergence : un espace peut séparer la partie "date" de celle "time"
   * obligation : timezone offset
   * obligation : années sur 4 chiffres
