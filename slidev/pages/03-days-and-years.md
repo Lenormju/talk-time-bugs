@@ -304,7 +304,7 @@ jours épagomènes, cf calendrier égyptien antique
 <v-clicks depth="2">
 
 * ajouter une **durée "claire"** : un nombre fixe de secondes → `timedelta(days=1)`
-* ajouter une **durée calendaire** : « +1 mois », « +1 an », longueur variable
+* ajouter une **durée "ambigüe"** : « +1 mois », « +1 an », longueur variable
   * une API qui accepte la réalité des calendriers : `relativedelta`, `Temporal.PlainDate.add`, Java `plusMonths`, SQL `interval '1 month'`
   * jamais de `replace(month=...)`, ni d'arithmétique à la main
 * 🧪 tester : 28 et 29 février, le 31, 1900 / 2000 / 2100, et en property-based
