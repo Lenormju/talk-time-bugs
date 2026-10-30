@@ -37,7 +37,7 @@ Pour faire (très) court :
   * avant le 25 octobre : Central European Summer Time (CEST, UTC+2)
   * après le 25 octobre : Central European Time (CET, UTC+1)
 * voyage au Royaume-Uni :
-  * UK suit le Greenwich Mean Time (GMT, UTC+O) ou le British Summer Time (BST, UTC+1)
+  * UK suit le Greenwich Mean Time (GMT, UTC+0) ou le British Summer Time (BST, UTC+1)
   * a conservé son changement d'heure synchronisé avec le reste de l'Union Européenne
   * à l'aller je "perds" 1h, au retour je la regagne
 * "offset" versus "zoned" :
