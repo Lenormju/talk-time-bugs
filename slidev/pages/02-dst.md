@@ -374,8 +374,6 @@ with time_machine.travel(before) as clock:
 print(round(time.monotonic(), 2))  # 24164.39
 ```
 
-L'horloge monotone n'est pas une date, juste un compteur qui n'avance que vers l'avant.
-
 </div>
 
 <style>
@@ -389,12 +387,16 @@ L'horloge monotone n'est pas une date, juste un compteur qui n'avance que vers l
 }
 </style>
 
+<!-- L'horloge monotone n'est pas une date, juste un compteur qui n'avance que vers l'avant. -->
+
+---
+class: no-center
 ---
 
 # Avez-vous remarqué ?
 
-<SunDuration :x="18" :y="25" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
-<SunDuration :x="18" :y="33" :width="35.8" :height="8" label="Aujourd'hui (30 octobre)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 10h03 -->
-<SunDuration :x="18" :y="41" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
+<SunDuration :x="18" :y="30" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
+<SunDuration :x="18" :y="38" :width="35.8" :height="8" label="Aujourd'hui (30 octobre)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 10h03 -->
+<SunDuration :x="18" :y="46" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
 
 <!-- pas la même durée -->
