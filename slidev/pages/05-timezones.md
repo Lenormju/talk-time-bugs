@@ -112,7 +112,7 @@ Vérifier : `git show 5b5b39dae1` dans eggert/tz ; `git tag -v 2026f`.
 -->
 
 ---
-clicks: 5
+clicks: 10
 class: no-center
 ---
 
@@ -121,24 +121,38 @@ class: no-center
 <TzdbLayers class="mt-4" />
 
 <!--
-Instantané du 30/10/2026 (ma machine Ubuntu 24.04, conteneurs podman tirés le jour même) : le but est de montrer l'écart avec la 2026f, pas de dresser un classement.
+Lecture : en haut la source, puis des grappes qui en dépendent, puis des grappes qui dépendent des précédentes. Instantané du 30/10/2026 (ma machine Ubuntu 24.04, conteneurs podman tirés le jour même, paquets installés dans des dossiers jetables). Test de référence : l'offset d'America/Havana au 2026-11-02 12:00Z vaut -05:00 jusqu'à la 2026e et -04:00 avec la 2026f.
 
-Les trois éléments qui marquent :
-* Une JVM a sa propre copie : `eclipse-temurin:17` annonce 2026b alors que le système du même conteneur est en 2026e (`ZoneRulesProvider.getVersions("Europe/Paris")` contre `head -1 /usr/share/zoneinfo/tzdata.zi`). Le correctif tz 2026f est dans JDK 28 uniquement à ce jour (JDK-8396048), pas de backport à ce jour vers 17/21/25.
-* Deux Node sur la même machine, deux versions : `node -p process.versions.tz` donne 2025c (paquet système) et 2025b (Node 22 via nvm).
-* Une image de conteneur est figée à sa construction : `python:3.14` (créée le 28/10) a 2026e. `ubuntu:24.04` et `alpine:3.22` n'ont aucun tzdata : `TZ=Europe/Paris date` répond UTC, sans erreur.
+Ce qui suit la source directement :
+* distributions : Debian 12 a déjà la 2026f (`bookworm-security`), Ubuntu 22.04/24.04/26.04, Fedora, Alpine, Arch sont en 2026e (Launchpad, index Debian, Repology)
+* Windows : base propre dans le registre (`HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones`), mise à jour par Windows Update, **aucun numéro de version tzdata publié**. Le badge « ≈2026e » est une **estimation de ma part** : le KB5127648 (Windows 11 24H2/25H2, sécurité du 13/10/2026) apporte la zone Manitoba, qui correspond à tzdata 2026e (29/09/2026) ; il ne contient pas Cuba (2026f). Un KB par version de Windows pour un même changement : Windows 11 23H2 KB5126653, Server 2025 KB5126646, Server 2022 KB5126655, Server 2019 KB5126651, Server 2016 KB5126868, Windows 10 LTSC 2021 KB5126657 ; pour la Colombie-Britannique et l'Alberta sur Windows 11 24H2/25H2, la préversion KB5124010 du 22/09. Vérifiés sur support.microsoft.com. Cuba : aucune trace chez Microsoft au 30/10 (blog DST, pages KB)
+* Android : module Mainline « Time Zone Data » (Android 10+), téléchargé puis redémarrage (« weeks » pour appliquer un changement, source Google). La version se lit dans `tz_version` (format `009.001|2025a|001`) : `adb shell cat /apex/com.android.tzdata/etc/tz/tz_version` (déduit du code AOSP, non testé sur appareil) ; sur Android 10 à 13 : `adb shell head -c 11 /apex/com.android.tzdata/etc/tz/tzdata`. Aucune trace d'une 2026f dans AOSP (le dernier commit tz public est 2025a) ni d'annonce Google pour Cuba
+* copies embarquées : Node embarque son ICU en statique (même avec un dossier vide monté sur `/usr/share/zoneinfo` il répond 2026e) : Node 20.20 = 2025c, Node 22.21 = 2025b, Node 22.23+ = 2026e ; une JVM a sa copie `lib/tzdb.dat` (`eclipse-temurin:17` annonce 2026b alors que son système est en 2026e ; correctif 2026f dans JDK 28 seulement, JDK-8396048) ; Go 1.27.3 embarque 2026c (`lib/time/zoneinfo.zip`), aucun commit 2026e/f pour l'instant
+* bibliothèques avec leur copie : `tzdata` PyPI 2026.6 (2026f), `pytz` 2026.6, `moment-timezone` 0.6.6 (`moment.tz.dataVersion` = 2026f), Joda-Time 2.15.1 (2026f), NodaTime 3.3.7 (2026f), ICU4J 79.1 (2026e) : seules celles-ci répondent -04:00 pour Cuba aujourd'hui
 
-Python : `zoneinfo` lit d'abord le système, puis le paquet PyPI `tzdata` (2026.6 = IANA 2026f, publié le 28/10 à 09:57 UTC) ; sans les deux, `ZoneInfoNotFoundError`. Un processus déjà lancé garde l'ancienne règle tant qu'on n'appelle pas `ZoneInfo.clear_cache()` (testé). `pytz` 2026.6 est à jour parce qu'il est sorti après ; `dateutil` 3 n'embarque plus sa copie (il passe par le paquet `tzdata`).
+Ce qui dépend de ces grappes :
+* lisent le système : Python `zoneinfo`, .NET `TimeZoneInfo` (`TimeZoneNotFoundException` si tzdata absent), glibc (`TZ` inconnu : UTC sans erreur), PostgreSQL **compilé avec `--with-system-tzdata`** (c'est le cas des images officielles (vérifié avec `pg_config --configure` : 2026e ; l'image utilise le paquet PGDG `17.11-1.pgdg13+2`) et du paquet Debian : le fichier `server/postgresql.mk` de `postgresql-common` (trixie, version 278), inclus par le `debian/rules` de `postgresql-17`, passe `--with-system-tzdata=/usr/share/zoneinfo`, lu sur sources.debian.org ; bookworm non lu ; par défaut, PostgreSQL utilise la copie fournie avec ses sources (grappe « copies embarquées » : 2026c d'après les release notes des dernières mineures 14.24 à 18.6). MySQL est à part : `mysql_tzinfo_to_sql` **copie** les fichiers système dans ses propres tables, une commande à lancer, et la doc conseille de redémarrer ensuite. Plus généralement, un processus déjà lancé peut garder l'ancienne règle : testé seulement pour Python (`ZoneInfo.clear_cache()`), à ne pas généraliser aux autres sans test
+* images de conteneurs : figées à la construction (images tirées le 28/10 ou avant). `python:3.14`, `node:22`, `golang` (latest, Go 1.27), `postgres:17` (Debian 13), `mysql:9` (Oracle Linux, `2026e-rearguard` : même release dans un autre format) : 2026e. `ubuntu:22.04/24.04/26.04` et `alpine:3.22` : le paquet `tzdata` n'est pas installé (`TZ=Europe/Paris date` répond UTC, sans erreur) ; `apt-get install tzdata` donne 2026e ; `node:22-alpine` aussi sans zoneinfo. À l'inverse `mariadb:11` (Ubuntu 24.04) a tzdata installé (2026e). Raison officielle non trouvée
+* via Intl : `luxon`, `date-fns-tz` et le polyfill Temporal n'ont pas de données de fuseaux : ils interrogent `Intl` (l'API d'internationalisation de JavaScript, implémentée par ICU), donc le tzdata du runtime. Vérifié seulement avec **Node** (ICU embarqué, d'où la grappe « Node (ICU) » qui l'alimente) : sous Node 22.21 (tz 2025b), ils répondent -05:00 pour Cuba. Pour les navigateurs, Deno et Bun, je n'ai pas vérifié l'origine de leur tzdata (l'implication de `Intl` sur leur doc n'a pas non plus été lue)
+* via le paquet PyPI `tzdata` : python-dateutil 3, arrow, pendulum en dépendent
 
-Distros (d'après Repology et les index Debian) : Debian 12 a déjà la 2026f dans `bookworm-security` ; Debian 13, Ubuntu 22.04/24.04/26.04, Fedora, Alpine, Arch, AlmaLinux 9, CentOS Stream : 2026e. Aucune série Ubuntu ne l'a (Launchpad, 30/10).
-Windows : base propre dans le registre, mise à jour par les cumulatives mensuelles, avec des « interim guidance » quand le délai manque (blog DST de Microsoft : rien sur Cuba au 30/10). Android : module Mainline « Time Zone Data » (Android 10 et plus), téléchargé puis redémarrage.
-MySQL : `mysql_tzinfo_to_sql` charge les fichiers système dans ses tables, la doc conseille de redémarrer le serveur ensuite. PostgreSQL : copie embarquée, sauf compilation avec `--with-system-tzdata`.
+Autres langages (testés le 30/10, conteneurs podman, test Cuba : -05:00 jusqu'à la 2026e, -04:00 avec la 2026f) :
+* Ruby : `tzinfo` 2.0.6 lit le système d'abord ; sans zoneinfo système ni gem, `TZInfo::DataSourceNotFound` ; avec le gem `tzinfo-data` 1.2026.6 (28/10/2026, 2026f) seul : -04:00
+* Rust : `chrono-tz` 0.10.4 (juillet 2025) embarque la tz **2025b** à la compilation, sans lire le système : -05:00, en retard de plus d'un an ; `jiff` 0.2.38 lit le système sous Unix, `jiff-tzdb` 0.1.9 (06/10/2026, 2026e) seulement si on active la feature ; sans système ni bundle : erreur « no time zone database configured »
+* PHP : la base est dans le cœur de PHP (jamais le système) : `php:8.4-cli` (8.4.27) = `timezone_version_get()` `2026.5` (2026e), `php:8.3-cli` (8.3.36) = `2026.1` (2026a) ; correspondance « 2026.N = lettre N » : lecture de ma part, non confirmée par la doc
+* Elixir : le paquet hex `tzdata` 1.2.2 embarque la 2026d et **télécharge les mises à jour depuis l'IANA à l'exécution** (testé : 2026d avec `autoupdate: :disabled`, 2026f après quelques secondes sinon) ; il lui faut un accès réseau
+* C++ : `std::chrono::tzdb` (libstdc++, GCC 16.2.0) lit `/usr/share/zoneinfo/tzdata.zi` ; sans lui, une copie embarquée figée à la date du compilateur (2026b) sans erreur. Non testés : libc++, MSVC, la bibliothèque « date » de Hinnant
+* Perl (`DateTime::TimeZone` 2.72 du 28/10) et Dart (`timezone` 0.11.2 du 12/10) : non vérifiés, absents de la slide
+
+Python, le piège : `zoneinfo` cherche chaque clé dans `TZPATH` (système) d'abord, et ne se rabat sur le paquet PyPI `tzdata` que si la zone est introuvable. Installer `tzdata` 2026.6 ne change donc rien si le système a déjà `America/Havana` : -05:00 (testé avec zoneinfo, dateutil 3, arrow, pendulum, whenever). Il faut `zoneinfo.reset_tzpath(to=[])` ou `PYTHONTZPATH=""` pour forcer la copie PyPI (-04:00). Un processus déjà lancé garde l'ancienne règle tant qu'on n'appelle pas `ZoneInfo.clear_cache()` (testé).
+
+Go, la recherche d'une zone (`time.LoadLocation`, doc `pkg.go.dev/time`) : 1) `ZONEINFO` (dossier ou zip), 2) l'emplacement système (Unix), 3) `$GOROOT/lib/time/zoneinfo.zip`, 4) le paquet `time/tzdata` s'il est importé. Les trois premiers lisent des fichiers à l'exécution. Le 4e est une copie compilée dans le binaire (`-tags timetzdata` ou `import _ "time/tzdata"`, environ +450 Ko) : au build, mais consultée en dernier à l'exécution. Testé : binaire sans le tag dans une image Alpine sans tzdata : `unknown time zone America/Havana` (une `error`, pas un panic) ; avec le tag : -05:00 (copie en 2026c).
 
 Vérifier chez soi :
-* `head -1 /usr/share/zoneinfo/tzdata.zi` ou `apt-cache policy tzdata`
-* `rmadison tzdata` (devscripts), https://launchpad.net/ubuntu/+source/tzdata , https://tracker.debian.org/pkg/tzdata
-* `node -p process.versions.tz`
-* `uv run python -c "import zoneinfo; print(zoneinfo.TZPATH)"` et `importlib.metadata.version('tzdata')`
+* `head -1 /usr/share/zoneinfo/tzdata.zi` ou `apt-cache policy tzdata` ; `rmadison tzdata` (devscripts) ; https://launchpad.net/ubuntu/+source/tzdata ; https://tracker.debian.org/pkg/tzdata
+* `node -p "process.versions.tz + ' ' + process.versions.icu"`
+* Python : `uv run python -c "import zoneinfo; print(zoneinfo.TZPATH)"` et `importlib.metadata.version('tzdata')`
+* JVM : `ZoneRulesProvider.getVersions("Europe/Paris")` contre `head -1 /usr/share/zoneinfo/tzdata.zi`
 * `podman image inspect --format '{{.Created}}' IMAGE` et `podman run --rm IMAGE head -1 /usr/share/zoneinfo/tzdata.zi`
 * test Cuba : `TZ=America/Havana date -d 2026-11-02T12:00:00Z +%z` : `-0500` sans la 2026f, `-0400` avec.
 -->
