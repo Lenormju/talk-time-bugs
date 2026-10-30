@@ -57,7 +57,7 @@ le 31 août → « 31 septembre » → 1er octobre
 
 # Oui, mais ...
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip />
 
 <ul>
   <li v-click="1">jour solaire ? <span v-click="2">civil ?</span>

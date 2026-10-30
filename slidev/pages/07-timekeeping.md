@@ -66,7 +66,7 @@ TODO Julien : ton cas vécu (quelle machine, quel écart, ce qui a cassé) ; cap
 
 # Démo : interroger un serveur NTP
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip />
 
 <div class="ntp-big">
   <NtpDemo />
