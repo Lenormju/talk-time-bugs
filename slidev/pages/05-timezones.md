@@ -23,48 +23,34 @@ Pour faire (très) court :
 <img src="../images/Timezone-boundary-builder_release_2023d.png" class="max-h-96 mx-auto object-contain" />
 
 ---
+clicks: 12
+class: no-center
+---
 
-# Bases et exemples
+# Offset, zone, naïf
 
-<v-clicks depth="2" class="tight-list">
+<TimeScene class="absolute left-[30px] top-[88px]" />
 
-* "prime meridian" (IERS Reference Meridian) : Greenwich
-  * (je vous passe l'histoire de Greenwich)
-  * **a servi à définir UTC**
-  * (je vous passe l'histoire d'UTC)
-  * UTC = Universel Temps Coordonné / Universal Time Coordinated
-* changement d'heure :
-  * avant le 25 octobre : Central European Summer Time (CEST, UTC+2)
-  * après le 25 octobre : Central European Time (CET, UTC+1)
-* voyage au Royaume-Uni :
-  * UK suit le Greenwich Mean Time (GMT, UTC+0) ou le British Summer Time (BST, UTC+1)
-  * a conservé son changement d'heure synchronisé avec le reste de l'Union Européenne
-  * à l'aller je "perds" 1h, au retour je la regagne
-* "offset" versus "zoned" :
-  * China Standard Time (CST) = `+08:00` ou `Asia/Shanghai`
-  * Eastern Standard Time (EST) = `-05:00` ou `America/Cancun`
-* ni offset ni timezone = "naïve"
+<!--
+Couche 1, offset (clics 1-3) :
+* l'instant, c'est un point sur la ligne UTC, en direct. « Z » (Zulu) = UTC = offset zéro, rien de plus
+* les 3 horloges (Rio, ici, Shanghai) regardent le même point : seule l'heure locale change. L'offset, c'est juste l'écart avec UTC
+* à l'oral : `+0200`, c'est `+02:00` sans les deux-points (RFC 2822 / ISO basique). Réponse aux questions de la fin de la partie 04
+* GMT : le nom historique de la même horloge qu'UTC+0 ; le « GMT » des en-têtes HTTP, c'est UTC en pratique
 
-</v-clicks>
+Couche 2, zone (clics 4-9) :
+* l'offset de Paris change dans l'année : +02:00 jusqu'au 25/10 01:00Z, puis +01:00 (clic 5). Clic 6 : le curseur s'arrête sur 02:59 +02:00 ; clic 7 : une minute plus tard, 02:00 +01:00 → on revit le 02:30 du début
+* la zone (`Europe/Paris`), c'est ce qui porte les règles. Un offset n'est pas une zone (le résumé ISO 8601 de la partie 04 disait « timezone » pour l'offset : abus de langage)
+* clic 9, même instant, trois zones : Shanghai reste à +08:00 tout du long (pas de changement d'heure) ; New York passe de -04:00 (EDT) à -05:00 (EST) le dimanche 1er/11 à 06:00Z, une semaine après Paris. Résultat : l'écart Paris–New York passe de 6 h à 5 h du 25/10 01:00Z au 01/11 06:00Z, puis revient à 6 h (vérifié avec Intl et Python zoneinfo)
+* à l'oral : les abréviations sont ambiguës (« CST » de Shanghai, c'est aussi Chicago -06:00 ou Cuba ; « EST »…), les noms IANA non
 
-<style>
-.tight-list li {
-  margin-top: 0.15em;
-  margin-bottom: 0.15em;
-  line-height: 1.3;
-  font-size: 0.82em;
-}
-.tight-list li li {
-  font-size: 1em;
-}
-.tight-list ul {
-  margin-top: 0.1em;
-  margin-bottom: 0.1em;
-}
-.tight-list code {
-  font-size: 0.82em;
-}
-</style>
+Couche 3, naïf / offset / zoned, sur le 02:30 du 25/10 (clics 10-12) :
+* naïf : deux instants possibles (et encore, je suppose qu'on est à Paris : sans ça, n'importe quel offset)
+* avec offset : l'offset tranche, un seul instant (`+01:00` donnerait 01:30Z), mais on ne sait plus quelles règles appliquer pour « +1 jour »
+* zoned : la zone apporte les règles, mais pour l'heure ambiguë elle ne choisit pas : elle donne les 2 candidats, `fold=0` → 00:30Z et `fold=1` → 01:30Z. C'est au code de trancher (Python prend `fold=0` par défaut, sans rien dire)
+
+Tout ce que calcule la slide vient de `Intl`, donc du tzdata du navigateur → slide suivante : d'où vient ce tzdata ?
+-->
 
 ---
 clicks: 8
