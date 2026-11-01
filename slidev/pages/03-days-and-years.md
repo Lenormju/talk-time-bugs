@@ -87,7 +87,7 @@ class: no-center
 <v-clicks depth="2">
 
 * Jésus-Christ a ressuscité <sup class="citation-needed">&#91;citation needed&#93;</sup>
-  * les chrétiens ont souhaité commérer cette date
+  * les chrétiens ont souhaité commémorer cette date : Pâques
   * 1er dimanche après la pleine lune après le 21 Mars (approximation de l'équinoxe de Mars)
   * date mouvante = 😬
 * le calendrier Julien supposait qu'une année faisait exactement 365.25 jours
