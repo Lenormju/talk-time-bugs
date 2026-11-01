@@ -200,7 +200,7 @@ bases de données : le fuseau n'est presque jamais conservé (`timestamptz` le p
 
 <v-clicks depth="2">
 
-* l'intention : « 10h à Mexico City » = une heure + un zone
+* l'intention : « 10h à Mexico City » = une heure + une zone
 * un offset (`-05:00`) est un résultat calculé, pas une intention
 * une zone stocke un lieu plutôt qu'une valeur (stabilité !)
 * l'UTC est un cache dérivé : le garder, mais le recalculer quand tzdata change
