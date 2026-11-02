@@ -99,7 +99,7 @@ TODO Julien : ton cas vécu (quelle machine, quel écart, ce qui a cassé) ; cap
 </div>
 <div>
 
-<v-click>
+<div v-click>
 
 ```text {1,4}
 $ timedatectl timesync-status
@@ -110,9 +110,9 @@ $ timedatectl timesync-status
        Jitter: 27.628ms
 ```
 
-</v-click>
+</div>
 
-<v-click>
+<div v-click>
 
 ```text {1,3}
 $ chronyc tracking
@@ -124,7 +124,7 @@ Frequency       : 4.796 ppm fast
 Skew            : 6.584 ppm
 ```
 
-</v-click>
+</div>
 
 <v-click>
 
