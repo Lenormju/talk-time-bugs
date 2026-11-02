@@ -225,6 +225,48 @@ Métrique Prometheus vérifiée (collector/timex.go de node_exporter, Linux) : n
 
 <Skip hard />
 
-* Temps Lunaire
+<v-clicks depth="2">
+
+* Temps lunaire
+  * 1 jour lunaire ≈ 29,5 jours terrestres
+  * LTC : Coordinated Lunar Time
+  * TCL : Temps-coordonnée lunaire
+  * CGPM 2026 : résolution 6
 * Temps martien
+  * 1 sol = 24 h 39 min 35 s
 * ...
+
+</v-clicks>
+
+<!--
+Les sigles ne suivent pas l'ordre des mots
+- LTC : le mémo OSTP écrit bien « Coordinated Lunar Time (LTC) » (texte relu : sigle = Lunar Time Coordinated dans l'ordre des lettres, mais le mémo ne l'explique pas). Hypothèse de ma part, non sourcée : calqué sur UTC (Coordinated Universal Time), dont le sigle est lui aussi un compromis entre l'anglais CUT et le français TUC.
+- TCL : « Temps-coordonnée lunaire » en français (texte bilingue des projets de résolutions du CGPM 2026), « Lunar Coordinate Time » en anglais. Sigle d'origine française, comme TCG (Temps-coordonnée géocentrique) et TCB (barycentrique) dont il est calqué ; l'IAU a gardé le sigle français en anglais (donc pas « LCT »).
+- À ne pas confondre : LTC (mémo américain, étalon opérationnel traçable à UTC) et TCL (IAU, échelle de temps-coordonnée relativiste).
+
+Temps lunaire : qui définit quoi
+- LTC (Coordinated Lunar Time) : mémo de la Maison-Blanche (OSTP, Arati Prabhakar), 2 avril 2024, « Policy on Celestial Time Standardization in Support of the National Cislunar S&T Strategy ». La NASA doit livrer une stratégie de standardisation du temps lunaire au plus tard le 31/12/2026, avec Commerce, Défense, État et Transports, et la faire adopter par les organismes de normalisation et les signataires des Accords Artemis. LTC : étalon opérationnel cislunaire, traçable à UTC, « analogue au Temps Terrestre », fixé par un ensemble d'horloges sur la Lune (survivrait à une perte de contact avec la Terre). Source : https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/04/Celestial-Time-Standardization-Policy.pdf (texte lu). Mémo de l'administration Biden, archivé : pas vérifié qu'il est toujours en vigueur.
+- NASA : page SCaN, « établir un temps lunaire coordonné (LTC) suite à une directive de la Maison-Blanche » (https://www.nasa.gov/communicating-with-missions/scan-enabling-moon-to-mars). Aucune publication de la stratégie trouvée au 2026-11-02 (absence de preuve, pas preuve d'absence) ; échéance dans deux mois.
+- TCL (Lunar Coordinate Time) : IAU, Assemblée générale 2024, résolution II (Lunar Celestial Reference System et TCL) et résolution III (standard de temps lunaire coordonné par accord international). Titres vérifiés sur la liste officielle https://www.iau.org/IAU/Iau/Publications/List-of-Resolutions.aspx ; texte non lu (unité = seconde SI, origine commune avec TT/TCG/TCB au 1er janvier 1977 : presse seulement).
+- CGPM : 28e CGPM, résolution 6 adoptée le 15 octobre 2026, « On the definition of an international lunar reference time scale and its traceability to UTC » (https://www.bipm.org/en/cgpm-2026/resolution-6, DOI 10.59161/CGPM2026RES6E). Ton recommandatoire (« encourage », « recommande »), pas de clause « décide » repérée, d'après un résumé de la page BIPM, texte pas lu mot à mot. Le texte français fait foi. Même session que la résolution 5 sur les secondes intercalaires.
+- ESA : Moonlight, projet NovaMoon (premières horloges atomiques à la surface de la Lune, laboratoire de référence de temps lunaire), charge candidate d'Argonaut-1, visée vers 2031 (source secondaire pour la date). https://www.esa.int/Applications/Satellite_navigation/Introducing_NovaMoon
+- Pas de nom stabilisé : « LTC » côté États-Unis, « TCL » ou « échelle de référence lunaire » côté IAU et BIPM.
+
+Les chiffres
+- Jour lunaire (lever du Soleil au lever suivant, jour solaire) = mois synodique moyen, environ 29,53 jours terrestres, soit 29 j 12 h 44 min 3 s : donc environ 14,8 jours de jour puis autant de nuit en un point donné. Rotation propre de la Lune (jour sidéral) : 27,32 jours, égale à sa période orbitale (rotation synchrone) ; l'écart de ~2,2 jours vient de l'orbite de la Terre autour du Soleil. Fait astronomique classique, non issu de la recherche de l'agent, non resourcé ici.
+- Écart d'horloge : le mémo OSTP donne 58,7 µs/jour (une horloge terrestre vue de la Lune perd en moyenne, avec des variations périodiques). Ashby et Patla (NIST), arXiv 2402.11150 : 56,02 µs/jour pour une horloge près de l'équateur lunaire. Dire « en moyenne » : l'écart varie dans le temps et selon le lieu.
+- 1 ns de lumière = 30 cm, donc des dizaines de µs par jour = des kilomètres d'erreur de position par jour (calcul simple ; « 17 km/jour » vu dans la presse seulement).
+- Une horloge posée sur la surface lunaire dérive d'environ 2,7 µs/jour par rapport à TCL, et l'écart entre point bas et point haut de la surface est d'environ 26 ns/jour (Bourgoin, Defraigne, Meynadier, Metrologia 63(1) 015003, janvier 2026, https://iopscience.iop.org/article/10.1088/1681-7575/ae2c03 ; conversions en µs et ns/jour faites par l'agent).
+- Aucune horloge en service sur la Lune à ce jour. Pas de test en vol trouvé (Lunar Pathfinder est un relais de communication ; Artemis II a survolé la Lune en avril 2026, aucune expérience de temps lunaire trouvée).
+- Une critique existe : arXiv 2602.18641, « The Category Mistake of Cislunar Time » (février 2026), essai non lu en détail.
+
+Pour un développeur
+- Base tz de l'IANA : aucune zone lunaire ; la page « theory » a une section sur la Lune (1re proposition formelle de TCL en 2025, éphéméride LTE440 de l'Observatoire de la Montagne Pourpre, arXiv 2509.18511) et dit que la base ne gère pas l'heure des autres planètes. https://www.iana.org/time-zones/theory
+- Astropy : échelles TAI, TCB, TCG, TDB, TT, UT1, UTC et local ; pas de TCL. Un crate Rust `deep-time` gèrerait TCL (résultat de recherche, non vérifié).
+- Unix time et ISO 8601 : rien de spécifique à la Lune trouvé (absence de résultat, pas une preuve). SOFA et SPICE : non vérifié.
+
+Temps martien
+- Un sol dure environ 24 h 39 min 35,244 s, et il n'existe pas de vrai standard de fuseaux martiens : chaque mission d'atterrissage a choisi sa propre référence (page « theory » de l'IANA).
+
+À ne pas dire : que la NASA a « défini » LTC, qu'il y a des horloges atomiques sur la Lune, que Lunar Pathfinder teste l'heure lunaire.
+-->
