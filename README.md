@@ -9,9 +9,4 @@
 > Vous repartirez avec la conviction que le temps est un sujet épineux, à ne pas prendre à la légère, mais surtout mieux armés pour en résoudre ou éviter les bugs.
 
 TODO:
-- https://vueuse.org/shared/useDateFormat/ ?
-- ElementPlus for VusJS :
-  - https://element-plus.org/en-US/component/datetime-picker
-  - https://element-plus.org/en-US/component/date-picker
-  - https://element-plus.org/en-US/component/time-picker
-  - https://element-plus.org/en-US/component/time-select
+- Partie « timezones » : ajouter une slide de solution pour « Une date, ce n'est pas un instant » : `Temporal.PlainDate`
