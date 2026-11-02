@@ -22,6 +22,9 @@
 * Image du décalage entre UTC et heure solaire par [24timezones.com](https://24timezones.com/cms-static/images/uploads/solartimevsstandardtime.png)
 * Image du décalage entre UT1 et UTC par Wikipedia : [Leapsecond.ut1-utc.svg](https://en.wikipedia.org/wiki/File:Leapsecond.ut1-utc.svg)
 * Photo d'Albert Einstein par Wikimedia : [Albert Einstein sticks his tongue 1951.jpg](https://commons.wikimedia.org/wiki/File:Albert_Einstein_sticks_his_tongue_1951.jpg)
+* Capture des exemples ISO 8601 par Wikipedia : [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+* Capture du bug de l'Apple Watch par iPhoneSoft : [article du 26 octobre 2026](https://iphonesoft.fr/2026/10/26/bug-watchos-27-affichage-permanent-aime-pas-heure-hiver)
+* Photo d'une affiche du Ljubljana Festival par Julien Lenormand, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 * Bande dessinée « Standards » par Randall Munroe, xkcd : [xkcd.com/927](https://xkcd.com/927/) (CC BY-NC 2.5)
 * Bande dessinée « ISO 8601 » par Randall Munroe, xkcd : [xkcd.com/1179](https://xkcd.com/1179/) (CC BY-NC 2.5)
 
