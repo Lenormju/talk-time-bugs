@@ -56,6 +56,8 @@ Un problème récurrent :
 
 ## Définition : le temps
 
+<Skip hard />
+
 <v-click>
 
 > Milieu indéfini et homogène dans lequel se situent les êtres et les choses et qui est caractérisé par sa double nature, à la fois continuité et succession.
@@ -107,8 +109,12 @@ On va se passer de cette définition aujourd'hui ...
 </v-click>
 
 ---
+class: no-center
+---
 
 ## Définition : les bugs <v-click><span>(temporels)</span></v-click>
+
+<Skip hard />
 
 <div class="relative h-96">
   <v-click>
@@ -169,6 +175,8 @@ On va se passer de cette définition aujourd'hui ...
 
 # C'est parti pour un voyage ...
 
-A travers le(s) temps !
+<div>A travers le(s) temps !</div>
+
+<Skip hard />
 
 <Youtube id="PxoKqVwyoOM" width="100%" height="400" />

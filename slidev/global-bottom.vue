@@ -9,23 +9,6 @@ import { isTimeVisible } from './composables/useTimeVisibility'
 // - [slide, [clicks]]: show for multiple clicks (e.g., [4, [0, 2, 3]])
 const timeVisibleOn: (number | [number, number | number[]])[] = [
   1,
-  4,
-  5,
-  6,
-]
-
-// Configuration: when to show the PTC logo (bottom right)
-// Same format as timeVisibleOn
-const logoVisibleOn: (number | [number, number | number[]])[] = [
-  1,
-  3,
-  4,
-  5,
-  6,
-  65,
-  66,
-  67,
-  68,
 ]
 
 const { currentPage, clicks } = useNav()
@@ -49,7 +32,6 @@ function matchesRule(rules: (number | [number, number | number[]])[], page: numb
 }
 
 const shouldShow = computed(() => matchesRule(timeVisibleOn, currentPage.value, clicks.value))
-const shouldShowLogo = computed(() => matchesRule(logoVisibleOn, currentPage.value, clicks.value))
 
 const currentTime = ref('')
 
@@ -78,7 +60,7 @@ onUnmounted(() => {
   <div v-if="shouldShow && isTimeVisible" class="time-display">
     {{ currentTime }}
   </div>
-  <img v-if="shouldShowLogo" src="./images/logo_ptc.png" class="logo-display" />
+  <img src="./images/logo_bdxio.svg" class="logo-display" />
 </template>
 
 <style scoped>
@@ -98,6 +80,6 @@ onUnmounted(() => {
   right: 1rem;
   height: 3rem;
   opacity: 0.8;
-  z-index: 100;
+  z-index: -9999;
 }
 </style>

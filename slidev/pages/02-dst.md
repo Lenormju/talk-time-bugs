@@ -1,6 +1,84 @@
 # Les problèmes commencent ...
 
 <ul>
+  <li v-click="1">Dimanche 25 Octobre 2026, je rentre de soirée ...</li>
+  <li v-click="2">mon Apple Watch affiche : 02 h 30</li>
+  <li v-click="3">je marche 45 minutes</li>
+  <li v-click="4">
+    j'arrive : 02 h 15
+    <span v-click="5" class="font-mono text-amber-400 ml-2">😰 avant d'être parti ?</span>
+  </li>
+  <li v-click="6">
+    je vais me coucher : 02 h 30 de nouveau
+    <span v-click="7" class="font-mono text-amber-400 ml-2">😰 encore ?!</span>
+  </li>
+</ul>
+
+<v-click at="8">
+Que s'est-il passé ?
+</v-click>
+
+<v-click at="9">
+  <img src="../images/iphonesoft_apple_watchos_27_bug.png" class="w-96 border-2 border-gray-400" />
+</v-click>
+
+<v-click at="10">
+Changement d'heure : "daylight saving(s) time"
+</v-click>
+
+---
+layout: center
+---
+
+# Heure d'hiver, avec du code
+
+<v-click>
+<!-- -->
+</v-click>
+
+```python {0|1-3|1-5|1-7|1-9|all}
+import datetime as dt
+
+depart = dt.datetime.now()
+# ... 45 minutes de marche ...
+arrivee = dt.datetime.now()
+# ... je me couche ...
+coucher = dt.datetime.now()
+print(arrivee - depart)
+# -15 minutes
+print(coucher == depart)
+# True
+```
+
+<style>
+.slidev-code-dishonored {
+  visibility: hidden;
+}
+</style>
+
+---
+clicks: 4
+class: no-center
+---
+
+# Changement d'heure : hiver
+
+<DSTTimelineSVGFall />
+
+---
+
+# Problèmes du temps
+
+<ul>
+  <li v-click class="text-orange-400">Non-unicité : DST</li>
+  <li v-click class="text-orange-400">Non-monotonicité : DST</li>
+</ul>
+
+---
+
+# Et dans l'autre sens
+
+<ul>
   <li v-click>Heure de livraison : 02 h 30 (du matin), le Dimanche 29 Mars 2026</li>
   <li v-click>Durée du trajet :
     45 minutes
@@ -20,14 +98,14 @@ Que s'est-il passé ?
 </v-click>
 
 <v-click>
-Décalage horaire : "daylight saving(s) time"
+02 h 30 n'a pas existé ce jour-là : après 01 h 59, il était 03 h 00
 </v-click>
 
 ---
 layout: center
 ---
 
-# Avec du code
+# Heure d'été, avec du code
 
 <v-click>
 <!-- -->
@@ -51,59 +129,21 @@ print(duration)
 
 ---
 clicks: 3
+class: no-center
 ---
 
-# Décalage horaire
+# Changement d'heure : été
 
 <DSTTimelineSVG />
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
+  <li>Non-unicité : DST</li>
+  <li>Non-monotonicité : DST</li>
   <li v-click class="text-orange-400">Non-continuité : DST</li>
-</ul>
-
----
-clicks: 4
----
-
-# Et dans l'autre sens
-
-<DSTTimelineSVGFall />
-
----
-
-# Avec du code
-
-```bash {1|3|3-4|3-5|3-6|3-7|3-8|8|3-9|3-10}
-# run something once every 15 minutes, and compute average speed
-
-# current_time=1:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:09:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:54:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:09:17  delta_time=-45:00  delta_quantity=147  speed=-2.66667
-# current_time=2:24:17  delta_time=15:00  delta_quantity=147  speed=9.8
-# current_time=2:39:17  delta_time=15:00  delta_quantity=147  speed=9.8
-```
-
-<style>
-.slidev-code-dishonored {
-  visibility: hidden;
-}
-</style>
-
----
-
-# Problèmes
-
-<ul>
-  <li >Non-continuité : DST</li>
-  <li v-click class="text-orange-400">Non-unicité : DST</li>
-  <li v-click class="text-orange-400">Non-monotonicité : DST</li>
 </ul>
 
 ---
@@ -116,18 +156,22 @@ clicks: 4
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
-  <li>Non-continuité : DST</li>
   <li>Non-unicité : DST</li>
   <li>Non-monotonicité : DST</li>
+  <li>Non-continuité : DST</li>
   <li v-click class="text-orange-400">Non-homogénéité : DST</li>
 </ul>
 
 ---
+class: no-center
+---
 
 # Pourquoi s'infliger ça ?
+
+<Skip hard />
 
 <v-click>
 
@@ -150,27 +194,53 @@ Réponse n°2 : 🌅 ☃️
 
 <v-click>
 
-<WorkAndSchoolSchedule :animated="$clicks >= 8" />
+<WorkAndSchoolSchedule :animated="$clicks >= 8" :shown="Math.max(0, Math.min(3, $clicks - 4))" />
 
 </v-click>
 
 <v-click>
-    <SunDuration :x="18" :y="50" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
+    <SunDuration :x="41.8" :y="50" :width="29.4" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 9h41 -> 17h56 en UTC+2 (8h15) -->
 </v-click>
 <v-click>
-    <SunDuration :x="18" :y="58" :width="45" :height="8" label="Aujourd'hui (31 mars)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 12h46 -->
+    <SunDuration :x="37.8" :y="58" :width="35.6" :height="8" label="Aujourd'hui (30 octobre)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 8h34 -> 18h34 en UTC+2 (10h) -->
 </v-click>
 <v-click>
-    <SunDuration :x="18" :y="66" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
+    <SunDuration :x="27.9" :y="66" :width="57.6" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 5h47 -> 21h58 en UTC+2 (16h11) -->
 </v-click>
 
 <span v-click />
 
-<!-- 31 mars : lever 7h32 coucher 20h18 -->
+<!--
+Sources des repères de lever/coucher de WorkAndSchoolSchedule et des positions des SunDuration.
+
+Données (Paris, 48.8566 N / 2.3522 E, heure légale) :
+https://api.sunrise-sunset.org/json?lat=48.8566&lng=2.3522&date=YYYY-MM-DD&formatted=0&tzid=Europe/Paris
+(consulté le 2026-10-29 ; timeanddate.com renvoyait un 403)
+- 2026-12-21 (solstice d'hiver, UTC+1) : lever 08:41:09, coucher 16:56:08, durée 29699 s = 8h15
+- 2026-10-30 (aujourd'hui, UTC+1)      : lever 07:34:23, coucher 17:34:06, durée 35983 s = 10h00
+- 2026-06-21 (solstice d'été, UTC+2)   : lever 05:46:55, coucher 21:57:54, durée 58259 s = 16h11
+
+Référentiel : tout est exprimé en heure d'été (UTC+2). La frise part de l'heure d'été ; au clic 8
+elle revient à l'heure d'hiver (l'heure 2h-3h est répétée, les libellés glissent d'une heure vers
+la droite, les rectangles ne bougent pas) : le soleil se lit 1 h plus tôt.
+Seuls l'hiver et aujourd'hui changent (l'API les donne en UTC+1) : +1 h.
+hiver 09:41:09 -> 17:56:08 ; aujourd'hui 08:34:23 -> 18:34:06 ; été inchangé.
+
+Calculé (estimé, pas mesuré) à partir de l'axe de WorkAndSchoolSchedule.vue :
+- x(h) = 20 + 40·h dans un viewBox de 1000, soit 3,56 % de la slide par heure
+  (calibré sur les largeurs d'origine : 28,47 % pour 8 h)
+- début de l'axe (0h) à ~7,3 % de la slide (marge du layout ~56 px sur 980 px)
+- x% = 7,3 + 3,56 × heure_du_lever ; width% = 3,56 × durée
+- hiver : x = 7,3 + 3,56 × 9,69 = 41,8 ; width = 3,56 × 8,25 = 29,4
+- aujourd'hui : x = 7,3 + 3,56 × 8,57 = 37,8 ; width = 3,56 × 10,0 = 35,6
+- été : x = 7,3 + 3,56 × 5,78 = 27,9 ; width = 3,56 × 16,18 = 57,6
+-->
 
 ---
+class: no-center
+---
 
-# Evolutions
+# Évolutions
 
 <div class="relative w-full" style="height: 420px">
   <!-- Images at odd clicks: 1, 3, 5, 7, 9, 11, 13 -->
@@ -180,8 +250,9 @@ Réponse n°2 : 🌅 ☃️
   <img v-click="7" src="../images/20250324003440!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
   <img v-click="9" src="../images/20251114224057!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
   <img v-click="11" src="../images/20260308192300!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
+  <img v-click="13" src="../images/20261020031724!DST_Countries_Map.png" class="absolute inset-0 w-full h-full object-contain" />
 
-  <!-- Empty steps at even clicks: 2, 4, 6, 8, 10, 12 — add DraggableAnnotations here -->
+  <!-- Even clicks: 2, 4, 6, 8, 10, 12 — DraggableAnnotations drawn first, then the odd click swaps the image under the arrows. Last even click (14) is empty on purpose. -->
   <span v-click="2" />
   <DraggableAnnotation v-click="2" :labelX="10" :labelY="46" :tipX="18.5" :tipY="38.5">2022 : Mexico</DraggableAnnotation>
   <span v-click="4" />
@@ -193,28 +264,141 @@ Réponse n°2 : 🌅 ☃️
   <span v-click="8" />
   <DraggableAnnotation v-click="8" :labelX="46.5" :labelY="78.5" :tipX="30.5" :tipY="86.5">2025 : Chile</DraggableAnnotation>
   <span v-click="10" />
-  <DraggableAnnotation v-click="10" :labelX="19" :labelY="4" :tipX="19" :tipY="17">2026 : British Columbia</DraggableAnnotation>
+  <DraggableAnnotation v-click="10" :labelX="13.2" :labelY="6.8" :tipX="17.9" :tipY="17.5">2026 : British Columbia</DraggableAnnotation>
   <span v-click="12" />
+  <DraggableAnnotation v-click="12" :labelX="9.1" :labelY="26.9" :tipX="18.8" :tipY="22.4">2026 : Alberta</DraggableAnnotation>
+  <DraggableAnnotation v-click="12" :labelX="24.2" :labelY="0" :tipX="24.7" :tipY="8.8">2026 : Territoires du Nord-Ouest</DraggableAnnotation>
+  <DraggableAnnotation v-click="12" :labelX="33.9" :labelY="34.8" :tipX="26.6" :tipY="22.8">2026 : Manitoba</DraggableAnnotation>
+  <!-- Clic vide final : évite de quitter la slide sans faire exprès -->
+  <span v-click="14" />
 </div>
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
-  <li>Non-continuité : DST</li>
   <li>Non-unicité : DST</li>
   <li>Non-monotonicité : DST</li>
+  <li>Non-continuité : DST</li>
   <li>Non-homogénéité : DST</li>
   <li v-click class="text-orange-400">Non-constance : DST</li>
 </ul>
 
 ---
 
+# Éviter / détecter (DST) : soustraire deux datetimes
+
+<v-click>
+<!-- -->
+</v-click>
+
+```python {0|1-3|1-6|1-8|1-9|all}
+import datetime as dt
+from zoneinfo import ZoneInfo
+paris = ZoneInfo("Europe/Paris")
+
+premier = dt.datetime(2026, 10, 25, 2, 30, tzinfo=paris)  # fold=0
+second  = dt.datetime(2026, 10, 25, 2, 30, tzinfo=paris, fold=1)
+print(premier)  # 2026-10-25 02:30:00+02:00
+print(second)   # 2026-10-25 02:30:00+01:00
+print(second - premier)  # 0:00:00  (python/cpython#112638)
+print(second.timestamp() - premier.timestamp())  # 3600.0
+```
+
+<v-clicks depth="2">
+
+- Écrire des tests avec une horloge qu'on contrôle
+  - `time-machine`, `freezegun`, `libfaketime`, [Symfony Clock](https://symfony.com/doc/current/components/clock.html) (ou `MockClock` en PHP), ...
+
+</v-clicks>
+
+<style>
+.slidev-code-dishonored {
+  visibility: hidden;
+}
+</style>
+
+<!--
+- Même heure affichée, 02:30, mais deux instants différents : `fold` choisit le 1ᵉʳ ou le 2ᵉ passage
+- L'offset (+02:00 / +01:00) change selon `fold` ; si on l'ignore, la durée calculée est fausse
+-->
+
+---
+
+# Éviter / détecter (DST) : une durée se mesure en monotone
+
+```python
+# processus lancé avec TZ=Europe/Paris
+import datetime as dt, time, time_machine
+from zoneinfo import ZoneInfo
+paris = ZoneInfo("Europe/Paris")
+before = dt.datetime(2026, 10, 25, 2, 50, tzinfo=paris)         # 02:50 +02:00
+after  = dt.datetime(2026, 10, 25, 2, 5, tzinfo=paris, fold=1)  # 02:05 +01:00
+```
+
+<div class="grid grid-cols-2 gap-4 mt-2">
+
+<div v-click="1" class="wall">
+<div class="text-red-500 font-bold">Horloge murale</div>
+
+```python {0|1|1-3|1-4|all} {at:1}
+with time_machine.travel(before) as clock:
+    start = dt.datetime.now()
+    time.sleep(15 * 60)
+    clock.move_to(after)
+    delta = dt.datetime.now() - start
+    print(delta.total_seconds())
+# -2700.0
+```
+
+</div>
+
+<div v-click="5" class="mono">
+<div class="text-green-500 font-bold">Horloge monotone</div>
+
+```python {0|1-4|all} {at:5}
+with time_machine.travel(before) as clock:
+    start = time.monotonic()
+    time.sleep(15 * 60)
+    clock.move_to(after)
+    delta = time.monotonic() - start
+    print(delta)
+# 900.0006…
+```
+
+</div>
+</div>
+
+<div v-click="7" class="raw mt-2">
+
+```python
+print(round(time.monotonic(), 2))  # 24164.39
+```
+
+</div>
+
+<style>
+.slidev-code-dishonored {
+  visibility: hidden;
+}
+.wall .line:is(:nth-child(2), :nth-child(5)) > span:nth-child(n+3):nth-child(-n+8),
+.mono .line:is(:nth-child(2), :nth-child(5)) > span:nth-child(n+3):nth-child(-n+6),
+.raw .line:first-child > span:nth-child(n+5):nth-child(-n+8) {
+  font-weight: bold;
+}
+</style>
+
+<!-- L'horloge monotone n'est pas une date, juste un compteur qui n'avance que vers l'avant. -->
+
+---
+class: no-center
+---
+
 # Avez-vous remarqué ?
 
-<SunDuration :x="18" :y="25" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
-<SunDuration :x="18" :y="33" :width="45" :height="8" label="Aujourd'hui (31 mars)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 12h46 -->
-<SunDuration :x="18" :y="41" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
+<SunDuration :x="18" :y="30" :width="28.47" :height="8" label="Solstice d'hiver" color="rgba(147,197,253,0.3)" border="rgba(147,197,253,0.5)" /> <!-- 8h -->
+<SunDuration :x="18" :y="38" :width="35.8" :height="8" label="Aujourd'hui (30 octobre)" color="rgba(134,239,172,0.3)" border="rgba(134,239,172,0.5)" /> <!-- 10h03 -->
+<SunDuration :x="18" :y="46" :width="57" :height="8" label="Solstice d'été" color="rgba(253,224,71,0.3)" border="rgba(253,224,71,0.5)" /> <!-- 16h -->
 
 <!-- pas la même durée -->

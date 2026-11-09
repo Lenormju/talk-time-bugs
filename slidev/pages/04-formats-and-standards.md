@@ -1,15 +1,15 @@
-# Quiz !
+# Quiz sur les formats !
 
 <v-click>
 
-1. Quel jour et mois désignent `10/11/2025` ❓
+1. Quel jour et mois désignent `10/11/2026` ❓
 
 </v-click>
 
 <v-clicks class="tight-list">
 
 * 10 novembre (mois n°11), format US `MM-DD-YYYY`
-* 11 octobre (mois n°10), format Européen
+* 11 octobre (mois n°10), format Européen `DD-MM-YYYY`
 * aucun moyen de savoir sans contexte
 
 </v-clicks>
@@ -30,7 +30,7 @@
 
 <v-click>
 
-3. Je dois me lever tôt ou me coucher tard pour une réunion à 9 heures ?
+3. Je dois me lever tôt ou pas pour une réunion à « 8 heures » ❓
 
 </v-click>
 
@@ -44,15 +44,15 @@
 
 <v-click>
 
-4. Quel jour on sera "le mois prochain" ?
+4. Quel jour on sera « le mois prochain » ❓
 
 </v-click>
 
 <v-clicks class="tight-list">
 
-* Mercredi 1er ? (premier jour)
-* Mardi 28 ? (même jour dans 4 semaines ≈ 1 mois)
-* Jeudi 30 ? (même ordinal, ou presque)
+* Dimanche 1er ? (premier jour)
+* Vendredi 27 ? (même jour dans 4 semaines ≈ 1 mois)
+* Lundi 30 ? (même ordinal, ou presque)
 
 </v-clicks>
 
@@ -66,13 +66,14 @@
   margin-top: 0.1em;
   margin-bottom: 0.1em;
 }
+ul.tight-list {
+  margin-left: 1.5em;
+}
 </style>
 
 ---
 
 # La joie des standards
-
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
 
 <div class="flex gap-4 items-start">
   <v-click class="w-1/2">
@@ -83,9 +84,15 @@
   </v-click>
 </div>
 
+<v-click>
+  <img src="../images/Ljubljana_festival_date.jpeg" alt="Affiche de festival à Ljubljana avec une date" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded shadow-2xl border-4 border-white" style="max-height: 80vh; max-width: 85%; width: auto; height: auto;"/>
+</v-click>
+
 ---
 
 # ISO-8601 : pas très accessible
+
+<Skip />
 
 <v-clicks>
 
@@ -117,7 +124,7 @@ CHF 181,00 ↔️ EUR 199,15
 
 # ISO-8601 : de nombreux concepts
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip hard />
 
 <v-clicks depth="2" class="tight-list">
 
@@ -133,7 +140,7 @@ CHF 181,00 ↔️ EUR 199,15
 * "times" (heures) : `Thh:mm:ss.sss` (ou sans `.sss`, ou sans aucun `:`, ou sans `:ss.sss`, ou `.mmm`, ou ...)
   * tellement de cas !
   * pas de limite au nombre de chiffres pour la partie décimale, "à définir soi-même"
-* timezones : `Z` (prononcé "zulu") ou `±hh:mm` (ou sans `:` ou sans `:mm`)
+* offset : `Z` (prononcé "zulu") ou `±hh:mm` (ou sans `:` ou sans `:mm`)
   * mais `-00` est interdit
   * depuis 2019 on peut ajouter `:ss` ou bien `:ss.sss`
 * le `T` est obligatoire entre la partie "date" et la partie "time"
@@ -175,7 +182,7 @@ CHF 181,00 ↔️ EUR 199,15
 
 # RFC 3339
 
-<img src="../images/skip.png" class="absolute top-8 right-4 w-24" />
+<Skip />
 
 <v-clicks depth="2">
 
@@ -185,7 +192,7 @@ CHF 181,00 ↔️ EUR 199,15
 * accessible gratuitement
 * censé être un "profil" de l'ISO-8601 (version 1988 et 2000)
 * proche, mais différent de ISO-8601 :
-  * divergence : timezone `-00` signifie "unknown"
+  * divergence : offset `-00` signifie "unknown"
   * divergence : un espace peut séparer la partie "date" de celle "time"
   * obligation : timezone offset
   * obligation : années sur 4 chiffres
@@ -197,11 +204,13 @@ CHF 181,00 ↔️ EUR 199,15
 
 # Autres formats "standards"
 
+<Skip />
+
 <v-clicks depth="2">
 
 * ISO/AWI 8601-1 : en cours de développement
 * RFC 9557 : en cours de développement
-* Unix timestamps : secondes écoulées depuis le 1er Janvier 1970 ("Epoch")
+* Unix timestamps : secondes écoulées depuis le 1er Janvier 1970 ("Epoch"), hors secondes intercalaires
   * <UnixTimestamp />
 * Java timestamps : **milli**secondes écoulées depuis l'Epoch Unix
   * <JavaMilliTimestamp />
@@ -216,12 +225,12 @@ CHF 181,00 ↔️ EUR 199,15
 
 ---
 
-# Problèmes
+# Problèmes du temps
 
 <ul>
-  <li>Non-continuité : DST</li>
   <li>Non-unicité : DST</li>
   <li>Non-monotonicité : DST</li>
+  <li>Non-continuité : DST</li>
   <li>Non-homogénéité : DST, leap years</li>
   <li>Non-constance : DST, leap years</li>
   <li v-click class="text-orange-400">Non-standardized : dates and time formats</li>
@@ -229,12 +238,75 @@ CHF 181,00 ↔️ EUR 199,15
 
 ---
 
-# Le petit détail ...
+# Solution (formats) : échanger des dates
+
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div v-click>
+
+<div class="text-red-500 font-bold">Contre-exemple</div>
+
+```json
+{
+  "date": "10/11/2026",
+  "created": "30/10/26 9h",
+  "timeout": 30
+}
+```
+
+</div>
+<div v-click>
+
+<div class="text-green-500 font-bold">Bon exemple</div>
+
+```json
+{
+  "date": "2026-11-10",
+  "created_at": "2026-10-30T08:00:00Z",
+  "timeout_seconds": 30
+}
+```
+
+</div>
+</div>
+
+<v-clicks depth="2">
+
+* **toujours** un format standard : ISO 8601, ou plutôt son profil **RFC 3339**
+* ⚠️ les langages **mélangent les deux noms** :
+  * Python `isoformat()` : « ISO 8601 » (mais sans fuseau si le datetime est naïf)
+  * JS `toISOString()` : « ISO 8601 simplifié » (lu par `Date.parse`, écrit toujours `Z`)
+  * Go `time.RFC3339` : strict
+  * Java `Instant.parse()` : « ISO 8601 » (fuseau obligatoire)
+  * Rust (chrono) `to_rfc3339()` : écrit `+00:00` (pas `Z`), lit aussi avec un espace
+* **pas de "format maison"**, ni à l'écriture, ni à la lecture
+* l'**unité dans le nom** du champ : `timeout_seconds`, `duration_ms`, `size_bytes`
+
+</v-clicks>
+
+---
+
+# Les petits détails ...
 
 <v-click>
 
 <div>
 C'est quoi "GMT" ?
+</div>
+
+</v-click>
+
+<v-click>
+
+<div>
+C'est quoi "+0200" ?
+</div>
+
+</v-click>
+
+<v-click>
+
+<div>
+C'est quoi "Z" ?
 </div>
 
 </v-click>

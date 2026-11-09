@@ -1,7 +1,7 @@
 # Remerciements
 
 * Meetup QA de Grenoble (et Rachel en particulier)
-* Claude
+* Claude Code + Sonnet
 * Slidev.js
 * [Petter Salminen - It's All About Time ⏰ - What developers need to know about time](https://www.youtube.com/watch?v=IZRZ9ur6THk)
 * Le personnel du bar "Le Not a Beer"
@@ -22,6 +22,11 @@
 * Image du décalage entre UTC et heure solaire par [24timezones.com](https://24timezones.com/cms-static/images/uploads/solartimevsstandardtime.png)
 * Image du décalage entre UT1 et UTC par Wikipedia : [Leapsecond.ut1-utc.svg](https://en.wikipedia.org/wiki/File:Leapsecond.ut1-utc.svg)
 * Photo d'Albert Einstein par Wikimedia : [Albert Einstein sticks his tongue 1951.jpg](https://commons.wikimedia.org/wiki/File:Albert_Einstein_sticks_his_tongue_1951.jpg)
+* Capture des exemples ISO 8601 par Wikipedia : [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+* Capture du bug de l'Apple Watch par iPhoneSoft : [article du 26 octobre 2026](https://iphonesoft.fr/2026/10/26/bug-watchos-27-affichage-permanent-aime-pas-heure-hiver)
+* Photo d'une affiche du Ljubljana Festival par Julien Lenormand, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+* Bande dessinée « Standards » par Randall Munroe, xkcd : [xkcd.com/927](https://xkcd.com/927/) (CC BY-NC 2.5)
+* Bande dessinée « ISO 8601 » par Randall Munroe, xkcd : [xkcd.com/1179](https://xkcd.com/1179/) (CC BY-NC 2.5)
 
 ---
 
@@ -33,6 +38,7 @@ Culture
 
 * [Erik Naggum - The Long, Painful History of Time](https://naggum.no/lugm-time.html) : très complet, surtout pour la vision historique
 * [Revues du monde - Le futur n'a pas toujours existé](https://www.youtube.com/watch?v=EakwdPrTy5Y) : vidéo qui démonte notre rapport au temps, très lié à notre époque/culture
+* [Scilabus - Le jetlag social, ce décalage que vous vivez chaque week-end](https://www.youtube.com/watch?v=fqk7agy4Tr8)
 
 Timezones
 
@@ -64,6 +70,9 @@ Astronomie et astrophysique
 
 Tooling
 
+* [jsdate.wtf](https://jsdate.wtf/) : le recueil des pièges de `Date` en JavaScript
+* [Astropy](https://www.astropy.org/) : bibliothèque Python pour l'astronomie, avec ses propres échelles de temps (UTC, TAI, TT, UT1…)
+* [Symfony Clock](https://symfony.com/doc/current/components/clock.html) : `MockClock` pour figer l'horloge en PHP, basé sur [PSR-20](https://www.php-fig.org/psr/psr-20/)
 * [Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) : propose un glossaire parfait, devenu standard
 * [Arie Bovenberg - Ten Python datetime pitfalls, and what libraries are (not) doing about it](https://dev.arie.bovenberg.net/blog/python-datetime-pitfalls/) : des exemples de bugs causés par de mauvais outils, ayant mené à la création de `whenever`
 * [BurntSushi - about leap seconds](https://github.com/BurntSushi/jiff/issues/7) : Why leap seconds wont be supported in jiff, and why they are complicated and not very useful, also some reading recommendations
@@ -83,9 +92,9 @@ Tooling
 <div class="grid grid-cols-2 gap-8">
 <div class="text-center">
 
-[feedback sur Slido](https://app.sli.do/event/vzx7CYcriyPCtX7G7S5Yie/live/polls)
+[feedback sur Roti.express](https://app.sli.do/event/vzx7CYcriyPCtX7G7S5Yie/live/polls)
 
-<img src="../images/qr-code-feedback-ptc.png" style="margin-bottom: 2rem;" />
+<img src="../images/qr-code-feedback-bdxio.png" style="margin-bottom: 2rem;" />
 
 </div>
 <div class="text-center">
