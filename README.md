@@ -8,5 +8,16 @@
 >
 > Vous repartirez avec la conviction que le temps est un sujet épineux, à ne pas prendre à la légère, mais surtout mieux armés pour en résoudre ou éviter les bugs.
 
-TODO:
+## Versions archivées
+
+Chaque version est archivée en PDF et en zip (site statique, à servir à la racine d'un serveur web), publiées sur GitHub Pages.
+
+| Version | Public | PDF | Zip |
+|---|---|---|---|
+| BDX I/O (30 octobre 2026) | développeurs | [PDF](https://lenormju.github.io/talk-time-bugs/slides-bdxio.pdf) | [zip](https://lenormju.github.io/talk-time-bugs/slides-bdxio.zip) |
+| Paris Test Conf (31 mars 2026) | testeurs | [PDF](https://lenormju.github.io/talk-time-bugs/slides-ptc.pdf) | [zip](https://lenormju.github.io/talk-time-bugs/slides-ptc.zip) |
+| Meetup QA (19 mars 2026) | testeurs | [PDF](https://lenormju.github.io/talk-time-bugs/slides-meetup-qa.pdf) | [zip](https://lenormju.github.io/talk-time-bugs/slides-meetup-qa.zip) |
+
+## TODO
+
 - Partie « timezones » : ajouter une slide de solution pour « Une date, ce n'est pas un instant » : `Temporal.PlainDate`
